@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const plugins = [
   new ExtractTextPlugin('./css/bundle.css', { allChunks: true }),
@@ -12,6 +13,11 @@ const plugins = [
     compress: {
       warnings: false
     }
+  }),
+  new HtmlWebpackPlugin({
+  template: __dirname + '/src/index.html',
+  filename: 'index.html',
+  inject: 'body'
   })
 ];
 
