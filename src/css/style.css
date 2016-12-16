@@ -1,0 +1,26 @@
+/**************/
+/*!  Helpers  */
+/**************/
+
+/* Assistive */
+.visuallyhidden {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  height: 1px;
+  width: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  border: 0;
+  white-space: nowrap;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  position: static;
+  margin: 0;
+  height: auto;
+  width: auto;
+  clip: auto;
+  overflow: visible;
+}
