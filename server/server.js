@@ -1,23 +1,23 @@
-var express    = require('express');
-var bodyParser = require('body-parser');
-var morgan     = require('morgan');
-var mongoose   = require('mongoose');
-var config     = require('./config');
-var app        = express();
+import express from 'express';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+import mongoose from 'mongoose';
+import config from './config';
+const app = express();
 
 
 app.use(morgan('combined'));
 app.use(bodyParser.json());
-app.use(express.static('./build'));
+app.use(express.static('./client/build'));
 
 
-var runServer = function(callback) {
-  mongoose.connect(config.DATABASE_URL, function(err) {
+const runServer = (callback) => {
+  mongoose.connect(config.DATABASE_URL, (err) => {
     if (err && callback) {
       return callback(err);
     }
 
-    app.listen(config.PORT, function() {
+    app.listen(config.PORT, () => {
       console.log('Listening on localhost:' + config.PORT);
       if (callback) {
         callback();
@@ -41,7 +41,7 @@ var runServer = function(callback) {
 
 
 if (require.main === module) {
-  runServer(function(err) {
+  runServer((err) => {
     if (err) {
       console.error(err);
     }

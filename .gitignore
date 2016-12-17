@@ -1,5 +1,5 @@
 node_modules/
-data/
-build/
+server/data/
+client/build/
 run_mongod
 .DS_Store
