@@ -344,7 +344,7 @@ app.put('/category/:id', (req, res) => {
  ******************/
 // DELETE a single owner
 app.delete('/owner/:id', (req, res) => {
-  let query  = { _id: req.params.id };
+  let query = { _id: req.params.id };
   Owner.findOneAndRemove(query, (err, owner) => {
     if (err) {
       return res.status(400).json({
@@ -357,7 +357,7 @@ app.delete('/owner/:id', (req, res) => {
 
 // DELETE a single policy
 app.delete('/policy/:id', (req, res) => {
-  let query  = { _id: req.params.id };
+  let query = { _id: req.params.id };
   Policy.findOneAndRemove(query, (err, policy) => {
     if (err) {
       return res.status(400).json({
@@ -370,7 +370,7 @@ app.delete('/policy/:id', (req, res) => {
 
 // DELETE a single item
 app.delete('/item/:id', (req, res) => {
-  let query  = { _id: req.params.id };
+  let query = { _id: req.params.id };
   Item.findOneAndRemove(query, (err, item) => {
     if (err) {
       return res.status(400).json({
@@ -383,7 +383,7 @@ app.delete('/item/:id', (req, res) => {
 
 // DELETE a single category
 app.delete('/category/:id', (req, res) => {
-  let query  = { _id: req.params.id };
+  let query = { _id: req.params.id };
   Category.findOneAndRemove(query, (err, category) => {
     if (err) {
       return res.status(400).json({
