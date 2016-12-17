@@ -1,48 +1,56 @@
 import mongoose from 'mongoose';
 
-const Item = new mongoose.Schema({
+const ItemSchema = new mongoose.Schema({
   ownerId: {
-    type: String,
-    required: true
+    type    : String,
+    required: true,
+    trim    : true
   },
   categoryId: {
-    type: String,
-    required: true
+    type    : String,
+    required: true,
+    trim    : true
   },
   name: {
-    type: String,
-    required: true
+    type    : String,
+    required: true,
+    trim    : true
   },
   serialNumber: {
-    type: String,
-    required: false
+    type    : String,
+    required: false,
+    trim    : true
   },
   notes: {
-    type: Number,
-    required: false
+    type    : String,
+    required: false,
+    trim    : true
   },
-  replacementValue: {
-    type: Number,
-    required: true
+  replaceValue: {
+    type    : Number,
+    required: true,
+    get: v  => Math.round(v),
+    set: v  => Math.round(v)
   },
-  datePurchased: {
-    type: String,
+  purchaseDate: {
+    type    : Date,
     required: false
   },
   placePurchased: {
-    type: String,
-    required: false
+    type    : String,
+    required: false,
+    trim    : true
   },
   receipt: {
-    type: String,
-    required: false
+    type    : String,
+    required: false,
+    trim    : true
   },
-  image: [
-    {
-      type: String,
-      required: false
-    }
-  ]
+  image: {
+    type    : String,
+    required: false,
+    trim    : true
+  }
 });
 
 const Item = mongoose.model('Item', ItemSchema);

@@ -1,13 +1,15 @@
 import mongoose from 'mongoose';
 
-const Category = new mongoose.Schema({
+const CategorySchema = new mongoose.Schema({
   name: {
-    type: String,
-    required: true
+    type    : String,
+    required: true,
+    trim    : true
   },
   description: {
-    type: String,
-    required: false
+    type    : String,
+    required: false,
+    trim    : true
   }
 });
 
