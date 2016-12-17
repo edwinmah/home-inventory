@@ -29,7 +29,10 @@ const runServer = (callback) => {
 /*********
  * Models
  *********/
-
+import Owner from './models/owner';
+import Policy from './models/policy';
+import Category from './models/category';
+import Item from './models/item';
 
 
 /************
