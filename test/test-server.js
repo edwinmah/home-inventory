@@ -183,7 +183,7 @@ describe('Server should', function() {
   /******************
    * Basic load test
    *****************/
-  it('load home page', function(done) {
+  it('load the home page', function(done) {
     chai.request(app)
       .get('/')
       .end(function(err, res) {
