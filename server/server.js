@@ -180,6 +180,7 @@ app.post('/policy', (req, res) => {
     ownerId      : req.body.ownerId,
     company      : req.body.company,
     policyNumber : req.body.policyNumber,
+    coverage     : req.body.coverage,
     website      : req.body.website,
     phone        : req.body.phone,
     email        : req.body.email
@@ -274,6 +275,7 @@ app.put('/policy/:id', (req, res) => {
       ownerId      : req.body.ownerId,
       company      : req.body.company,
       policyNumber : req.body.policyNumber,
+      coverage     : req.body.coverage,
       website      : req.body.website,
       phone        : req.body.phone,
       email        : req.body.email
