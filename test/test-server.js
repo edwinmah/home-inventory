@@ -183,20 +183,6 @@ describe('Server should', function() {
   });
 
 
-  /******************
-   * Basic load test
-   *****************/
-  it('load the home page', function(done) {
-    chai.request(app)
-      .get('/')
-      .end(function(err, res) {
-        res.should.have.status(200);
-        res.should.be.html;
-        done();
-    });
-  });
-
-
   /************
    * GET tests
    ***********/

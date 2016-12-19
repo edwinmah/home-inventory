@@ -1,5 +1,6 @@
 node_modules/
 server/data/
 client/build/
+npm-debug.log
 run_mongod
 .DS_Store
