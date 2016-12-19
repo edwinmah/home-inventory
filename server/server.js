@@ -60,19 +60,6 @@ app.get('/owners', (req, res) => {
   });
 });
 
-// GET items for a single owner
-app.get('/owner/:id', (req, res) => {
-  let query  = { ownerId: req.params.id };
-  Items.find(query, (err, ownerItems) => {
-    if (err) {
-      return res.status(400).json({
-        message: 'Bad Request'
-      });
-    }
-    res.status(200).json(ownerItems);
-  });
-});
-
 // GET all policies
 app.get('/policies', (req, res) => {
   Policy.find((err, policies) => {
@@ -135,16 +122,31 @@ app.get('/categories', (req, res) => {
   });
 });
 
-// GET items for a single category
-app.get('/category/:id', (req, res) => {
-  let query  = { categoryId: req.params.id };
-  Items.find(query, (err, categoryItems) => {
+// GET items for a single category (doesn't work)
+app.get('/category/:id/items', (req, res) => {
+  let query = { _id: req.params.id }
+  Category.findOne(query, (err, category) => {
     if (err) {
       return res.status(400).json({
         message: 'Bad Request'
       });
     }
-    res.status(200).json(categoryItems);
+
+    if (!category) {
+      return res.status(404).json({
+        message: 'Category does not exist.'
+      });
+    }
+
+    let queryCategoryItems = { categoryId: query._id };
+    Item.find(queryCategoryItems, (err, categoryItems) => {
+      if (err) {
+        return res.status(400).json({
+          message: 'Bad Request'
+        });
+      }
+      res.status(200).json(categoryItems);
+    });
   });
 });
 

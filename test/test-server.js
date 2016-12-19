@@ -23,6 +23,31 @@ describe('Server should', function() {
   /*******************
    * Create test data
    ******************/
+  var categories = [];
+
+  before(function(done) {
+    server.runServer(function() {
+      Category.create(
+        {
+          name: 'Uncategorized',
+          description: 'Items that don\'t fit any category'
+        }, {
+          name: 'Furniture',
+          description: ''
+        }, {
+          name: 'Electronics',
+          description: 'Includes TVs, stereo, etc.'
+        }, {
+          name: 'Clothing',
+          description: ''
+        },
+        function(err, Uncategorized, Furniture, Electronics, Clothing) {
+          categories.push(Uncategorized, Furniture, Electronics, Clothing);
+          done();
+        });
+    });
+  });
+
   before(function(done) {
     server.runServer(function() {
       Owner.create(
@@ -80,7 +105,7 @@ describe('Server should', function() {
       Item.create(
         {
           ownerId         : '100',
-          categoryId      : '900',
+          categoryId      : categories[2]._id,
           name            : 'Epson laser printer',
           serialNumber    : 'EPL982-84392',
           notes           : 'Nulla vitae elit libero, a pharetra augue.',
@@ -91,7 +116,7 @@ describe('Server should', function() {
           image           : 'https://aws.com?3918319.png'
         }, {
           ownerId         : '150',
-          categoryId      : '400',
+          categoryId      : categories[1]._id,
           name            : 'Leather recliner',
           serialNumber    : 'none',
           notes           : '',
@@ -102,7 +127,7 @@ describe('Server should', function() {
           image           : 'https://aws.com?3918319.png'
         }, {
           ownerId         : '150',
-          categoryId      : '400',
+          categoryId      : categories[1]._id,
           name            : 'Computer table',
           serialNumber    : '',
           notes           : 'Maecenas faucibus mollis interdum.',
@@ -113,7 +138,7 @@ describe('Server should', function() {
           image           : 'https://aws.com?3014928.png'
         }, {
           ownerId         : '100',
-          categoryId      : '900',
+          categoryId      : categories[2]._id,
           name            : 'Epson flatbed scanner',
           serialNumber    : 'EPSC1893-39183',
           notes           : 'Sed posuere consectetur est at lobortis.',
@@ -122,28 +147,6 @@ describe('Server should', function() {
           placePurchased  : 'Amazon',
           receipt         : 'https://aws.com?3810913.png',
           image           : 'https://aws.com?5837282.png'
-        },
-        function() {
-          done();
-        });
-    });
-  });
-
-  before(function(done) {
-    server.runServer(function() {
-      Category.create(
-        {
-          name: 'Uncategorized',
-          description: 'Items that don\'t fit any category'
-        }, {
-          name: 'Furniture',
-          description: ''
-        }, {
-          name: 'Electronics',
-          description: 'Includes TVs, stereo, etc.'
-        }, {
-          name: 'Clothing',
-          description: ''
         },
         function() {
           done();
@@ -206,39 +209,14 @@ describe('Server should', function() {
         res.should.be.json;
         res.body.should.be.an('array');
         res.body.should.have.length(2);
-
-        for (let i = 0; i < res.body.length; i++) {
-          res.body[i].should.include.keys('name', 'address', 'city', 'state', 'zip', 'phone', 'email');
-        }
-
+        res.body.forEach((owner) => {
+          owner.should.include.keys('name', 'address', 'city', 'state', 'zip', 'phone', 'email');
+        });
         res.body[0].name.should.equal('Sara Allen');
         res.body[1].name.should.equal('Joe Schmoe');
         done();
       });
   });
-
-//  it('responds with a single owner', function(done) {
-//    chai.request(app)
-//      .get('/owners')
-//      .end(function(err, res) {
-//        should.equal(err, null);
-//        res.should.have.status(200);
-//        res.should.be.json;
-//        res.body.should.be.an('array');
-//        res.body.should.have.length(2);
-//        chai.request(app)
-//          .get('/owner/' + res.body[0]._id)
-//          .end(function(err, res) {
-//            res.should.have.status(200);
-//            res.should.be.json;
-//            res.body.should.be.an('array');
-//            res.body.should.have.length(1);
-//            res.body[0].should.include.keys('name', 'address', 'city', 'state', 'zip', 'phone', 'email');
-//            res.body[0].name.should.equal('Sara Allen');
-//            done();
-//          });
-//      });
-//  });
 
   it('GET all policies', function(done) {
     chai.request(app)
@@ -249,38 +227,14 @@ describe('Server should', function() {
         res.should.be.json;
         res.body.should.be.an('array');
         res.body.should.have.length(2);
-
-        for (let i = 0; i < res.body.length; i++) {
-          res.body[i].should.include.keys('ownerId', 'company', 'policyNumber', 'coverage', 'website', 'phone', 'email');
-        }
-
+        res.body.forEach((policy) => {
+          policy.should.include.keys('ownerId', 'company', 'policyNumber', 'coverage', 'website', 'phone', 'email');
+        });
         res.body[0].ownerId.should.equal('246');
         res.body[1].ownerId.should.equal('335');
         done();
       });
   });
-
-//  it('responds with a single policy', function(done) {
-//    chai.request(app)
-//      .get('/policies')
-//      .end(function(err, res) {
-//        should.equal(err, null);
-//        res.should.have.status(200);
-//        res.should.be.json;
-//        res.body.should.be.an('array');
-//        res.body.should.have.length(2);
-//        chai.request(app)
-//          .get('/policy/' + res.body[0]._id)
-//          .end(function(err, res) {
-//            res.should.have.status(200);
-//            res.should.be.json;
-//            res.body.should.be.an('object');
-//            res.body.should.include.keys('ownerId', 'company', 'policyNumber', 'coverage', 'website', 'phone', 'email');
-//            res.body.ownerId.should.equal('246');
-//            done();
-//          });
-//      });
-//  });
 
   it('GET all items', function(done) {
     chai.request(app)
@@ -291,11 +245,9 @@ describe('Server should', function() {
         res.should.be.json;
         res.body.should.be.an('array');
         res.body.should.have.length(4);
-
-        for (let i = 0; i < res.body.length; i++) {
-          res.body[i].should.include.keys('ownerId', 'categoryId', 'name', 'serialNumber', 'notes', 'replaceValue', 'purchaseDate', 'placePurchased', 'receipt', 'image');
-        }
-
+        res.body.forEach((item) => {
+          item.should.include.keys('ownerId', 'categoryId', 'name', 'serialNumber', 'notes', 'replaceValue', 'purchaseDate', 'placePurchased', 'receipt', 'image');
+        });
         res.body[0].name.should.equal('Epson laser printer');
         res.body[1].name.should.equal('Leather recliner');
         res.body[2].name.should.equal('Computer table');
@@ -308,22 +260,43 @@ describe('Server should', function() {
     chai.request(app)
       .get('/categories')
       .end(function(err, res) {
-      should.equal(err, null);
-      res.should.have.status(200);
-      res.should.be.json;
-      res.body.should.be.an('array');
-      res.body.should.have.length(4);
+        should.equal(err, null);
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.an('array');
+        res.body.should.have.length(4);
+        res.body.forEach((category) => {
+          category.should.include.keys('name', 'description');
+        });
+        res.body[0].name.should.equal('Uncategorized');
+        res.body[1].name.should.equal('Furniture');
+        res.body[2].name.should.equal('Electronics');
+        res.body[3].name.should.equal('Clothing');
+        done();
+      });
+  });
 
-      for (let i = 0; i < res.body.length; i++) {
-        res.body[i].should.include.keys('name', 'description');
-      }
-
-      res.body[0].name.should.equal('Uncategorized');
-      res.body[1].name.should.equal('Furniture');
-      res.body[2].name.should.equal('Electronics');
-      res.body[3].name.should.equal('Clothing');
-      done();
-    });
+  it('GET items for a single category', function(done) {
+    chai.request(app)
+      .get('/categories')
+      .end(function(err, res) {
+        should.equal(err, null);
+        res.body.forEach((category) => {
+          category.should.have.property('_id');
+        });
+        chai.request(app)
+          .get('/category/' + res.body[1]._id + '/items')
+          .end(function(err, res) {
+            should.equal(err, null);
+            res.should.have.status(200);
+            res.should.be.json;
+            res.body.should.be.an('array');
+            res.body.should.have.length(2);
+            res.body[0].name.should.equal('Leather recliner');
+            res.body[1].name.should.equal('Computer table');
+            done();
+          })
+      });
   });
 
 
@@ -397,7 +370,7 @@ describe('Server should', function() {
       .post('/item')
       .send({
         ownerId        : '444',
-        categoryId     : '400',
+        categoryId     : categories[1]._id,
         name           : 'Book shelf',
         serialNumber   : '',
         notes          : '',
