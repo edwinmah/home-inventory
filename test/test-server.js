@@ -584,7 +584,7 @@ describe('Server should', function() {
         should.equal(err, null);
         res.should.have.status(200);
         res.should.be.json;
-        res.body.should.be.a('array');
+        res.body.should.be.an('array');
         res.body.should.have.length(3);
         res.body[1].name.should.equal('Joe Schmoe');
         chai.request(app)
@@ -598,7 +598,7 @@ describe('Server should', function() {
                 should.equal(err, null);
                 res.should.have.status(200);
                 res.should.be.json;
-                res.body.should.be.a('array');
+                res.body.should.be.an('array');
                 res.body.should.have.length(2);
                 res.body[1].name.should.equal('Ragnar Lothbrock');
                 done();
@@ -614,7 +614,7 @@ describe('Server should', function() {
         should.equal(err, null);
         res.should.have.status(200);
         res.should.be.json;
-        res.body.should.be.a('array');
+        res.body.should.be.an('array');
         res.body.should.have.length(3);
         res.body[0].company.should.equal('ABC Insurance');
         chai.request(app)
@@ -628,7 +628,7 @@ describe('Server should', function() {
                 should.equal(err, null);
                 res.should.have.status(200);
                 res.should.be.json;
-                res.body.should.be.a('array');
+                res.body.should.be.an('array');
                 res.body.should.have.length(2);
                 res.body[0].company.should.equal('XYZ Insurance');
                 done();
@@ -644,7 +644,7 @@ describe('Server should', function() {
         should.equal(err, null);
         res.should.have.status(200);
         res.should.be.json;
-        res.body.should.be.a('array');
+        res.body.should.be.an('array');
         res.body.should.have.length(5);
         res.body[3].name.should.equal('Epson flatbed scanner');
         res.body[3].serialNumber.should.equal('EPSC1893-39183');
@@ -659,7 +659,7 @@ describe('Server should', function() {
                 should.equal(err, null);
                 res.should.have.status(200);
                 res.should.be.json;
-                res.body.should.be.a('array');
+                res.body.should.be.an('array');
                 res.body.should.have.length(4);
                 res.body[3].name.should.equal('Book shelf');
                 res.body[3].serialNumber.should.equal('');
@@ -676,7 +676,7 @@ describe('Server should', function() {
         should.equal(err, null);
         res.should.have.status(200);
         res.should.be.json;
-        res.body.should.be.a('array');
+        res.body.should.be.an('array');
         res.body.should.have.length(5);
         res.body[0].name.should.equal('Uncategorized');
         chai.request(app)
@@ -690,7 +690,7 @@ describe('Server should', function() {
                 should.equal(err, null);
                 res.should.have.status(200);
                 res.should.be.json;
-                res.body.should.be.a('array');
+                res.body.should.be.an('array');
                 res.body.should.have.length(4);
                 res.body[0].name.should.equal('Furniture');
                 done();
