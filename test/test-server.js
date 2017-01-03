@@ -8,9 +8,8 @@ import Owner from '../server/models/owner';
 import Policy from '../server/models/policy';
 import Category from '../server/models/category';
 import Item from '../server/models/item';
-const should   = chai.should();
-const app      = server.app;
-const storage  = server.storage;
+const should = chai.should();
+const app    = server.app;
 
 
 chai.use(chaiHttp);
