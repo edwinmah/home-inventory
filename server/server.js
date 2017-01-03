@@ -122,7 +122,7 @@ app.get('/categories', (req, res) => {
   });
 });
 
-// GET items for a single category (doesn't work)
+// GET items for a single category
 app.get('/category/:id/items', (req, res) => {
   let query = { _id: req.params.id }
   Category.findOne(query, (err, category) => {
