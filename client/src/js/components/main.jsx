@@ -1,6 +1,6 @@
 import React from 'react';
-import CategoryItems from './categoryItems';
-import Item from './singleItem';
+import CategoryItems from './category-items';
+import Item from './single-item';
 
 
 class Main extends React.Component {
