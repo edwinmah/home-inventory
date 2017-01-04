@@ -45,6 +45,73 @@ const runServer = (callback) => {
 };
 
 
+/***************
+ * Default data
+ **************/
+//Category.remove();
+//Owner.remove();
+//Policy.remove();
+
+
+
+//Category.create(
+//  {
+//    name: 'Uncategorized',
+//    description: 'Items that don\'t fit any category'
+//  }, {
+//    name: 'Furniture',
+//    description: 'Includes all household furniture'
+//  }, {
+//    name: 'Electronics',
+//    description: 'Includes TVs, stereo, etc.'
+//  }, {
+//    name: 'Clothing',
+//    description: ''
+//  }, {
+//    name: 'Linens',
+//    description: 'Includes sheets, towels, blankets, etc.'
+//  }, {
+//    name: 'Bathroom',
+//    description: 'Includes any bathroom items, etc.'
+//  }, {
+//    name: 'Books and media',
+//    description: 'Includes books, CDs, DVDs, etc.'
+//  }, {
+//    name: 'Artwork',
+//    description: 'Includes paintings, photos, sculptures, etc.'
+//  }, {
+//    name: 'Plants',
+//    description: ''
+//  }
+//);
+
+
+//Owner.create(
+//  {
+//    name    : 'Your Name',
+//    address : 'Your Address',
+//    city    : 'City',
+//    state   : 'ST',
+//    zip     : '12345',
+//    phone   : '123-456-7890',
+//    email   : 'yourname@email.com'
+//  },
+//  (err, owner) => {
+//    Policy.create(
+//      {
+//        ownerId      : owner._id,
+//        company      : 'Insurance company name',
+//        policyNumber : 'Policy number',
+//        coverage     : 0,
+//        website      : 'Company website',
+//        phone        : 'Company phone number',
+//        email        : 'Company email'
+//      }
+//    );
+//  }
+//);
+
+
 /****************
  * GET Endpoints
  ***************/
