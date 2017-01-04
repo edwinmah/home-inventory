@@ -6,7 +6,7 @@ class Footer extends React.Component {
     super(props);
   }
 
-  render () {
+  render() {
     return (
       <footer role="contentinfo" className="site-footer">
         <p>The footer</p>

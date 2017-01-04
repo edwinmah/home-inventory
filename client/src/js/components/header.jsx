@@ -7,7 +7,7 @@ class Header extends React.Component {
     super(props);
   }
 
-  render () {
+  render() {
     return (
       <header role="banner" className="site-header">
         <h1 className="site-header__title">

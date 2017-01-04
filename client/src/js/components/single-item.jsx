@@ -6,7 +6,7 @@ class Item extends React.Component {
     super(props);
   }
 
-  render () {
+  render() {
     return (
       <article>
         single item

@@ -8,7 +8,7 @@ class Main extends React.Component {
     super(props);
   }
 
-  render () {
+  render() {
     return (
       <main id="content">
         The main content area
