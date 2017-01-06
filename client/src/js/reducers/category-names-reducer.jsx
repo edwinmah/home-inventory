@@ -10,9 +10,7 @@ const CategoryNames = (state, action) => {
   switch (action.type) {
     case actions.FETCH_CATEGORY_NAMES_SUCCESS :
       let newCategories = {};
-      action.categories.forEach((category) => {
-        newCategories[category._id] = category;
-      });
+      action.categories.forEach((category) => newCategories[category._id] = category);
       return Object.assign({}, state, newCategories);
       break;
 
