@@ -3,8 +3,8 @@ import { router, Link } from 'react-router';
 
 
 class CategoryItems extends React.Component {
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -15,7 +15,7 @@ class CategoryItems extends React.Component {
 
   }
 
-  render () {
+  render() {
     return (
       <ul>
         category items go here

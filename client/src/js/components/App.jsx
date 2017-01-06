@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
   }
 
-  render () {
+  render() {
     return (
       <div>
         <Header />
