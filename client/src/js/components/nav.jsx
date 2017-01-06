@@ -29,7 +29,7 @@ class Nav extends React.Component {
     return (
       <nav>
         <ul>
-          {Object.keys(this.props.categories).map((categoryID) => this.renderCategoryNames(categoryID))}
+          {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
         </ul>
       </nav>
     );
