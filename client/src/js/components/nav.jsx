@@ -7,6 +7,7 @@ import actions from '../actions/get-category-names';
 class Nav extends React.Component {
   constructor(props) {
     super(props);
+    //this.renderCategoryNames = this.renderCategoryNames.bind(this);
   }
 
   componentDidMount() {
@@ -17,13 +18,12 @@ class Nav extends React.Component {
     this.props.dispatch(actions.fetchCategoryNames(this.props.categories));
   }
 
-  renderCategoryNames(categoryId) {
-    //const { name } = this.props.categories[categoryId].name; // this prevents rendering
-    //console.log(this.props.categories);
+  renderCategoryNames(category, i) {
+    const { _id, name } = this.props.categories;
     return (
-      <li key={categoryId} id={"category-" + categoryId}>
-        <Link to={'/category/' + categoryId + '/items'}>
-          {categoryId}
+      <li key={_id} id={"category-" + _id}>
+        <Link to={'/category/' + _id + '/items'}>
+          {name}
         </Link>
       </li>
     );
@@ -31,12 +31,11 @@ class Nav extends React.Component {
 
   render() {
     console.log(this.props.categories);
-    console.log(Object.keys(this.props.categories).map(this.renderCategoryNames));
-
+    console.log(this.props.categories.map((category) => this.renderCategoryNames(category)));
     return (
       <nav>
         <ul>
-          {Object.keys(this.props.categories).map(this.renderCategoryNames)}
+          {this.props.categories.map((category) => this.renderCategoryNames(category))}
         </ul>
       </nav>
     );
@@ -44,7 +43,7 @@ class Nav extends React.Component {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
   return {
     categories: state.categories
   };

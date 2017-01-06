@@ -1,7 +1,7 @@
 import actions from '../actions/get-category-names';
 
 
-const initialState = {};
+const initialState = [];
 
 
 const CategoryNames = (state, action) => {
@@ -9,16 +9,10 @@ const CategoryNames = (state, action) => {
 
   switch (action.type) {
     case actions.FETCH_CATEGORY_NAMES_SUCCESS :
-      let newCategories = {};
-      action.categories.forEach((category) => {
-        newCategories[category._id] = category;
-      });
-      console.log('1');
-      return Object.assign({}, state, newCategories);
+      return state.concat(action.categories);
       break;
 
     default :
-      console.log('2');
       return state;
   }
 };
