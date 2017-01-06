@@ -44,7 +44,4 @@ const mapStateToProps = (state, props) => {
 };
 
 
-const Container = connect(mapStateToProps)(Nav);
-
-
-export default Container;
+export default connect(mapStateToProps)(Nav);
