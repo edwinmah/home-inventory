@@ -13,12 +13,10 @@ const CategoryNames = (state, action) => {
       action.categories.forEach((category) => {
         newCategories[category._id] = category;
       });
-      console.log('1');
       return Object.assign({}, state, newCategories);
       break;
 
     default :
-      console.log('2');
       return state;
   }
 };
