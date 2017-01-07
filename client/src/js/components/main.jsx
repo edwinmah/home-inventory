@@ -1,6 +1,7 @@
 import React from 'react';
-import CategoryItems from './category-items';
-import Item from './single-item';
+import ItemsList from './items-list';
+import OwnersList from './owners-list';
+import PoliciesList from './policies-list';
 
 
 class Main extends React.Component {
@@ -11,7 +12,7 @@ class Main extends React.Component {
   render() {
     return (
       <main id="content">
-        The main content area
+        <ItemsList />
       </main>
     );
   }
