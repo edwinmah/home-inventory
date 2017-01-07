@@ -20,7 +20,7 @@ const fetchOwnersError = (owners, error) => {
 };
 
 
-const fetchowners = (owners) => {
+const fetchOwners = (owners) => {
   return (dispatch) => {
     const init = { method: 'GET' };
     const url  = '/owners';
@@ -53,4 +53,4 @@ exports.fetchOwnersSuccess    = fetchOwnersSuccess;
 exports.FETCH_OWNERS_ERROR  = FETCH_OWNERS_ERROR;
 exports.fetchOwnersError    = fetchOwnersError;
 
-exports.fetchowners  = fetchowners;
+exports.fetchOwners  = fetchOwners;
