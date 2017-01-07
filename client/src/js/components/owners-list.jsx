@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import actions from '../actions/get-owners';
 
 
-class OwnersList extends React.component {
+class OwnersList extends React.Component {
   constructor(props) {
     super(props);
   }

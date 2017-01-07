@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import actions from '../actions/get-policies';
 
 
-class PoliciesList extends React.component {
+class PoliciesList extends React.Component {
   constructor(props) {
     super(props);
   }

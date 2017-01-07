@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import actions from '../actions/get-items';
 
 
-class ItemsList extends React.component {
+class ItemsList extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -19,9 +19,8 @@ class ItemsList extends React.component {
     return (
       <article key={itemId} id={"item-" + itemId}>
         <Link to={'/item/' + itemId}>
-          <img src={image} alt={name} />
           <h2>{name}</h2>
-          <p><strong>Replacement Value: </strong>replaceValue</p>
+          <p><strong>Replacement Value: </strong>{replaceValue}</p>
         </Link>
       </article>
     );
