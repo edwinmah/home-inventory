@@ -112,6 +112,98 @@ const runServer = (callback) => {
 //);
 
 
+//Item.create(
+//  {
+//    ownerId         : '586d48582ea3d63d2dafd2df',
+//    categoryId      : '586d40b07560373ca9caa3c1',
+//    name            : 'Epson laser printer',
+//    serialNumber    : 'EPL982-84392',
+//    notes           : 'Nulla vitae elit libero, a pharetra augue.',
+//    replaceValue    : 90,
+//    purchaseDate    : '2014-04-01',
+//    placePurchased  : 'Amazon',
+//    receipt         : 'https://aws.com?391301.png',
+//    image           : 'https://aws.com?3918319.png'
+//  }, {
+//    ownerId         : '586d48582ea3d63d2dafd2df',
+//    categoryId      : '586d40b07560373ca9caa3c0',
+//    name            : 'Leather recliner',
+//    serialNumber    : 'none',
+//    notes           : '',
+//    replaceValue    : 1800,
+//    purchaseDate    : '2004-09-30',
+//    placePurchased  : 'Pottery Barn',
+//    receipt         : 'https://aws.com?3901994.png',
+//    image           : 'https://aws.com?3918319.png'
+//  }, {
+//    ownerId         : '586d48582ea3d63d2dafd2df',
+//    categoryId      : '586d40b07560373ca9caa3c0',
+//    name            : 'Computer table',
+//    serialNumber    : '',
+//    notes           : 'Maecenas faucibus mollis interdum.',
+//    replaceValue    : 300,
+//    purchaseDate    : '2007-07-14',
+//    placePurchased  : 'IKEA',
+//    receipt         : 'https://aws.com?3920109.png',
+//    image           : 'https://aws.com?3014928.png'
+//  }, {
+//    ownerId         : '586d48582ea3d63d2dafd2df',
+//    categoryId      : '586d40b07560373ca9caa3c1',
+//    name            : 'Epson flatbed scanner',
+//    serialNumber    : 'EPSC1893-39183',
+//    notes           : 'Sed posuere consectetur est at lobortis.',
+//    replaceValue    : 60,
+//    purchaseDate    : '2008-02-28',
+//    placePurchased  : 'Amazon',
+//    receipt         : 'https://aws.com?3810913.png',
+//    image           : 'https://aws.com?5837282.png'
+//  }, {
+//    ownerId         : '586d48582ea3d63d2dafd2df',
+//    categoryId      : '586d40b07560373ca9caa3c2',
+//    name            : 'Blue Jeans',
+//    serialNumber    : '',
+//    notes           : 'Ipsum Pellentesque Magna.',
+//    replaceValue    : 170,
+//    purchaseDate    : '2015-11-28',
+//    placePurchased  : 'Banana Republic',
+//    receipt         : 'https://aws.com?3812843.png',
+//    image           : 'https://aws.com?9817282.png'
+//  }, {
+//    ownerId         : '586d48582ea3d63d2dafd2df',
+//    categoryId      : '586d40b07560373ca9caa3c3',
+//    name            : 'Queen-size Bed Comfortor',
+//    serialNumber    : '',
+//    notes           : 'Aenean lacinia bibendum nulla sed consectetur.',
+//    replaceValue    : 110,
+//    purchaseDate    : '2015-11-28',
+//    placePurchased  : 'Target',
+//    receipt         : 'https://aws.com?1332813.png',
+//    image           : 'https://aws.com?1384722.png'
+//  }, {
+//    ownerId        : '586d48582ea3d63d2dafd2df',
+//    categoryId     : '586d40b07560373ca9caa3c0',
+//    name           : 'Book shelf',
+//    serialNumber   : '',
+//    notes          : '',
+//    replaceValue   : 90,
+//    purchaseDate   : '2008-10-12',
+//    placePurchased : 'Target',
+//    receipt        : 'https://aws.com?23u4u2384u.png',
+//    image          : 'https://aws.com?2309852091.png'
+//  }, {
+//    ownerId         : '586d48582ea3d63d2dafd2df',
+//    categoryId      : '586d40b07560373ca9caa3c2',
+//    name            : 'Khaki Pants',
+//    serialNumber    : '',
+//    notes           : '4 pairs',
+//    replaceValue    : 180,
+//    purchaseDate    : '2014-9-15',
+//    placePurchased  : 'Banana Republic',
+//    receipt         : 'https://aws.com?1239843.png',
+//    image           : 'https://aws.com?4716422.png'
+//  }
+//);
+
 /****************
  * GET Endpoints
  ***************/
