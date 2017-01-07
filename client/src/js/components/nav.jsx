@@ -1,7 +1,7 @@
 import React from 'react';
 import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
-import actions from '../actions/get-category-names';
+import actions from '../actions/get-categories';
 
 
 class Nav extends React.Component {
