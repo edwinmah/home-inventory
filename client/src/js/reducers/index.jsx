@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
-import CategoryNames from './category-names-reducer';
+import CategoryNames from './categories-reducer';
 import AllItems from './items-reducer';
+import AllOwners from './owners-reducer';
+import AllPolicies from './policies-reducer';
 
 
 const rootReducer = combineReducers({
   categories: CategoryNames,
-  items: AllItems
+  items: AllItems,
+  owners: AllOwners,
+  policies: AllPolicies
 });
 
 
