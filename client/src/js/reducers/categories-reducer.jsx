@@ -1,4 +1,4 @@
-import actions from '../actions/get-category-names';
+import actions from '../actions/get-categories';
 
 
 const initialState = {};
