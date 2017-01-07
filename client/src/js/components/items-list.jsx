@@ -15,7 +15,7 @@ class ItemsList extends React.component {
   }
 
   renderItemsSummary(itemId) {
-    const { ownerId, categoryId, name, serialNumber, notes, replaceValue, placePurchased, purchaseDate, receipt, image} = this.props.items[itemId];
+    const { ownerId, categoryId, name, serialNumber, notes, replaceValue, placePurchased, purchaseDate, receipt, image } = this.props.items[itemId];
     return (
       <article key={itemId} id={"item-" + itemId}>
         <Link to={'/item/' + itemId}>
