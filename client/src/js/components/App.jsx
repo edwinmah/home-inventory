@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header';
-import Nav from './nav';
+import CategoriesList from './categories-list';
 import Main from './main';
 import Footer from './footer';
 
@@ -14,7 +14,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Nav />
+        <CategoriesList />
         <Main />
         <Footer />
       </div>

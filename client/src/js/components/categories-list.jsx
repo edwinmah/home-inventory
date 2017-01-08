@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import actions from '../actions/get-categories';
 
 
-class Nav extends React.Component {
+class CategoriesList extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -44,4 +44,4 @@ const mapStateToProps = (state, props) => {
 };
 
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps)(CategoriesList);
