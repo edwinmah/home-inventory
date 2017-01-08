@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './header';
-import CategoriesList from './categories-list';
 import Main from './main';
 import Footer from './footer';
+import CategoriesList from './categories-list';
 
 
 class App extends React.Component {
