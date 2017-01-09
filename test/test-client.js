@@ -258,8 +258,8 @@ describe('The action', () => {
       type: 'FETCH_CATEGORY_NAMES_SUCCESS',
       categories: categories
     };
-    const newState = CategoryNames(state, action);
-    const categoryIds  = Object.keys(newState);
+    const newState    = CategoryNames(state, action);
+    const categoryIds = Object.keys(newState);
 
     // assertions
     newState.should.be.an('object');
@@ -291,7 +291,7 @@ describe('The action', () => {
       owners: owners
     };
     const newState = AllOwners(state, action);
-    const ownerIds  = Object.keys(newState);
+    const ownerIds = Object.keys(newState);
 
     // assertions
     newState.should.be.an('object');
@@ -316,8 +316,8 @@ describe('The action', () => {
       type: 'FETCH_POLICIES_SUCCESS',
       policies: policies
     };
-    const newState = AllPolicies(state, action);
-    const policyIds  = Object.keys(newState);
+    const newState  = AllPolicies(state, action);
+    const policyIds = Object.keys(newState);
 
     // assertions
     newState.should.be.an('object');
