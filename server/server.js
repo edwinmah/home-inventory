@@ -53,39 +53,6 @@ const runServer = (callback) => {
 //Policy.remove();
 
 
-
-//Category.create(
-//  {
-//    name: 'Uncategorized',
-//    description: 'Items that don\'t fit any category'
-//  }, {
-//    name: 'Furniture',
-//    description: 'Includes all household furniture'
-//  }, {
-//    name: 'Electronics',
-//    description: 'Includes TVs, stereo, etc.'
-//  }, {
-//    name: 'Clothing',
-//    description: ''
-//  }, {
-//    name: 'Linens',
-//    description: 'Includes sheets, towels, blankets, etc.'
-//  }, {
-//    name: 'Bathroom',
-//    description: 'Includes any bathroom items, etc.'
-//  }, {
-//    name: 'Books and media',
-//    description: 'Includes books, CDs, DVDs, etc.'
-//  }, {
-//    name: 'Artwork',
-//    description: 'Includes paintings, photos, sculptures, etc.'
-//  }, {
-//    name: 'Plants',
-//    description: ''
-//  }
-//);
-
-
 //Owner.create(
 //  {
 //    name    : 'Your Name',
@@ -108,14 +75,45 @@ const runServer = (callback) => {
 //        email        : 'Company email'
 //      }
 //    );
+//
+//    Category.create(
+//      {
+//        name: 'Uncategorized',
+//        description: 'Items that don\'t fit any category'
+//      }, {
+//        name: 'Furniture',
+//        description: 'Includes all household furniture'
+//      }, {
+//        name: 'Electronics',
+//        description: 'Includes TVs, stereo, etc.'
+//      }, {
+//        name: 'Clothing',
+//        description: ''
+//      }, {
+//        name: 'Linens',
+//        description: 'Includes sheets, towels, blankets, etc.'
+//      }, {
+//        name: 'Bathroom',
+//        description: 'Includes any bathroom items, etc.'
+//      }, {
+//        name: 'Books and media',
+//        description: 'Includes books, CDs, DVDs, etc.'
+//      }, {
+//        name: 'Artwork',
+//        description: 'Includes paintings, photos, sculptures, etc.'
+//      }, {
+//        name: 'Plants',
+//        description: ''
+//      }
+//    );
 //  }
 //);
 
 
 //Item.create(
 //  {
-//    ownerId         : '586d48582ea3d63d2dafd2df',
-//    categoryId      : '586d40b07560373ca9caa3c1',
+//    ownerId         : '5873dda712bbbc151e59622d',
+//    categoryId      : '5873dda712bbbc151e596231',
 //    name            : 'Epson laser printer',
 //    serialNumber    : 'EPL982-84392',
 //    notes           : 'Nulla vitae elit libero, a pharetra augue.',
@@ -125,8 +123,8 @@ const runServer = (callback) => {
 //    receipt         : 'https://aws.com?391301.png',
 //    image           : 'https://aws.com?3918319.png'
 //  }, {
-//    ownerId         : '586d48582ea3d63d2dafd2df',
-//    categoryId      : '586d40b07560373ca9caa3c0',
+//    ownerId         : '5873dda712bbbc151e59622d',
+//    categoryId      : '5873dda712bbbc151e596230',
 //    name            : 'Leather recliner',
 //    serialNumber    : 'none',
 //    notes           : '',
@@ -136,8 +134,8 @@ const runServer = (callback) => {
 //    receipt         : 'https://aws.com?3901994.png',
 //    image           : 'https://aws.com?3918319.png'
 //  }, {
-//    ownerId         : '586d48582ea3d63d2dafd2df',
-//    categoryId      : '586d40b07560373ca9caa3c0',
+//    ownerId         : '5873dda712bbbc151e59622d',
+//    categoryId      : '5873dda712bbbc151e596230',
 //    name            : 'Computer table',
 //    serialNumber    : '',
 //    notes           : 'Maecenas faucibus mollis interdum.',
@@ -147,8 +145,8 @@ const runServer = (callback) => {
 //    receipt         : 'https://aws.com?3920109.png',
 //    image           : 'https://aws.com?3014928.png'
 //  }, {
-//    ownerId         : '586d48582ea3d63d2dafd2df',
-//    categoryId      : '586d40b07560373ca9caa3c1',
+//    ownerId         : '5873dda712bbbc151e59622d',
+//    categoryId      : '5873dda712bbbc151e596231',
 //    name            : 'Epson flatbed scanner',
 //    serialNumber    : 'EPSC1893-39183',
 //    notes           : 'Sed posuere consectetur est at lobortis.',
@@ -158,8 +156,8 @@ const runServer = (callback) => {
 //    receipt         : 'https://aws.com?3810913.png',
 //    image           : 'https://aws.com?5837282.png'
 //  }, {
-//    ownerId         : '586d48582ea3d63d2dafd2df',
-//    categoryId      : '586d40b07560373ca9caa3c2',
+//    ownerId         : '5873dda712bbbc151e59622d',
+//    categoryId      : '5873dda712bbbc151e596232',
 //    name            : 'Blue Jeans',
 //    serialNumber    : '',
 //    notes           : 'Ipsum Pellentesque Magna.',
@@ -169,8 +167,8 @@ const runServer = (callback) => {
 //    receipt         : 'https://aws.com?3812843.png',
 //    image           : 'https://aws.com?9817282.png'
 //  }, {
-//    ownerId         : '586d48582ea3d63d2dafd2df',
-//    categoryId      : '586d40b07560373ca9caa3c3',
+//    ownerId         : '5873dda712bbbc151e59622d',
+//    categoryId      : '5873dda712bbbc151e596233',
 //    name            : 'Queen-size Bed Comfortor',
 //    serialNumber    : '',
 //    notes           : 'Aenean lacinia bibendum nulla sed consectetur.',
@@ -180,8 +178,8 @@ const runServer = (callback) => {
 //    receipt         : 'https://aws.com?1332813.png',
 //    image           : 'https://aws.com?1384722.png'
 //  }, {
-//    ownerId        : '586d48582ea3d63d2dafd2df',
-//    categoryId     : '586d40b07560373ca9caa3c0',
+//    ownerId        : '5873dda712bbbc151e59622d',
+//    categoryId     : '5873dda712bbbc151e596230',
 //    name           : 'Book shelf',
 //    serialNumber   : '',
 //    notes          : '',
@@ -191,8 +189,8 @@ const runServer = (callback) => {
 //    receipt        : 'https://aws.com?23u4u2384u.png',
 //    image          : 'https://aws.com?2309852091.png'
 //  }, {
-//    ownerId         : '586d48582ea3d63d2dafd2df',
-//    categoryId      : '586d40b07560373ca9caa3c2',
+//    ownerId         : '5873dda712bbbc151e59622d',
+//    categoryId      : '5873dda712bbbc151e596232',
 //    name            : 'Khaki Pants',
 //    serialNumber    : '',
 //    notes           : '4 pairs',
