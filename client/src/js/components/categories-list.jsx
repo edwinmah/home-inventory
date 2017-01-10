@@ -27,11 +27,11 @@ class CategoriesList extends React.Component {
 
   render() {
     return (
-      <nav>
+      <li>Categories
         <ul>
           {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
         </ul>
-      </nav>
+      </li>
     );
   }
 }
