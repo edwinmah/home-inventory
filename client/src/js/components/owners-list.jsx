@@ -16,9 +16,10 @@ class OwnersList extends React.Component {
 
   renderOwners(ownerId) {
     const { name, address, city, state, zip, phone, email } = this.props.owners[ownerId];
+    const tempStyle = { 'color': 'green'};
     return (
       <article key={ownerId} id={"owner-" + ownerId}>
-        <Link to={'/owner/' + ownerId}>
+        <Link to={'/owner/' + ownerId} style={tempStyle}>
           <h2>{name}</h2>
         </Link>
       </article>

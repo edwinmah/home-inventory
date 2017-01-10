@@ -16,9 +16,10 @@ class PoliciesList extends React.Component {
 
   renderPolicies(policyId) {
     const { ownerId, company, policyNumber, coverage, website, phone, email } = this.props.policies[policyId];
+    const tempStyle = { 'color': 'red'};
     return (
       <article key={policyId} id={"item-" + policyId}>
-        <Link to={'/policy/' + policyId}>
+        <Link to={'/policy/' + policyId} style={tempStyle}>
           <h2>{company}</h2>
         </Link>
       </article>
