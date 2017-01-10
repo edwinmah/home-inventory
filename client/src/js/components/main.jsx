@@ -1,7 +1,6 @@
 import React from 'react';
 import ItemsList from './items-list';
-import OwnersList from './owners-list';
-import PoliciesList from './policies-list';
+import AcctInfo from './acct-info';
 
 
 class Main extends React.Component {
@@ -13,8 +12,7 @@ class Main extends React.Component {
     return (
       <main id="content">
         <ItemsList />
-        <OwnersList />
-        <PoliciesList />
+        <AcctInfo />
       </main>
     );
   }
