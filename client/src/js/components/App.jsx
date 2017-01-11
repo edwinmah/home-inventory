@@ -15,7 +15,9 @@ class App extends React.Component {
       <div>
         <Header />
         <Nav />
-        <Main />
+        <main id="content">
+          {this.props.children}
+        </main>
         <Footer />
       </div>
     );
