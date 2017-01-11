@@ -8,6 +8,7 @@ import { router, Router, Route, hashHistory } from 'react-router';
 import store from './store';
 import App from './components/App';
 import AllItems from './components/items-list';
+import SingleItem from './components/single-item';
 import AcctInfo from './components/acct-info';
 
 
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <Route path="/" component={AllItems} />
           <Route path="/items" component={AllItems} />
           <Route path="/account" component={AcctInfo} />
+          <Route path="/item/:id" component={SingleItem} />
         </Route>
       </Router>
     </Provider>,
