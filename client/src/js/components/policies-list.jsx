@@ -1,5 +1,4 @@
 import React from 'react';
-import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../actions/get-policies';
 
@@ -18,10 +17,8 @@ class PoliciesList extends React.Component {
     const { ownerId, company, policyNumber, coverage, website, phone, email } = this.props.policies[policyId];
     const tempStyle = { 'color': 'red'};
     return (
-      <article key={policyId} id={"item-" + policyId}>
-        <Link to={'/policy/' + policyId} style={tempStyle}>
-          <h2>{company}</h2>
-        </Link>
+      <article key={policyId} id={"item-" + policyId} style={tempStyle}>
+        <h2>{company}</h2>
       </article>
     );
   }

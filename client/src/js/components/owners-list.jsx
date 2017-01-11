@@ -1,5 +1,4 @@
 import React from 'react';
-import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../actions/get-owners';
 
@@ -18,10 +17,8 @@ class OwnersList extends React.Component {
     const { name, address, city, state, zip, phone, email } = this.props.owners[ownerId];
     const tempStyle = { 'color': 'green'};
     return (
-      <article key={ownerId} id={"owner-" + ownerId}>
-        <Link to={'/owner/' + ownerId} style={tempStyle}>
-          <h2>{name}</h2>
-        </Link>
+      <article key={ownerId} id={"owner-" + ownerId} style={tempStyle}>
+        <h2>{name}</h2>
       </article>
     );
   }
