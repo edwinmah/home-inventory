@@ -1,19 +1,51 @@
 import React from 'react';
+import { router, Link } from 'react-router';
+import { connect } from 'react-redux';
+import actionsAll from '../actions/get-items';
+import actionsSingle from '../actions/get-single-item';
 
 
-class Item extends React.Component {
+class SingleItem extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.dispatch(
+      actionsAll.fetchItems(this.props.items)
+    );
+    this.props.dispatch(
+      actionsSingle.fetchSingleItem(this.props.params.id)
+    );
+  }
+
+
   render() {
+    console.log(this.props.items);
+
+    if (Object.keys(this.props.items).length === 0) {
+      return (
+        <article>
+          <p>Loading item...</p>
+        </article>
+      );
+    }
+
     return (
       <article>
-        single item
+        {this.props.currentItem.name}
       </article>
     );
   }
 }
 
 
-export default Item;
+const mapStateToProps = (state, props) => {
+  return {
+    items: state.items,
+    currentItem: state.items[props.params.id]
+  }
+};
+
+
+export default connect(mapStateToProps)(SingleItem);
