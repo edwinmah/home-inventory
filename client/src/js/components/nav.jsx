@@ -11,12 +11,12 @@ class Nav extends React.Component {
   }
 
   handleClickForItems() {
-    console.log('get all items');
+    console.log('change current view to all items');
     // dispatch action to change current view to all items
   }
 
   handleClickForAcctInfo() {
-    console.log('get owner and policy info');
+    console.log('change current view to account info');
     // dispatch action to change current view to account info (owner and policy details)
   }
 
