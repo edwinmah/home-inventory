@@ -11,17 +11,13 @@ class SingleItem extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(
-      actionsAll.fetchItems(this.props.items)
-    );
-    this.props.dispatch(
-      actionsSingle.fetchSingleItem(this.props.params.id)
-    );
+    this.props.dispatch(actionsAll.fetchItems(this.props.items));
+    this.props.dispatch(actionsSingle.fetchSingleItem(this.props.params.id));
   }
 
 
   render() {
-    console.log(this.props.items);
+    console.log(this.props);
 
     if (Object.keys(this.props.items).length === 0) {
       return (
@@ -31,9 +27,11 @@ class SingleItem extends React.Component {
       );
     }
 
+    const { name } = this.props.currentItem;
+
     return (
       <article>
-        {this.props.currentItem.name}
+        {name}
       </article>
     );
   }
