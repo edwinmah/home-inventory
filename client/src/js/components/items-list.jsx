@@ -28,9 +28,10 @@ class ItemsList extends React.Component {
 
   render() {
     return (
-      <div>
+      <section>
+        <h2>All Items</h2>
         {Object.keys(this.props.items).map((itemId) => this.renderItemsSummary(itemId))}
-      </div>
+      </section>
     );
   }
 }
