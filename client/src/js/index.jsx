@@ -9,6 +9,7 @@ import store from './store';
 import App from './components/App';
 import AllItems from './components/items-list';
 import SingleItem from './components/single-item';
+import CategoriesList from './components/categories-list';
 import AcctInfo from './components/acct-info';
 
 
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <Route path="/items" component={AllItems} />
           <Route path="/account" component={AcctInfo} />
           <Route path="/item/:id" component={SingleItem} />
+          <Route path="/category/:id/items" component={AllItems} />
         </Route>
       </Router>
     </Provider>,
