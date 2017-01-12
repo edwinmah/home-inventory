@@ -41,7 +41,7 @@ const fetchPolicies = () => {
         return dispatch(fetchPoliciesSuccess(policies));
       })
       .catch((error) => {
-        return dispatch(fetchPoliciesError(policies, error));
+        return dispatch(fetchPoliciesError(error));
       });
   }
 };

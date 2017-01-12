@@ -41,7 +41,7 @@ var fetchSingleItem = function(itemId) {
         return dispatch(fetchSingleItemSuccess(item));
       })
       .catch(function(speech, error) {
-        return dispatch(fetchSingleItemError(item, error));
+        return dispatch(fetchSingleItemError(error));
       });
   }
 };

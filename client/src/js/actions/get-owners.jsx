@@ -41,7 +41,7 @@ const fetchOwners = () => {
         return dispatch(fetchOwnersSuccess(owners));
       })
       .catch((error) => {
-        return dispatch(fetchOwnersError(owners, error));
+        return dispatch(fetchOwnersError(error));
       });
   }
 };

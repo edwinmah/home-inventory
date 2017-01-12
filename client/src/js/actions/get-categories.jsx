@@ -41,7 +41,7 @@ const fetchCategoryNames = () => {
         return dispatch(fetchCategoryNamesSuccess(categories));
       })
       .catch((error) => {
-        return dispatch(fetchCategoryNamesError(categories, error));
+        return dispatch(fetchCategoryNamesError(error));
       });
   }
 };

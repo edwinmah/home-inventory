@@ -41,7 +41,7 @@ const fetchItems = () => {
         return dispatch(fetchItemsSuccess(items));
       })
       .catch((error) => {
-        return dispatch(fetchItemsError(items, error));
+        return dispatch(fetchItemsError(error));
       });
   }
 };
