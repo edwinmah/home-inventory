@@ -20,7 +20,7 @@ const fetchCategoryNamesError = (categories, error) => {
 };
 
 
-const fetchCategoryNames = (categories) => {
+const fetchCategoryNames = () => {
   return (dispatch) => {
     const init = { method: 'GET' };
     const url  = '/categories';

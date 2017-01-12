@@ -11,7 +11,7 @@ class CategoriesList extends React.Component {
 
   componentDidMount() {
     // dispatch to get category names
-    this.props.dispatch(actions.fetchCategoryNames(this.props.categories));
+    this.props.dispatch(actions.fetchCategoryNames());
   }
 
   renderCategoryNames(categoryId) {
