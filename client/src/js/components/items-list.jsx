@@ -14,7 +14,7 @@ class ItemsList extends React.Component {
     this.props.dispatch(actions.fetchItems());
   }
 
-  renderItemsSummary(itemId) {
+  renderItems(itemId) {
     const { ownerId, categoryId, name, serialNumber, notes, replaceValue, placePurchased, purchaseDate, receipt, image } = this.props.items[itemId];
     return (
       <article key={itemId} id={"item-" + itemId}>
@@ -30,7 +30,7 @@ class ItemsList extends React.Component {
     return (
       <section>
         <h2>All Items</h2>
-        {Object.keys(this.props.items).map((itemId) => this.renderItemsSummary(itemId))}
+        {Object.keys(this.props.items).map((itemId) => this.renderItems(itemId))}
       </section>
     );
   }
