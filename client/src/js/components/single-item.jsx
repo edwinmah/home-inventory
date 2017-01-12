@@ -11,14 +11,11 @@ class SingleItem extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(actionsAll.fetchItems(this.props.items));
+    this.props.dispatch(actionsAll.fetchItems());
     this.props.dispatch(actionsSingle.fetchSingleItem(this.props.params.id));
   }
 
-
   render() {
-    console.log(this.props);
-
     if (Object.keys(this.props.items).length === 0) {
       return (
         <article>
@@ -27,11 +24,12 @@ class SingleItem extends React.Component {
       );
     }
 
-    const { name } = this.props.currentItem;
+    const { name, replaceValue } = this.props.currentItem;
 
     return (
       <article>
-        {name}
+        <h2>{name}</h2>
+        <p><strong>Replacement Value: </strong>{replaceValue}</p>
       </article>
     );
   }
