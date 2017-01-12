@@ -10,7 +10,7 @@ class OwnersList extends React.Component {
 
   componentDidMount() {
     // dispatch to get all owners
-    this.props.dispatch(actions.fetchOwners(this.props.owners));
+    this.props.dispatch(actions.fetchOwners());
   }
 
   renderOwners(ownerId) {

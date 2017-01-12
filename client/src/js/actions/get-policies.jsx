@@ -20,7 +20,7 @@ const fetchPoliciesError = (policies, error) => {
 };
 
 
-const fetchPolicies = (policies) => {
+const fetchPolicies = () => {
   return (dispatch) => {
     const init = { method: 'GET' };
     const url  = '/policies';

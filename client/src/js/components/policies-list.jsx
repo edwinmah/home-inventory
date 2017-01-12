@@ -10,7 +10,7 @@ class PoliciesList extends React.Component {
 
   componentDidMount() {
     // dispatch to get all policies
-    this.props.dispatch(actions.fetchPolicies(this.props.policies));
+    this.props.dispatch(actions.fetchPolicies());
   }
 
   renderPolicies(policyId) {
