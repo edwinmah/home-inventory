@@ -20,7 +20,7 @@ const fetchItemsError = (items, error) => {
 };
 
 
-const fetchItems = (items) => {
+const fetchItems = () => {
   return (dispatch) => {
     const init = { method: 'GET' };
     const url  = '/items';

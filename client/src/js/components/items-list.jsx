@@ -11,7 +11,7 @@ class ItemsList extends React.Component {
 
   componentDidMount() {
     // dispatch to get all items
-    this.props.dispatch(actions.fetchItems(this.props.items));
+    this.props.dispatch(actions.fetchItems());
   }
 
   renderItemsSummary(itemId) {
