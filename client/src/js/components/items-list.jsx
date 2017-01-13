@@ -27,6 +27,10 @@ class ItemsList extends React.Component {
     );
   }
 
+  renderNoItems() {
+    return <p>There are currently no items in this category.</p>;
+  }
+
   render() {
     const keys = Object.keys(this.props.items);
 
@@ -35,10 +39,31 @@ class ItemsList extends React.Component {
     });
 
     let output;
-    if (this.props.params.id !== undefined) {
+    if (this.props.params.id !== undefined && categoryFilter.length === 0) {
+      output = this.renderNoItems();
+    }
+    else if (this.props.params.id !== undefined) {
       output = categoryFilter.map((itemId) => this.renderItems(itemId));
-    } else {
+    }
+    else {
       output = keys.map((itemId) => this.renderItems(itemId));
+    }
+
+    let sectionTitle;
+    if (Object.keys(this.props.categories).length > 0 && this.props.params.id !== undefined) {
+      sectionTitle = this.props.categories[this.props.params.id].name;
+    }
+    else {
+      sectionTitle = 'All Items';
+    }
+
+    if (keys.length === 0) {
+      return (
+        <section>
+          <h2>{sectionTitle}</h2>
+          <p>Loading items...</p>
+        </section>
+      );
     }
 
     return (
@@ -53,7 +78,8 @@ class ItemsList extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    items: state.items
+    items: state.items,
+    categories: state.categories
   }
 };
 
