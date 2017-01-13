@@ -30,8 +30,8 @@ class ItemsList extends React.Component {
   render() {
     const keys = Object.keys(this.props.items);
 
-    const categoryFilter = keys.filter((id) => {
-      return this.props.params.id === this.props.items[id].categoryId;
+    const categoryFilter = keys.filter((itemId) => {
+      return this.props.params.id === this.props.items[itemId].categoryId;
     });
 
     let output;
@@ -43,7 +43,7 @@ class ItemsList extends React.Component {
 
     return (
       <section>
-        <h2>All Items</h2>
+        <h2>{sectionTitle}</h2>
         {output}
       </section>
     );
