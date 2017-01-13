@@ -3,10 +3,12 @@ import TestUtils from 'react-addons-test-utils';
 import { should } from 'chai';
 import actionsCat from '../client/src/js/actions/get-categories';
 import actionsItems from '../client/src/js/actions/get-items';
+import actionsSingleitem from '../client/src/js/actions/get-single-item';
 import actionsOwners from '../client/src/js/actions/get-owners';
 import actionsPolicies from '../client/src/js/actions/get-policies';
 import CategoryNames from '../client/src/js/reducers/categories-reducer';
 import AllItems from '../client/src/js/reducers/items-reducer';
+import SingleItem from '../client/src/js/reducers/single-item-reducer';
 import AllOwners from '../client/src/js/reducers/owners-reducer';
 import AllPolicies from '../client/src/js/reducers/policies-reducer';
 
@@ -292,18 +294,19 @@ describe('The action', () => {
     };
     const newState = AllOwners(state, action);
     const ownerIds = Object.keys(newState);
+    const owner = newState[ownerIds[0]];
 
     // assertions
     newState.should.be.an('object');
     ownerIds.length.should.equal(1);
-    newState[ownerIds[0]]._id.should.equal('586d48582ea3d63d2dafd2df');
-    newState[ownerIds[0]].name.should.equal('Your Name');
-    newState[ownerIds[0]].address.should.equal('Your Address');
-    newState[ownerIds[0]].city.should.equal('City');
-    newState[ownerIds[0]].state.should.equal('ST');
-    newState[ownerIds[0]].zip.should.equal('12345');
-    newState[ownerIds[0]].phone.should.equal('123-456-7890');
-    newState[ownerIds[0]].email.should.equal('yourname@email.com');
+    owner._id.should.equal('586d48582ea3d63d2dafd2df');
+    owner.name.should.equal('Your Name');
+    owner.address.should.equal('Your Address');
+    owner.city.should.equal('City');
+    owner.state.should.equal('ST');
+    owner.zip.should.equal('12345');
+    owner.phone.should.equal('123-456-7890');
+    owner.email.should.equal('yourname@email.com');
   });
 
 
@@ -318,18 +321,55 @@ describe('The action', () => {
     };
     const newState  = AllPolicies(state, action);
     const policyIds = Object.keys(newState);
+    const policy = newState[policyIds[0]];
 
     // assertions
     newState.should.be.an('object');
     policyIds.length.should.equal(1);
-    newState[policyIds[0]]._id.should.equal('586d48582ea3d63d2dafd2e0');
-    newState[policyIds[0]].ownerId.should.equal('586d48582ea3d63d2dafd2df');
-    newState[policyIds[0]].company.should.equal('Insurance company name');
-    newState[policyIds[0]].policyNumber.should.equal('Policy number');
-    newState[policyIds[0]].coverage.should.equal(0);
-    newState[policyIds[0]].website.should.equal('Company website');
-    newState[policyIds[0]].phone.should.equal('Company phone number');
-    newState[policyIds[0]].email.should.equal('Company email');
+    policy._id.should.equal('586d48582ea3d63d2dafd2e0');
+    policy.ownerId.should.equal('586d48582ea3d63d2dafd2df');
+    policy.company.should.equal('Insurance company name');
+    policy.policyNumber.should.equal('Policy number');
+    policy.coverage.should.equal(0);
+    policy.website.should.equal('Company website');
+    policy.phone.should.equal('Company phone number');
+    policy.email.should.equal('Company email');
+  });
+
+
+  it('FETCH_SINGLE_ITEM_SUCCESS can retrieve a single item.', () => {
+    state = initialState;
+
+    const item = {
+      "_id": "58713c8da1e12902ea3cf843",
+      "ownerId": "586d48582ea3d63d2dafd2df",
+      "categoryId": "586d40b07560373ca9caa3c1",
+      "name": "Epson laser printer",
+      "serialNumber": "EPL982-84392",
+      "notes": "Nulla vitae elit libero, a pharetra augue.",
+      "replaceValue": 90,
+      "purchaseDate": "2014-04-01T00:00:00.000Z",
+      "placePurchased": "Amazon",
+      "receipt": "https://aws.com?391301.png",
+      "image": "https://aws.com?3918319.png",
+      "__v": 0
+    };
+    const action = {
+      type: 'FETCH_SINGLE_ITEM_SUCCESS',
+      currentItem: item
+    };
+
+    const newState = SingleItem(state, action);
+    const selectedItem = newState.items['58713c8da1e12902ea3cf843'];
+
+    console.log(newState);
+
+    newState.items.should.be.an('object');
+    selectedItem._id.should.equal('58713c8da1e12902ea3cf843');
+    selectedItem.ownerId.should.equal('586d48582ea3d63d2dafd2df');
+    selectedItem.categoryId.should.equal('586d40b07560373ca9caa3c1');
+    selectedItem.name.should.equal('Epson laser printer');
+    selectedItem.replaceValue.should.equal(90);
   });
 
 });
