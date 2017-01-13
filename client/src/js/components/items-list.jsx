@@ -17,9 +17,6 @@ class ItemsList extends React.Component {
   renderItems(itemId) {
     const { ownerId, categoryId, name, serialNumber, notes, replaceValue, placePurchased, purchaseDate, receipt, image } = this.props.items[itemId];
 
-    // remove later
-    const tempStyle = (this.props.params.id === categoryId) ? {'color': 'orange'} : {};
-
     return (
       <article key={itemId} id={"item-" + itemId}>
         <Link to={'/item/' + itemId} style={tempStyle}>
