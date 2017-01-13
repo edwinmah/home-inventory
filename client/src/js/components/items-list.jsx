@@ -16,9 +16,13 @@ class ItemsList extends React.Component {
 
   renderItems(itemId) {
     const { ownerId, categoryId, name, serialNumber, notes, replaceValue, placePurchased, purchaseDate, receipt, image } = this.props.items[itemId];
+
+    // remove later
+    const tempStyle = (this.props.params.id === categoryId) ? {'color': 'orange'} : {};
+
     return (
       <article key={itemId} id={"item-" + itemId}>
-        <Link to={'/item/' + itemId}>
+        <Link to={'/item/' + itemId} style={tempStyle}>
           <h2>{name}</h2>
           <p><strong>Replacement Value: </strong>{replaceValue}</p>
         </Link>
@@ -27,10 +31,28 @@ class ItemsList extends React.Component {
   }
 
   render() {
+    const keys = Object.keys(this.props.items);
+    console.log(keys);
+
+    const categoryFilter = keys.filter((id) => {
+      return this.props.params.id === id;
+      //return id;
+    });
+    console.log(categoryFilter);
+
+    let output;
+    if (this.props.params.id !== undefined) {
+      output = categoryFilter.map((itemId) => this.renderItems(itemId));
+      //console.log(this.props.params.id);
+      //console.log(output);
+    } else {
+      output = keys.map((itemId) => this.renderItems(itemId));
+    }
+
     return (
       <section>
         <h2>All Items</h2>
-        {Object.keys(this.props.items).map((itemId) => this.renderItems(itemId))}
+        {output}
       </section>
     );
   }
