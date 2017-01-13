@@ -32,19 +32,14 @@ class ItemsList extends React.Component {
 
   render() {
     const keys = Object.keys(this.props.items);
-    console.log(keys);
 
     const categoryFilter = keys.filter((id) => {
-      return this.props.params.id === id;
-      //return id;
+      return this.props.params.id === this.props.items[id].categoryId;
     });
-    console.log(categoryFilter);
 
     let output;
     if (this.props.params.id !== undefined) {
       output = categoryFilter.map((itemId) => this.renderItems(itemId));
-      //console.log(this.props.params.id);
-      //console.log(output);
     } else {
       output = keys.map((itemId) => this.renderItems(itemId));
     }
