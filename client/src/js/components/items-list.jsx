@@ -19,7 +19,7 @@ class ItemsList extends React.Component {
 
     return (
       <article key={itemId} id={"item-" + itemId}>
-        <Link to={'/item/' + itemId} style={tempStyle}>
+        <Link to={'/item/' + itemId}>
           <h2>{name}</h2>
           <p><strong>Replacement Value: </strong>{replaceValue}</p>
         </Link>
