@@ -362,8 +362,6 @@ describe('The action', () => {
     const newState = SingleItem(state, action);
     const selectedItem = newState.items['58713c8da1e12902ea3cf843'];
 
-    console.log(newState);
-
     newState.items.should.be.an('object');
     selectedItem._id.should.equal('58713c8da1e12902ea3cf843');
     selectedItem.ownerId.should.equal('586d48582ea3d63d2dafd2df');
