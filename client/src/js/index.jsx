@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <Router history={hashHistory}>
         <Route path="" component={App}>
           <Route path="/" component={AllItems} />
-          <Route path="/items" component={AllItems} />
           <Route path="/account" component={AcctInfo} />
           <Route path="/item/:id" component={SingleItem} />
           <Route path="/category/:id/items" component={AllItems} />

@@ -12,7 +12,6 @@ class Nav extends React.Component {
     return (
       <nav>
         <ul>
-          <li><Link to={'/items'}>All Items</Link></li>
           <CategoriesList />
           <li><Link to={'/account'}>Account Info</Link></li>
         </ul>
