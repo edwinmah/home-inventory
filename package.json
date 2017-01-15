@@ -66,6 +66,7 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1",
+    "tachyons": "^4.6.1",
     "uglify-js": "^2.7.5",
     "webpack": "^1.14.0"
   },
