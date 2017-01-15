@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './header';
 import Footer from './footer';
-import Nav from './nav';
 
 
 class App extends React.Component {
@@ -11,9 +10,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="sans-serif">
         <Header />
-        <Nav />
         <main id="content">
           {this.props.children}
         </main>

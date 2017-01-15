@@ -9,7 +9,9 @@ class Footer extends React.Component {
   render() {
     return (
       <footer role="contentinfo" className="site-footer">
-        <p>The footer</p>
+        <div className="mw5 mw8-ns center pa4 ph3-ns">
+          <p>The footer</p>
+        </div>
       </footer>
     );
   }

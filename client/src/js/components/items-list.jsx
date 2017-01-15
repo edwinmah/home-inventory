@@ -19,8 +19,8 @@ class ItemsList extends React.Component {
 
     return (
       <article key={itemId} id={"item-" + itemId}>
-        <Link to={'/item/' + itemId}>
-          <h2>{name}</h2>
+        <Link to={'/item/' + itemId} className="dark-blue hover-navy link">
+          <h3>{name}</h3>
           <p><strong>Replacement Value: </strong>{replaceValue}</p>
         </Link>
       </article>
@@ -60,16 +60,20 @@ class ItemsList extends React.Component {
     if (keys.length === 0) {
       return (
         <section>
-          <h2>{sectionTitle}</h2>
-          <p>Loading items...</p>
+          <div className="mw5 mw8-ns center pa4 ph3-ns">
+            <h2>{sectionTitle}</h2>
+            <p>Loading items...</p>
+          </div>
         </section>
       );
     }
 
     return (
       <section>
-        <h2>{sectionTitle}</h2>
-        {output}
+        <div className="mw5 mw8-ns center pa4 ph3-ns">
+          <h2>{sectionTitle}</h2>
+          {output}
+        </div>
       </section>
     );
   }
