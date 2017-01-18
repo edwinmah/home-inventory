@@ -24,6 +24,12 @@ import Item from './models/item';
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(express.static('./client/build'));
+app.use('/s3', require('react-dropzone-s3-uploader/s3router')({
+  bucket: "homeinventorybucket",
+  region: 'us-east-1',
+  headers: {'Access-Control-Allow-Origin': '*'},
+  ACL: 'public-read'
+}));
 
 
 /**********
