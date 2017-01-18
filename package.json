@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "nodemon --exec babel-node ./server/server.js",
-    "dev": "run-p serve watch",
+    "dev": "source .env && run-p serve watch",
     "test": "mocha --recursive --compilers jsx:babel-core/register",
     "build-dev": "webpack --progress",
     "build-prod": "NODE_ENV=production webpack -p --progress --bail",
@@ -61,6 +61,7 @@
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-dropzone-s3-uploader": "^0.10.0",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
     "redux": "^3.6.0",
