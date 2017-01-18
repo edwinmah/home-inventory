@@ -10,7 +10,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="sans-serif">
+      <div className="bt bw2 b--dark-blue sans-serif">
         <Header />
         <main id="content">
           {this.props.children}

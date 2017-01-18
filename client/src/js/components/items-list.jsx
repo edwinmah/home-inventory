@@ -15,20 +15,22 @@ class ItemsList extends React.Component {
   }
 
   renderItems(itemId) {
-    const { ownerId, categoryId, name, serialNumber, notes, replaceValue, placePurchased, purchaseDate, receipt, image } = this.props.items[itemId];
+    const { name, replaceValue, image } = this.props.items[itemId];
+    const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     return (
-      <article key={itemId} id={"item-" + itemId}>
-        <Link to={'/item/' + itemId} className="dark-blue hover-navy link">
-          <h3>{name}</h3>
-          <p><strong>Replacement Value: </strong>{replaceValue}</p>
+      <article key={itemId} id={"item-" + itemId} className="border-box w-100 w-50-m w-33-ns pa3">
+        <Link to={'/item/' + itemId} className="dark-blue dim link">
+          <img src="https://unsplash.it/480/480/?random" alt="a random image from Unsplash" className="ba b--light-silver br2" />
+          <h3 className="f5">{name}</h3>
+          <p className="f6"><span className="b">Replacement Value: </span>${replaceValueCommas}</p>
         </Link>
       </article>
     );
   }
 
   renderNoItems() {
-    return <p>There are currently no items in this category.</p>;
+    return <p className="pa3">There are currently no items in this category.</p>;
   }
 
   render() {
@@ -38,15 +40,17 @@ class ItemsList extends React.Component {
       return this.props.params.id === this.props.items[itemId].categoryId;
     });
 
-    let output;
+    let output, itemCount = 0;
     if (this.props.params.id !== undefined && categoryFilter.length === 0) {
       output = this.renderNoItems();
     }
     else if (this.props.params.id !== undefined) {
       output = categoryFilter.map((itemId) => this.renderItems(itemId));
+      itemCount = categoryFilter.length;
     }
     else {
       output = keys.map((itemId) => this.renderItems(itemId));
+      itemCount = keys.length;
     }
 
     let sectionTitle;
@@ -60,9 +64,9 @@ class ItemsList extends React.Component {
     if (keys.length === 0) {
       return (
         <section>
-          <div className="mw5 mw8-ns center pa4 ph3-ns">
-            <h2>{sectionTitle}</h2>
-            <p>Loading items...</p>
+          <div className="mw6 mw8-ns center">
+            <h2 className="pa3">{sectionTitle}</h2>
+            <p className="pa3">Loading items...</p>
           </div>
         </section>
       );
@@ -70,9 +74,11 @@ class ItemsList extends React.Component {
 
     return (
       <section>
-        <div className="mw5 mw8-ns center pa4 ph3-ns">
-          <h2>{sectionTitle}</h2>
-          {output}
+        <div className="mw6 mw8-ns center">
+          <h2 className="pa3">{sectionTitle} <span className="f5 gray">({itemCount})</span></h2>
+          <div className="flex flex-wrap">
+            {output}
+          </div>
         </div>
       </section>
     );

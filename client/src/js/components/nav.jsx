@@ -10,10 +10,10 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <nav className="dtc-l v-mid w-100 w-75-l tc tr-l">
-        <ul className="list ph0">
+      <nav className="tc tr-l">
+        <ul className="flex list ph0">
           <CategoriesList />
-          <li className="dib v-top pa3"><Link to={'/account'} className="dark-blue hover-navy link">Account Info</Link></li>
+          <li className="pa3"><Link to={'/account'} className="dark-blue hover-navy link">Account Info</Link></li>
         </ul>
       </nav>
     );

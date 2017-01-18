@@ -11,10 +11,12 @@ class AcctInfo extends React.Component {
   render() {
     return (
       <div>
-        <div className="mw5 mw8-ns center pa4 ph3-ns">
-          <h2>Account Information</h2>
-          <OwnersList />
-          <PolicyList />
+        <div className="mw6 mw8-ns center">
+          <h2 className="pa3">Account Information</h2>
+          <div className="flex flex-column flex-row-ns justify-around-ns ph3">
+            <OwnersList />
+            <PolicyList />
+          </div>
         </div>
       </div>
     );

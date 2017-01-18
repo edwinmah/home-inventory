@@ -29,8 +29,8 @@ class CategoriesList extends React.Component {
   renderCategoryNames(categoryId) {
     const { name } = this.props.categories[categoryId];
     return (
-      <li key={categoryId} id={"category-" + categoryId}>
-        <Link to={'/category/' + categoryId + '/items'} className="db pa3 dark-blue hover-navy link bg-light-gray hover-bg-light-silver">
+      <li key={categoryId} id={`category-${categoryId}`}>
+        <Link to={`/category/${categoryId}/items`} className="db pa3 bt b--light-silver dark-blue hover-navy link bg-light-gray hover-bg-light-silver">
           {name}
         </Link>
       </li>
@@ -38,11 +38,12 @@ class CategoriesList extends React.Component {
   }
 
   render() {
-    const dropDownDisplay = (this.state.menuIsHidden) ? 'aspect-ratio overflow-hidden' : '';
+    const dropDownDisplay = (this.state.menuIsHidden) ? 'aspect-ratio overflow-hidden o-0' : '';
+    const dropDownIcon = (this.state.menuIsHidden) ? {__html: '&plus;'} : {__html: '&minus;'};
 
     return (
-      <li className="relative dib pa3 v-top nested-list-reset dark-blue hover-navy pointer" onClick={this.handleMenuDisplay}>Categories
-        <ul className={"absolute left-0 mt3 " + dropDownDisplay}>
+      <li className="relative pa3 nested-list-reset dark-blue hover-navy pointer" onClick={this.handleMenuDisplay}>Categories <span dangerouslySetInnerHTML={dropDownIcon}></span>
+        <ul className={`absolute left-0 mt3 bt bw1 b--dark-blue br2 shadow-1 ${dropDownDisplay}`}>
           {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
         </ul>
       </li>
