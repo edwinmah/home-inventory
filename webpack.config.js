@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 var plugins = [
   new ExtractTextPlugin('./css/bundle.css', { allChunks: true }),
@@ -14,13 +13,7 @@ var plugins = [
   new CopyWebpackPlugin([{
     from: 'client/src/assets',
     to: 'assets'
-  }]),
-  new BrowserSyncPlugin({
-    host: 'localhost',
-    port: 8081,
-    open: false,
-    server: { baseDir: ['client/build'] }
-  })
+  }])
 ];
 
 if (process.env.NODE_ENV === "production") {
