@@ -3,4 +3,5 @@ server/data/
 client/build/
 npm-debug.log
 run_mongod
+.env
 .DS_Store
