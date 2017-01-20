@@ -265,6 +265,7 @@ app.get('/item/:id', (req, res) => {
   let query  = { _id: req.params.id };
   Item.findOne(query, (err, item) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -477,6 +478,7 @@ app.put('/item/:id', (req, res) => {
 
   Item.findOneAndUpdate(query, update, (err, item) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
