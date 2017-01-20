@@ -30,7 +30,7 @@ class CategoriesList extends React.Component {
     const { name } = this.props.categories[categoryId];
     return (
       <li key={categoryId} id={`category-${categoryId}`}>
-        <Link to={`/category/${categoryId}/items`} className="db pa3 bt b--light-silver dark-blue hover-navy link bg-light-gray hover-bg-light-silver">
+        <Link to={`/category/${categoryId}/items`} className="db pa3 bt b--black-20 dark-blue hover-navy link bg-light-gray hover-bg-light-silver">
           {name}
         </Link>
       </li>
