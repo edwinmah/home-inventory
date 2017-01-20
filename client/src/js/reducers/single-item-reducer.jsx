@@ -9,10 +9,7 @@ const SingleItem = (state, action) => {
 
   switch (action.type) {
     case actions.FETCH_SINGLE_ITEM_SUCCESS :
-      let newItems = Object.assign({}, state.items, {
-        [action.currentItem._id]: action.currentItem
-      });
-      return Object.assign({}, state, { items: newItems });
+      return Object.assign({}, state, action.currentItem);
       break;
 
     default :
