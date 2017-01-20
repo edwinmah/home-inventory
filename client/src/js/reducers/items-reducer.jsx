@@ -14,6 +14,16 @@ const AllItems = (state, action) => {
       return Object.assign({}, state, newItems);
       break;
 
+    case actions.FETCH_SINGLE_ITEM_SUCCESS :
+      const item = action.item;
+      return Object.assign({}, state, { [item._id]: item });
+      break;
+
+    case actions.EDIT_ITEM_SUCCESS :
+      const editedItem = action.item;
+      return Object.assign({}, state, { [editedItem._id]: editedItem });
+      break;
+
     default :
       return state;
   }
