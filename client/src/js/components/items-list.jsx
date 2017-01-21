@@ -19,9 +19,9 @@ class ItemsList extends React.Component {
     const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     return (
-      <article key={itemId} id={"item-" + itemId} className="border-box w-100 w-50-m w-33-ns pa3">
-        <Link to={'/item/' + itemId} className="dark-blue dim link">
-          <img src="https://unsplash.it/480/480/?random" alt="a random image from Unsplash" className="ba b--light-silver br2" />
+      <article key={itemId} id={`item-${itemId}`} className="border-box w-100 w-50-m w-33-ns pa3">
+        <Link to={`/item/${itemId}`} className="dark-blue dim link">
+          <img src="https://unsplash.it/480/480/?random" alt={name} className="ba b--light-silver br2" />
           <h3 className="f5">{name}</h3>
           <p className="f6"><span className="b">Replacement Value: </span>${replaceValueCommas}</p>
         </Link>
