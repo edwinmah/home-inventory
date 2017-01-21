@@ -1,6 +1,8 @@
 require('isomorphic-fetch');
 import { hashHistory } from 'react-router';
 import actions from './get-single-item';
+import actionsAll from '../actions/get-items';
+import actionsSingle from '../actions/get-single-item';
 
 
 var EDIT_ITEM_SUCCESS = 'EDIT_ITEM_SUCCESS';
@@ -47,6 +49,10 @@ var editItem = function(itemId, obj) {
       .then(function(data) {
         var item = data;
         return dispatch(editItemSuccess(item));
+      })
+      .then(function() {
+        dispatch(actionsAll.fetchItems());
+        dispatch(actionsSingle.fetchSingleItem(itemId));
       })
       .then(function() {
         hashHistory.push(url);
