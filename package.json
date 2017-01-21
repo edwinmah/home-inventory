@@ -62,7 +62,6 @@
     "react-dropzone-s3-uploader": "^0.10.0",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
-    "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1",
