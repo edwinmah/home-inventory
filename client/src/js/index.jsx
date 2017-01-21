@@ -3,13 +3,12 @@ require('../css/style.css');
 require('babel-polyfill');
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { redux, Provider } from 'react-redux';
-import { router, Router, Route, hashHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import { Router, Route, hashHistory } from 'react-router';
 import store from './store';
 import App from './components/App';
 import AllItems from './components/items-list';
 import SingleItem from './components/single-item';
-import CategoriesList from './components/categories-list';
 import AcctInfo from './components/acct-info';
 import EditItem from './components/edit-item';
 
