@@ -3,6 +3,7 @@ import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
 import actionsAll from '../actions/get-items';
 import actionsSingle from '../actions/get-single-item';
+import EditItem from './edit-item';
 
 
 class SingleItem extends React.Component {
@@ -15,26 +16,19 @@ class SingleItem extends React.Component {
     this.props.dispatch(actionsSingle.fetchSingleItem(this.props.params.id));
   }
 
-  render() {
-    if (Object.keys(this.props.items).length === 0) {
-      return (
-        <div className="mw6 mw8-ns center">
-          <p className="pa3">Loading item...</p>
-        </div>
-      );
-    }
-
+  renderSingleItem() {
     const { name, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
     const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const purchaseDatePretty = (new Date(purchaseDate)).toDateString();
 
-    return (
-      <article>
-        <div className="mw6 mw8-ns center ph3">
-          <h2 className="pv3">{name}</h2>
+    if (this.props.children) {
+      return <EditItem params={this.props.params} />;
+    } else {
+      return (
+        <div>
           <div className="flex flex-column flex-row-ns">
             <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
-              <img src="https://unsplash.it/480/480/?random" alt="a random image from Unsplash" className="ba b--light-silver br2" />
+              <img src="https://unsplash.it/480/480/?random" alt={name} className="ba b--light-silver br2" />
             </div>
             <div className="flex flex-column f5 f4-l">
               <dl className="lh-title mv2">
@@ -61,8 +55,31 @@ class SingleItem extends React.Component {
                 <dt className="dib mr2 b">Notes:</dt>
                 <dd className="dib ml0 dark-gray">{notes}</dd>
               </dl>
+              <div className="flex edit tr">
+                <Link to={`${this.props.location.pathname}/delete`} className="w-50 f5 link br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red tc">Delete Item</Link>
+                <Link to={`${this.props.location.pathname}/edit`} className="w-50 f5 link br2 ph3 pv2 ml2 mv3 white bg-dark-blue hover-bg-navy tc">Edit Item</Link>
+              </div>
             </div>
           </div>
+        </div>
+      );
+    }
+  }
+
+  render() {
+    if (Object.keys(this.props.items).length === 0) {
+      return (
+        <div className="mw6 mw8-ns center">
+          <p className="pa3">Loading item...</p>
+        </div>
+      );
+    }
+
+    return (
+      <article>
+        <div className="mw6 mw8-ns center ph3">
+          <h2 className="pv3">{this.props.currentItem.name}</h2>
+          {this.renderSingleItem()}
         </div>
       </article>
     );
