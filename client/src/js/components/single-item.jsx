@@ -30,7 +30,7 @@ class SingleItem extends React.Component {
             <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
               <img src="https://unsplash.it/480/480/?random" alt={name} className="ba b--light-silver br2" />
             </div>
-            <div className="flex flex-column f5 f4-l">
+            <div className="flex flex-column w-100 w-50-ns f5 f4-l">
               <dl className="lh-title mv2">
                 <dt className="dib mr2 b">Replacement Value:</dt>
                 <dd className="dib ml0 dark-gray">${replaceValueCommas}</dd>
