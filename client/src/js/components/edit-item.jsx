@@ -15,7 +15,6 @@ class EditItem extends React.Component {
       recUrl: this.props.currentItem.receipt || ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.handleImgUpload = this.handleImgUpload.bind(this);
     this.handleRecUpload = this.handleRecUpload.bind(this);
   }
