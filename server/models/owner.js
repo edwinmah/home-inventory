@@ -19,9 +19,7 @@ const OwnerSchema = new mongoose.Schema({
   state: {
     type      : String,
     required  : false,
-    uppercase : true,
-    trim      : true,
-    maxlength : 2
+    trim      : true
   },
   zip: {
     type      : String,
