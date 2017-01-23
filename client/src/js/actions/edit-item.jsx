@@ -53,8 +53,6 @@ var editItem = function(itemId, obj) {
       .then(function() {
         dispatch(actionsAll.fetchItems());
         dispatch(actionsSingle.fetchSingleItem(itemId));
-      })
-      .then(function() {
         hashHistory.push(url);
       })
       .catch(function(error) {
