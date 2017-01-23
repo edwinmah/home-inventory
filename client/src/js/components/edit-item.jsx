@@ -130,6 +130,14 @@ class EditItem extends React.Component {
 }
 
 
+EditItem.defaultProps = {
+  currentItem: {
+    image: 'https://homeinventorybucket.s3.amazonaws.com/2576f7a6-389e-46fa-9eed-6ff5be97100d_unsplash-996-thumb.jpg',
+    receipt: 'https://homeinventorybucket.s3.amazonaws.com/2576f7a6-389e-46fa-9eed-6ff5be97100d_unsplash-996-thumb.jpg'
+  }
+}
+
+
 const mapStateToProps = (state, props) => {
   return {
     items: state.items,
