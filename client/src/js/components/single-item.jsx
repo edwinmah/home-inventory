@@ -27,7 +27,7 @@ class SingleItem extends React.Component {
         <div>
           <div className="flex flex-column flex-row-ns">
             <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
-              <img src="https://unsplash.it/480/480/?random" alt={name} className="ba b--light-silver br2" />
+              <img src={`${image}`} alt={name} className="ba b--light-silver br2" />
             </div>
             <div className="flex flex-column w-100 w-50-ns f5 f4-l">
               <dl className="lh-title mv2">
@@ -48,7 +48,7 @@ class SingleItem extends React.Component {
               </dl>
               <dl className="lh-title mv2">
                 <dt className="dib mr2 b">Receipt:</dt>
-                <dd className="dib ml0 dark-gray">{receipt}</dd>
+                <dd className="dib ml0 dark-gray"><a href={`${receipt}`} className="dark-blue hover-navy link">View receipt</a></dd>
               </dl>
               <dl className="lh-title mv2">
                 <dt className="dib mr2 b">Notes:</dt>
