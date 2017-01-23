@@ -54,6 +54,7 @@ var editItem = function(itemId, obj) {
         dispatch(actionsAll.fetchItems());
         dispatch(actionsSingle.fetchSingleItem(itemId));
         hashHistory.push(url);
+        document.body.scrollTop = 0;
       })
       .catch(function(error) {
         console.log(error);
