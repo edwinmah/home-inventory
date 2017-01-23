@@ -84,7 +84,7 @@ class EditItem extends React.Component {
 
     const dateInputProps = {
       id: 'purchaseDate',
-      className: 'db w-100 input-reset bn sans-serif'
+      className: 'db w-100 pa2 input-reset ba b--black-20 br2 sans-serif'
     };
 
     return (
@@ -105,7 +105,7 @@ class EditItem extends React.Component {
           <input type="text" id="serialNumber" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={serialNumber} ref="serialNumber" />
 
           <label htmlFor="purchaseDate" className="b db mb2">Purchase Date:</label>
-          <Datetime closeOnSelect={true} timeFormat={false} dateFormat='ddd, MMM Do YYYY' inputProps={dateInputProps} className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={purchaseDate} ref="purchaseDate" />
+          <Datetime closeOnSelect={true} timeFormat={false} dateFormat='ddd, MMM Do YYYY' inputProps={dateInputProps} className="mb3" defaultValue={purchaseDate} ref="purchaseDate" />
 
           <label htmlFor="purchasePlace" className="b db mb2">Place Purchased:</label>
           <input type="text" id="purchasePlace" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={placePurchased} ref="placePurchased" />
