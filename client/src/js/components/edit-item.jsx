@@ -54,7 +54,7 @@ class EditItem extends React.Component {
           isImgUploadFinished: !prevState.isImgUploadFinished
         })
       )
-    }, 6000);
+    }, 2000);
   }
 
   handleRecUpload(...receipt) {
@@ -70,14 +70,14 @@ class EditItem extends React.Component {
           isRecUploadFinished: !prevState.isRecUploadFinished
         })
       )
-    }, 6000);
+    }, 2000);
   }
 
   render() {
     const { _id, name, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
 
     const style = { backgroundColor: '#ffffff'};
-    const activeStyle = { backgroundColor: '#96ccff' };
+    const activeStyle = { backgroundColor: '#fbf1a9' };
 
     const uploadImgMsg = (this.state.isImgUploadFinished) ? 'Your image was uploaded successfully.' : 'Click or drag here to upload an image.';
     const uploadRecMsg = (this.state.isRecUploadFinished) ? 'Your receipt was uploaded successfully.' : 'Click or drag here to upload a receipt.';
