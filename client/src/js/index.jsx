@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <Router history={hashHistory}>
         <Route path="" component={App}>
           <Route path="/" component={AllItems} />
-          <Route path="/item" component={EditItem} />
+          <Route path="/item/add" component={EditItem} />
           <Route path="/account" component={AcctInfo} />
           <Route path="/item/:id" component={SingleItem}>
             <Route path="/item/:id/edit" component={EditItem} />
