@@ -81,7 +81,7 @@ class ItemsList extends React.Component {
           <div className="flex flex-wrap">
             {output}
             <div className="flex justify-center w-100 w-50-m w-33-ns pa3">
-              <Link to={`/item/add`} className="flex flex-column items-center justify-center w-100 pa3 b--dashed bw1 b--black-20 br2 f4 b dark-blue hover-navy link hover-bg-light-yellow tc">Add Item <span className="f1 b" dangerouslySetInnerHTML={plus}></span></Link>
+              <Link to={`/item/add`} className="flex flex-column items-center justify-center w-100 pa3 b--dashed bw1 b--black-20 br2 f4 b dark-blue link hover-bg-light-yellow tc">Add Item <span className="f1 b" dangerouslySetInnerHTML={plus}></span></Link>
             </div>
           </div>
         </div>
