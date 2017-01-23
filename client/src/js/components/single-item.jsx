@@ -12,6 +12,7 @@ class SingleItem extends React.Component {
   }
 
   componentDidMount() {
+    document.body.scrollTop = 0;
     this.props.dispatch(actionsAll.fetchItems());
     this.props.dispatch(actionsSingle.fetchSingleItem(this.props.params.id));
   }
