@@ -1,4 +1,5 @@
 require('tachyons');
+require('react-datetime/css/react-datetime.css');
 require('../css/style.css');
 require('babel-polyfill');
 import React from 'react';

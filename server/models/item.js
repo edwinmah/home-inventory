@@ -33,7 +33,7 @@ const ItemSchema = new mongoose.Schema({
     set: v  => Math.round(v)
   },
   purchaseDate: {
-    type    : Date,
+    type    : String,
     required: false
   },
   placePurchased: {

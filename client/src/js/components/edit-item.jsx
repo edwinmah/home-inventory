@@ -3,6 +3,7 @@ import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../actions/edit-item';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
+import Datetime from 'react-datetime';
 
 
 class EditItem extends React.Component {
@@ -15,8 +16,13 @@ class EditItem extends React.Component {
       recUrl: this.props.currentItem.receipt || ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleImgUpload = this.handleImgUpload.bind(this);
     this.handleRecUpload = this.handleRecUpload.bind(this);
+  }
+
+  handleChange() {
+    console.log(this.refs.purchaseDate.state.inputValue);
   }
 
   handleSubmit(event) {
@@ -32,7 +38,7 @@ class EditItem extends React.Component {
         replaceValue: parseInt(this.refs.replaceValue.value),
         notes: this.refs.notes.value,
         serialNumber: this.refs.serialNumber.value,
-        purchaseDate: this.refs.purchaseDate.value,
+        purchaseDate: this.refs.purchaseDate.state.inputValue,
         placePurchased: this.refs.placePurchased.value,
         image: this.state.imgUrl,
         receipt: this.state.recUrl
@@ -81,6 +87,11 @@ class EditItem extends React.Component {
     const uploadImgMsg = (this.state.isImgUploadFinished) ? 'Your image was uploaded successfully.' : 'Click or drag here to upload an image.';
     const uploadRecMsg = (this.state.isRecUploadFinished) ? 'Your receipt was uploaded successfully.' : 'Click or drag here to upload a receipt.';
 
+    const dateInputProps = {
+      id: 'purchaseDate',
+      className: 'db w-100 input-reset bn sans-serif'
+    };
+
     return (
       <div className="flex flex-column flex-row-ns">
         <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
@@ -88,7 +99,7 @@ class EditItem extends React.Component {
             <p>{uploadImgMsg}</p>
           </DropzoneS3Uploader>
         </div>
-        <form className="flex flex-column w-100 w-50-ns f5" onSubmit={this.handleSubmit}>
+        <form className="flex flex-column w-100 w-50-ns f5" onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <label htmlFor="name" className="b db mb2">Name:</label>
           <input type="text" id="name" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={name} ref="name" />
 
@@ -99,7 +110,7 @@ class EditItem extends React.Component {
           <input type="text" id="serialNumber" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={serialNumber} ref="serialNumber" />
 
           <label htmlFor="purchaseDate" className="b db mb2">Purchase Date:</label>
-          <input type="text" id="purchaseDate" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={purchaseDate} ref="purchaseDate" />
+          <Datetime closeOnSelect={true} timeFormat={false} dateFormat='ddd, MMM Do YYYY' inputProps={dateInputProps} className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={purchaseDate} ref="purchaseDate" />
 
           <label htmlFor="purchasePlace" className="b db mb2">Place Purchased:</label>
           <input type="text" id="purchasePlace" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={placePurchased} ref="placePurchased" />

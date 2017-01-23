@@ -19,7 +19,6 @@ class SingleItem extends React.Component {
   renderSingleItem() {
     const { name, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
     const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    const purchaseDatePretty = (new Date(purchaseDate)).toDateString();
 
     if (this.props.children) {
       return <EditItem params={this.props.params} />;
@@ -41,7 +40,7 @@ class SingleItem extends React.Component {
               </dl>
               <dl className="lh-title mv2">
                 <dt className="dib mr2 b">Purchase Date:</dt>
-                <dd className="dib ml0 dark-gray">{purchaseDatePretty}</dd>
+                <dd className="dib ml0 dark-gray">{purchaseDate}</dd>
               </dl>
               <dl className="lh-title mv2">
                 <dt className="dib mr2 b">Place Purchased:</dt>
