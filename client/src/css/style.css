@@ -24,3 +24,7 @@
   clip: auto;
   overflow: visible;
 }
+
+.rdtPicker {
+  z-index: 999 !important;
+}
