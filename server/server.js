@@ -210,6 +210,7 @@ const runServer = (callback) => {
 app.get('/owners', (req, res) => {
   Owner.find((err, owners) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -222,6 +223,7 @@ app.get('/owners', (req, res) => {
 app.get('/policies', (req, res) => {
   Policy.find((err, policies) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -235,6 +237,7 @@ app.get('/policy/:id', (req, res) => {
   let query  = { _id: req.params.id };
   Policy.findOne(query, (err, policy) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -247,6 +250,7 @@ app.get('/policy/:id', (req, res) => {
 app.get('/items', (req, res) => {
   Item.find((err, items) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -273,6 +277,7 @@ app.get('/item/:id', (req, res) => {
 app.get('/categories', (req, res) => {
   Category.find((err, categories) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -300,6 +305,7 @@ app.get('/category/:id/items', (req, res) => {
     let queryCategoryItems = { categoryId: query._id };
     Item.find(queryCategoryItems, (err, categoryItems) => {
       if (err) {
+        console.log(err);
         return res.status(400).json({
           message: 'Bad Request'
         });
@@ -327,6 +333,7 @@ app.post('/owner', (req, res) => {
 
   Owner.create(query, (err, owner) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -349,6 +356,7 @@ app.post('/policy', (req, res) => {
 
   Policy.create(query, (err, policy) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -374,6 +382,7 @@ app.post('/item', (req, res) => {
 
   Item.create(query, (err, item) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -391,6 +400,7 @@ app.post('/category', (req, res) => {
 
   Category.create(query, (err, category) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -420,6 +430,7 @@ app.put('/owner/:id', (req, res) => {
 
   Owner.findOneAndUpdate(query, update, (err, owner) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -445,6 +456,7 @@ app.put('/policy/:id', (req, res) => {
 
   Policy.findOneAndUpdate(query, update, (err, policy) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -494,6 +506,7 @@ app.put('/category/:id', (req, res) => {
 
   Category.findOneAndUpdate(query, update, (err, category) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -511,6 +524,7 @@ app.delete('/owner/:id', (req, res) => {
   let query = { _id: req.params.id };
   Owner.findOneAndRemove(query, (err, owner) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -524,6 +538,7 @@ app.delete('/policy/:id', (req, res) => {
   let query = { _id: req.params.id };
   Policy.findOneAndRemove(query, (err, policy) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -537,6 +552,7 @@ app.delete('/item/:id', (req, res) => {
   let query = { _id: req.params.id };
   Item.findOneAndRemove(query, (err, item) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
@@ -550,6 +566,7 @@ app.delete('/category/:id', (req, res) => {
   let query = { _id: req.params.id };
   Category.findOneAndRemove(query, (err, category) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         message: 'Bad Request'
       });
