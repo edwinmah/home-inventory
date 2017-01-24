@@ -40,7 +40,7 @@ var fetchSingleItem = function(itemId) {
         var item = data;
         return dispatch(fetchSingleItemSuccess(item));
       })
-      .catch(function(speech, error) {
+      .catch(function(error) {
         return dispatch(fetchSingleItemError(error));
       });
   }
