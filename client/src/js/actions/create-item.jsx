@@ -1,7 +1,6 @@
 require('isomorphic-fetch');
 import { hashHistory } from 'react-router';
 import actions from './get-single-item';
-import actionsAll from '../actions/get-items';
 import actionsSingle from '../actions/get-single-item';
 
 
@@ -50,10 +49,9 @@ var createItem = function(obj) {
         var item = data;
         return dispatch(createItemSuccess(item));
       })
-      .then(function() {
-        dispatch(actionsAll.fetchItems());
-        dispatch(actionsSingle.fetchSingleItem(item._id));
-        hashHistory.push(`${url}/${item._id}`);
+      .then(function(data) {
+        dispatch(actionsSingle.fetchSingleItem(data.item._id));
+        hashHistory.push(`${url}/${data.item._id}`);
         document.body.scrollTop = 0;
       })
       .catch(function(error) {
