@@ -70,4 +70,4 @@ exports.createItemSuccess   = createItemSuccess;
 exports.CREATE_ITEM_ERROR = CREATE_ITEM_ERROR;
 exports.createItemError   = createItemError;
 
-exports.editItem  = editItem;
+exports.createItem  = createItem;
