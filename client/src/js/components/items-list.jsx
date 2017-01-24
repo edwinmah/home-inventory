@@ -17,11 +17,12 @@ class ItemsList extends React.Component {
   renderItems(itemId) {
     const { name, replaceValue, image } = this.props.items[itemId];
     const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
 
     return (
       <article key={itemId} id={`item-${itemId}`} className="border-box w-100 w-50-m w-33-ns pa3">
         <Link to={`/item/${itemId}`} className="dark-blue dim link">
-          <img src={`${image}`} alt={name} className="ba b--light-silver br2" />
+          <img src={`${image}`} alt={name} className={imgStyle} />
           <h3 className="f5">{name}</h3>
           <p className="f6"><span className="b">Replacement Value: </span>${replaceValueCommas}</p>
         </Link>
