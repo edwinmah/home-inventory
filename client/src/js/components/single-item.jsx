@@ -20,15 +20,16 @@ class SingleItem extends React.Component {
   renderSingleItem() {
     const { name, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
     const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
 
     if (this.props.children) {
       return <EditItem params={this.props.params} />;
     } else {
       return (
-        <div>
+        <div className="mw6 mw8-ns center ph3">
           <div className="flex flex-column flex-row-ns">
             <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
-              <img src={`${image}`} alt={name} className="ba b--light-silver br2" />
+              <img src={`${image}`} alt={name} className={imgStyle} />
             </div>
             <div className="flex flex-column w-100 w-50-ns f5 f4-l">
               <dl className="lh-title mv2">
@@ -77,8 +78,8 @@ class SingleItem extends React.Component {
 
     return (
       <article>
-        <div className="mw6 mw8-ns center ph3">
-          <h2 className="pv3">{this.props.currentItem.name}</h2>
+        <div className="mw6 mw8-ns center">
+          <h2 className="pa3">{this.props.currentItem.name}</h2>
           {this.renderSingleItem()}
         </div>
       </article>
