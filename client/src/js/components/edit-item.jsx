@@ -117,8 +117,8 @@ class EditItem extends React.Component {
         {this.renderHeading()}
         <div className="flex flex-column flex-row-ns">
           <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
-            <DropzoneS3Uploader onFinish={this.handleImgUpload} style={style} activeStyle={activeStyle} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className="flex items-center justify-center relative overflow-hidden vh-25 vh-50-l b--dashed bw1 b--black-20 br2 pointer">
-              <img src={image} alt={name} className="h-auto w-75 nested-img img br2" />
+            <DropzoneS3Uploader onFinish={this.handleImgUpload} style={style} activeStyle={activeStyle} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className="flex items-center justify-center relative overflow-hidden vh-50 b--dashed bw1 b--black-20 br2 pointer">
+              <img src={image} alt={name} className="h-auto w-50 nested-img img br2" />
             </DropzoneS3Uploader>
             <p>{uploadImgMsg}</p>
           </div>
@@ -144,7 +144,7 @@ class EditItem extends React.Component {
             <input type="text" name="purchasePlace" id="purchasePlace" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={placePurchased} ref="placePurchased" />
 
             <label htmlFor="receiptUpload" className="b db mb2">Receipt:</label>
-            <DropzoneS3Uploader onFinish={this.handleRecUpload} style={style} activeStyle={activeStyle} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className="flex items-center justify-center relative h3 h4-l b--dashed bw1 b--black-20 br2 pointer">
+            <DropzoneS3Uploader onFinish={this.handleRecUpload} style={style} activeStyle={activeStyle} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className="flex items-center justify-center relative h4 h5-l b--dashed bw1 b--black-20 br2 pointer">
               <img src={image} alt={name} className="h-auto w-25 nested-img img br2" />
             </DropzoneS3Uploader>
             <p className="ph2">{uploadRecMsg}</p>
