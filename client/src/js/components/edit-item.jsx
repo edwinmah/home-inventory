@@ -129,13 +129,13 @@ class EditItem extends React.Component {
             <label htmlFor="replacementValue" className="b db mb2">Replacement Value:</label>
             <input type="text" name="replacementValue" id="replacementValue" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={replaceValue} ref="replaceValue" />
 
-            <label htmlFor="serialNumber" className="b db mb2">Serial Number:</label>
-            <input type="text" name="serialNumber" id="serialNumber" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={serialNumber} ref="serialNumber" />
-
             <label htmlFor="category" className="b db mb2">Category:</label>
             <select name="category" id="category" className="pa2 mb3 sans-serif" ref="category">
               {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
             </select>
+
+            <label htmlFor="serialNumber" className="b db mb2">Serial Number:</label>
+            <input type="text" name="serialNumber" id="serialNumber" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={serialNumber} ref="serialNumber" />
 
             <label htmlFor="purchaseDate" className="b db mb2">Purchase Date:</label>
             <Datetime closeOnSelect={true} timeFormat={false} dateFormat='ddd, MMM Do YYYY' inputProps={dateInputProps} className="mb3" defaultValue={purchaseDate} ref="purchaseDate" />
