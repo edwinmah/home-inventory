@@ -123,7 +123,7 @@ class EditItem extends React.Component {
             </DropzoneS3Uploader>
             <p>{uploadImgMsg}</p>
           </div>
-          <form className="flex flex-column w-100 w-50-ns f5" onSubmit={this.handleSubmit}>
+          <form className="flex flex-column w-100 w-50-ns" onSubmit={this.handleSubmit}>
             <label htmlFor="name" className="b db mb2">Name:</label>
             <input type="text" name="name" id="name" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={name} ref="name" />
 
@@ -154,8 +154,8 @@ class EditItem extends React.Component {
             <textarea name="notes" id="notes" className="db border-box hover-black w-100 vh-25 measure ba b--black-20 pa2 br2 mb3 sans-serif" defaultValue={notes} ref="notes"></textarea>
 
             <div className="flex flex-row">
-              <Link to={`/item/${_id}`} className="w-50 f5 link bn br2 ph3 pv2 mr2 mv3 white bg-mid-gray hover-bg-dark-gray sans-serif tc">Cancel</Link>
-              <button type="submit" className="w-50 f5 link bn br2 ph3 pv2 ml2 mv3 white bg-dark-blue hover-bg-navy sans-serif">Save</button>
+              <Link to={`/item/${_id}`} className="w-50 link bn br2 ph3 pv2 mr2 mv3 white bg-mid-gray hover-bg-dark-gray sans-serif tc">Cancel</Link>
+              <button type="submit" className="w-50 link bn br2 ph3 pv2 ml2 mv3 white bg-dark-blue hover-bg-navy sans-serif">Save</button>
             </div>
           </form>
         </div>
