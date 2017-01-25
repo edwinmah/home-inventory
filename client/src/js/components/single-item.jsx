@@ -18,7 +18,7 @@ class SingleItem extends React.Component {
   }
 
   renderSingleItem() {
-    const { name, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
+    const { name, categoryId, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
     const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
 
@@ -35,6 +35,12 @@ class SingleItem extends React.Component {
               <dl className="lh-title mv2">
                 <dt className="dib mr2 b">Replacement Value:</dt>
                 <dd className="dib ml0 dark-gray">${replaceValueCommas}</dd>
+              </dl>
+              <dl className="lh-title mv2">
+                <dt className="dib mr2 b">Category:</dt>
+                <dd className="dib ml0 dark-gray">
+                  <Link to={`/category/${categoryId}/items`} className="dark-blue hover-navy link">{this.props.categories[categoryId].name}</Link>
+                </dd>
               </dl>
               <dl className="lh-title mv2">
                 <dt className="dib mr2 b">Serial Number:</dt>
@@ -90,6 +96,7 @@ class SingleItem extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
+    categories: state.categories,
     items: state.items,
     currentItem: state.items[props.params.id]
   }
