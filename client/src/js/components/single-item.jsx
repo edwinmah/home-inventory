@@ -29,36 +29,36 @@ class SingleItem extends React.Component {
             <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
               <img src={`${image}`} alt={name} className={imgStyle} />
             </div>
-            <div className="flex flex-column w-100 w-50-ns f5 f4-l">
-              <dl className="lh-title mv2">
-                <dt className="dib mr2 b">Replacement Value:</dt>
-                <dd className="dib ml0 dark-gray">${replaceValueCommas}</dd>
+            <div className="w-100 w-50-ns f5 f4-l">
+              <dl className="flex lh-title mv2">
+                <dt className="mr2 b">Replacement Value:</dt>
+                <dd className="ml0 dark-gray">${replaceValueCommas}</dd>
               </dl>
-              <dl className="lh-title mv2">
-                <dt className="dib mr2 b">Category:</dt>
-                <dd className="dib ml0 dark-gray">
+              <dl className="flex lh-title mv2">
+                <dt className="mr2 b">Category:</dt>
+                <dd className="ml0 dark-gray">
                   <Link to={`/category/${categoryId}/items`} className="dark-blue hover-navy link">{this.props.categories[categoryId].name}</Link>
                 </dd>
               </dl>
-              <dl className="lh-title mv2">
-                <dt className="dib mr2 b">Serial Number:</dt>
-                <dd className="dib ml0 dark-gray">{serialNumber}</dd>
+              <dl className="flex lh-title mv2">
+                <dt className="mr2 b">Serial Number:</dt>
+                <dd className="ml0 dark-gray">{serialNumber}</dd>
               </dl>
-              <dl className="lh-title mv2">
-                <dt className="dib mr2 b">Purchase Date:</dt>
-                <dd className="dib ml0 dark-gray">{purchaseDate}</dd>
+              <dl className="flex lh-title mv2">
+                <dt className="mr2 b">Purchase Date:</dt>
+                <dd className="ml0 dark-gray">{purchaseDate}</dd>
               </dl>
-              <dl className="lh-title mv2">
-                <dt className="dib mr2 b">Place Purchased:</dt>
-                <dd className="dib ml0 dark-gray">{placePurchased}</dd>
+              <dl className="flex lh-title mv2">
+                <dt className="mr2 b">Place Purchased:</dt>
+                <dd className="ml0 dark-gray">{placePurchased}</dd>
               </dl>
-              <dl className="lh-title mv2">
-                <dt className="dib mr2 b">Receipt:</dt>
-                <dd className="dib ml0 dark-gray"><a href={`${receipt}`} className="dark-blue hover-navy link">View receipt</a></dd>
+              <dl className="flex lh-title mv2">
+                <dt className="mr2 b">Receipt:</dt>
+                <dd className="ml0"><a href={`${receipt}`} className="dark-blue hover-navy link">View receipt</a></dd>
               </dl>
-              <dl className="lh-title mv2">
-                <dt className="dib mr2 b">Notes:</dt>
-                <dd className="dib ml0 dark-gray">{notes}</dd>
+              <dl className="flex lh-title mv2">
+                <dt className="mr2 b">Notes:</dt>
+                <dd className="ml0 dark-gray">{notes}</dd>
               </dl>
               <div className="flex edit tr">
                 <Link to={`${this.props.location.pathname}/delete`} className="w-50 f5 link br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red tc">Delete Item</Link>
