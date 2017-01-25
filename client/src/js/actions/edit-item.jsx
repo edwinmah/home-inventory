@@ -1,7 +1,6 @@
 require('isomorphic-fetch');
 import { hashHistory } from 'react-router';
 import actions from './get-single-item';
-import actionsAll from '../actions/get-items';
 import actionsSingle from '../actions/get-single-item';
 
 
@@ -51,7 +50,6 @@ var editItem = function(itemId, obj) {
         return dispatch(editItemSuccess(item));
       })
       .then(function() {
-        dispatch(actionsAll.fetchItems());
         dispatch(actionsSingle.fetchSingleItem(itemId));
         hashHistory.push(url);
         document.body.scrollTop = 0;

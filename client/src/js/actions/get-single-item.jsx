@@ -5,7 +5,7 @@ var FETCH_SINGLE_ITEM_SUCCESS = 'FETCH_SINGLE_ITEM_SUCCESS';
 var fetchSingleItemSuccess = function(item) {
   return {
     type: FETCH_SINGLE_ITEM_SUCCESS,
-    currentItem: item
+    item: item
   };
 };
 
@@ -14,7 +14,7 @@ var FETCH_SINGLE_ITEM_ERROR = 'FETCH_SINGLE_ITEM_ERROR';
 var fetchSingleItemError = function(item, error) {
   return {
     type: FETCH_SINGLE_ITEM_ERROR,
-    currentItem: item,
+    item: item,
     error: error
   };
 };
