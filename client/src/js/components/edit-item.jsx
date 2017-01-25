@@ -23,6 +23,7 @@ class EditItem extends React.Component {
   }
 
   componentDidMount() {
+    document.body.scrollTop = 0;
     if (!this.props.params.id) {
       this.props.dispatch(actionsOwners.fetchOwners());
     }
@@ -175,7 +176,6 @@ EditItem.defaultProps = {
 const mapStateToProps = (state, props) => {
   return {
     categories: state.categories,
-    items: state.items,
     owners: state.owners,
     currentItem: state.items[props.params.id]
   }

@@ -1,8 +1,7 @@
 import React from 'react';
 import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
-import actionsAll from '../actions/get-items';
-import actionsSingle from '../actions/get-single-item';
+import actions from '../actions/get-single-item';
 import EditItem from './edit-item';
 
 
@@ -13,8 +12,7 @@ class SingleItem extends React.Component {
 
   componentDidMount() {
     document.body.scrollTop = 0;
-    this.props.dispatch(actionsAll.fetchItems());
-    this.props.dispatch(actionsSingle.fetchSingleItem(this.props.params.id));
+    this.props.dispatch(actions.fetchSingleItem(this.props.params.id));
   }
 
   renderSingleItem() {
@@ -74,7 +72,7 @@ class SingleItem extends React.Component {
   }
 
   render() {
-    if (Object.keys(this.props.items).length === 0) {
+    if (!this.props.currentItem) {
       return (
         <div className="mw6 mw8-ns center">
           <p className="pa3">Loading item...</p>
@@ -97,7 +95,6 @@ class SingleItem extends React.Component {
 const mapStateToProps = (state, props) => {
   return {
     categories: state.categories,
-    items: state.items,
     currentItem: state.items[props.params.id]
   }
 };
