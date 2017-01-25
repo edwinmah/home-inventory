@@ -12,6 +12,7 @@ import AllItems from './components/items-list';
 import SingleItem from './components/single-item';
 import AcctInfo from './components/acct-info';
 import EditItem from './components/edit-item';
+import DeleteItem from './components/delete-item';
 
 
 
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <Route path="/item/:id" component={SingleItem}>
             <Route path="/item/:id/edit" component={EditItem} />
           </Route>
+          <Route path="/item/:id/delete" component={DeleteItem} />
           <Route path="/category/:id/items" component={AllItems} />
         </Route>
       </Router>
