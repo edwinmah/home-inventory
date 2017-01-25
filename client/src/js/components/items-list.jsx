@@ -16,7 +16,7 @@ class ItemsList extends React.Component {
   }
 
   renderItems(itemId) {
-    const { name, replaceValue, image } = this.props.items[itemId];
+    const { name, categoryId, replaceValue, image } = this.props.items[itemId];
     const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
 
@@ -24,9 +24,14 @@ class ItemsList extends React.Component {
       <article key={itemId} id={`item-${itemId}`} className="border-box w-100 w-50-m w-33-ns pa3">
         <Link to={`/item/${itemId}`} className="dark-blue dim link">
           <img src={`${image}`} alt={name} className={imgStyle} />
-          <h3 className="f5">{name}</h3>
-          <p className="f6"><span className="b">Replacement Value: </span>${replaceValueCommas}</p>
+          <div className="flex justify-between items-center">
+            <h3 className="mb0 f5">{name}</h3>
+            <p className="mb0"><span className="visuallyhidden focusable">Replacement Value of</span>${replaceValueCommas}</p>
+          </div>
         </Link>
+        <p className="f6"><span className="b">Category: </span>
+          <Link to={`/category/${categoryId}/items`} className="dark-blue hover-navy link">{this.props.categories[categoryId].name}</Link>
+        </p>
       </article>
     );
   }
