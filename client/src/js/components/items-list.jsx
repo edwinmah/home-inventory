@@ -12,6 +12,7 @@ class ItemsList extends React.Component {
   componentDidMount() {
     // dispatch to get all items
     this.props.dispatch(actions.fetchItems());
+    document.body.scrollTop = 0;
   }
 
   renderItems(itemId) {
