@@ -10,9 +10,11 @@ import store from './store';
 import App from './components/App';
 import AllItems from './components/items-list';
 import SingleItem from './components/single-item';
-import AcctInfo from './components/acct-info';
 import EditItem from './components/edit-item';
 import DeleteItem from './components/delete-item';
+import AcctInfo from './components/acct-info';
+import EditOwner from './components/edit-owner';
+import EditPolicy from './components/edit-policy';
 
 
 
@@ -23,7 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <Route path="" component={App}>
           <Route path="/" component={AllItems} />
           <Route path="/item/add" component={EditItem} />
-          <Route path="/account" component={AcctInfo} />
+          <Route path="/account" component={AcctInfo}>
+            <Route path="/account/owner/edit/:ownerId" component={EditOwner} />
+            <Route path="/account/policy/edit/:policyId" component={EditPolicy} />
+          </Route>
           <Route path="/item/:id" component={SingleItem}>
             <Route path="/item/:id/edit" component={EditItem} />
           </Route>
