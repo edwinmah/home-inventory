@@ -17,7 +17,9 @@ class OwnersList extends React.Component {
 
   renderOwners(ownerId) {
     const { name, address, city, state, zip, phone, email } = this.props.owners[ownerId];
-    const keys = Object.keys(this.props.owners[ownerId]).slice(1, 8);
+    const keys = Object.keys(this.props.owners[ownerId]).filter((property) => {
+      return property !== '_id' && property !== '__v';
+    });
 
     return (
       <article key={ownerId} id={`owner-${ownerId}`}>
@@ -26,7 +28,7 @@ class OwnersList extends React.Component {
           <div>
             {keys.map((property, i) => {
               return (
-                <dl key={i} className="flex lh-title mv2">
+                <dl key={`${i}-${ownerId}`} className="flex lh-title mv2">
                   <dt className="mr2 b ttc">{property}:</dt>
                   <dd className="ml0 dark-gray">{`${this.props.owners[ownerId][`${property}`]}`}</dd>
                 </dl>

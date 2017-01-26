@@ -18,7 +18,9 @@ class PoliciesList extends React.Component {
   renderPolicies(policyId) {
     const { ownerId, company, policyNumber, coverage, website, phone, email } = this.props.policies[policyId];
     const coverageCommas = coverage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    const keys = Object.keys(this.props.policies[policyId]).slice(2, 8);
+    const keys = Object.keys(this.props.policies[policyId]).filter((property) => {
+      return property !== '_id' && property !== '__v' && property !== 'ownerId';
+    });
 
     return (
       <article key={policyId} id={`item-${policyId}`}>
@@ -27,7 +29,7 @@ class PoliciesList extends React.Component {
           <div>
             {keys.map((property, i) => {
               return (
-                <dl key={i} className="flex lh-title mv2">
+                <dl key={`${i}-${policyId}`} className="flex lh-title mv2">
                   <dt className="mr2 b ttc">{property}:</dt>
                   <dd className="ml0 dark-gray">{`${this.props.policies[policyId][`${property}`]}`}</dd>
                 </dl>
