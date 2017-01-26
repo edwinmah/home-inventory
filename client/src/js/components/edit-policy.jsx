@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../actions/edit-policy';
+import { fetchPolicies } from '../actions/get-policies';
 
 
 class EditPolicy extends React.Component {
@@ -29,7 +30,7 @@ class EditPolicy extends React.Component {
     const isDisabled = (property === 'ownerId');
 
     return (
-      <p key={i} className="flex items-center mt0 mb2">
+      <p key={`${i}-${this.props.currentPolicy._id}`} className="flex items-center mt0 mb2">
         <label htmlFor={property} className="w-30 b ttc">{property}:</label>
         <input type="text" name={property} id={property} disabled={isDisabled} className="w-70 input-reset ba b--black-20 br2 pa2 sans-serif" defaultValue={`${this.props.currentPolicy[`${property}`]}`} ref={property} />
       </p>
@@ -38,6 +39,7 @@ class EditPolicy extends React.Component {
 
   render() {
     if (!this.props.currentPolicy) {
+      this.props.dispatch(fetchPolicies());
       return (
         <div className="mw6 mw8-ns center">
           <p className="pa3">Loading policy...</p>

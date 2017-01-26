@@ -2,6 +2,7 @@ import React from 'react';
 import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../actions/delete-item';
+import { fetchSingleItem } from '../actions/get-single-item';
 
 
 class DeleteItem extends React.Component {
@@ -21,6 +22,7 @@ class DeleteItem extends React.Component {
 
   render() {
     if (!this.props.currentItem) {
+      this.props.dispatch(fetchSingleItem(this.props.params.id));
       return (
         <div className="mw6 mw8-ns center">
           <p className="pa3">Loading item...</p>
@@ -65,7 +67,6 @@ class DeleteItem extends React.Component {
 const mapStateToProps = (state, props) => {
   return {
     categories: state.categories,
-    items: state.items,
     currentItem: state.items[props.params.id]
   }
 };

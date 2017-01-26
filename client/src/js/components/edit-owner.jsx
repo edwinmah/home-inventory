@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../actions/edit-owner';
+import { fetchOwners } from '../actions/get-owners';
 
 
 class EditOwner extends React.Component {
@@ -27,7 +28,7 @@ class EditOwner extends React.Component {
 
   renderFormInputs(property, i) {
     return (
-      <p key={i} className="flex items-center mt0 mb2">
+      <p key={`${i}-${this.props.currentOwner._id}`} className="flex items-center mt0 mb2">
         <label htmlFor={property} className="w-20 b ttc">{property}:</label>
         <input type="text" name={property} id={property} className="w-80 input-reset ba b--black-20 br2 pa2 sans-serif" defaultValue={`${this.props.currentOwner[`${property}`]}`} ref={property} />
       </p>
@@ -36,6 +37,7 @@ class EditOwner extends React.Component {
 
   render() {
     if (!this.props.currentOwner) {
+      this.props.dispatch(fetchOwners());
       return (
         <div className="mw6 mw8-ns center">
           <p className="pa3">Loading owner...</p>
@@ -43,8 +45,10 @@ class EditOwner extends React.Component {
       );
     }
 
-    const { _id, name, address, city, state, zip, phone, email } = this.props.currentOwner;
-    const keys = Object.keys(this.props.currentOwner).slice(1, 8);
+    const { _id, name } = this.props.currentOwner;
+    const keys = Object.keys(this.props.currentOwner).filter((property) => {
+      return property !== '_id' && property !== '__v';
+    });
 
     return (
       <div className="mw6 center ph3">
