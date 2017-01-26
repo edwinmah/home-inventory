@@ -25,10 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <Route path="" component={App}>
           <Route path="/" component={AllItems} />
           <Route path="/item/add" component={EditItem} />
-          <Route path="/account" component={AcctInfo}>
-            <Route path="/account/owner/edit/:ownerId" component={EditOwner} />
-            <Route path="/account/policy/edit/:policyId" component={EditPolicy} />
-          </Route>
+          <Route path="/account" component={AcctInfo} />
+          <Route path="/account/owner/edit/:id" component={EditOwner} />
+          <Route path="/account/policy/edit/:id" component={EditPolicy} />
           <Route path="/item/:id" component={SingleItem}>
             <Route path="/item/:id/edit" component={EditItem} />
           </Route>
