@@ -2,7 +2,7 @@ import React from 'react';
 import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../actions/delete-item';
-import { fetchSingleItem } from '../actions/get-single-item';
+import { fetchItems } from '../actions/get-items';
 
 
 class DeleteItem extends React.Component {
@@ -22,7 +22,7 @@ class DeleteItem extends React.Component {
 
   render() {
     if (!this.props.currentItem) {
-      this.props.dispatch(fetchSingleItem(this.props.params.id));
+      this.props.dispatch(fetchItems());
       return (
         <div className="mw6 mw8-ns center">
           <p className="pa3">Loading item...</p>
