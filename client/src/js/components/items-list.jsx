@@ -54,7 +54,7 @@ class ItemsList extends React.Component {
       return this.props.params.id === this.props.items[itemId].categoryId;
     });
 
-    let output, itemCount = 0, totalValue = [];
+    let output, itemCount = 0, totalValue;
     if (this.props.params.id !== undefined && categoryFilter.length === 0) {
       output = this.renderNoItems();
     }
