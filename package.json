@@ -57,6 +57,8 @@
     "nodemon": "^1.11.0",
     "normalize.css": "^5.0.0",
     "npm-run-all": "^3.1.2",
+    "passport": "^0.3.2",
+    "passport-google-oauth20": "^1.0.0",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-datetime": "^2.8.3",
