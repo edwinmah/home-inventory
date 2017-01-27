@@ -6,6 +6,11 @@ const OwnerSchema = new mongoose.Schema({
     required: true,
     trim    : true
   },
+  googleId: {
+    type    : String,
+    required: true,
+    trim    : true
+  },
   address: {
     type    : String,
     required: false,
