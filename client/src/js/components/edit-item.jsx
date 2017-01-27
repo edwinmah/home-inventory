@@ -86,7 +86,6 @@ class EditItem extends React.Component {
 
   renderCategoryNames(categoryId) {
     const { name } = this.props.categories[categoryId];
-
     return (
       <option key={categoryId} id={`item-${categoryId}`} value={categoryId}>{name}</option>
     );
@@ -131,7 +130,7 @@ class EditItem extends React.Component {
             <input type="text" name="replacementValue" id="replacementValue" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={replaceValue} ref="replaceValue" />
 
             <label htmlFor="category" className="b db mb2">Category:</label>
-            <select name="category" id="category" className="pa2 mb3 sans-serif" ref="category">
+            <select name="category" id="category" className="pa2 mb3 sans-serif" defaultValue={categoryId} ref="category">
               {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
             </select>
 
