@@ -36,7 +36,7 @@ class ItemsList extends React.Component {
             <p className="mb0"><span className="visuallyhidden focusable">Replacement Value of</span>{this.formatCurrency(replaceValue)}</p>
           </div>
         </Link>
-        <p className="f6"><span className="b">Category: </span>
+        <p className="f6"><span className="mid-gray b">Category: </span>
           <Link to={`/category/${categoryId}/items`} className="dark-blue hover-navy link">{this.props.categories[categoryId].name}</Link>
         </p>
       </article>
@@ -95,7 +95,7 @@ class ItemsList extends React.Component {
         <div className="mw6 mw8-ns center">
           <div className="flex items-baseline">
             <h2 className="pa3">{sectionTitle}</h2>
-            <span className="f5 b gray">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${this.formatCurrency(totalValue)}`})</span>
+            <span className="f5 b mid-gray">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${this.formatCurrency(totalValue)}`})</span>
           </div>
           <div className="flex flex-wrap">
             {output}
