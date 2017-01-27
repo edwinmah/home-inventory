@@ -15,9 +15,16 @@ class ItemsList extends React.Component {
     document.body.scrollTop = 0;
   }
 
+  calcTotalValue(itemId) {
+    return this.props.items[itemId].replaceValue;
+  }
+
+  formatCurrency(number) {
+    return `$${number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+  }
+
   renderItems(itemId) {
     const { name, categoryId, replaceValue, image } = this.props.items[itemId];
-    const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
 
     return (
@@ -26,7 +33,7 @@ class ItemsList extends React.Component {
           <img src={`${image}`} alt={name} className={imgStyle} />
           <div className="flex justify-between items-center">
             <h3 className="mb0 f5">{name}</h3>
-            <p className="mb0"><span className="visuallyhidden focusable">Replacement Value of</span>${replaceValueCommas}</p>
+            <p className="mb0"><span className="visuallyhidden focusable">Replacement Value of</span>{this.formatCurrency(replaceValue)}</p>
           </div>
         </Link>
         <p className="f6"><span className="b">Category: </span>
@@ -47,17 +54,21 @@ class ItemsList extends React.Component {
       return this.props.params.id === this.props.items[itemId].categoryId;
     });
 
-    let output, itemCount = 0;
+    let output, itemCount = 0, totalValue = [];
     if (this.props.params.id !== undefined && categoryFilter.length === 0) {
       output = this.renderNoItems();
     }
     else if (this.props.params.id !== undefined) {
       output = categoryFilter.map((itemId) => this.renderItems(itemId));
+      totalValue = categoryFilter.map((itemId) => this.calcTotalValue(itemId)).reduce((a,b) => a + b);
       itemCount = categoryFilter.length;
     }
     else {
       output = keys.map((itemId) => this.renderItems(itemId));
       itemCount = keys.length;
+      if (itemCount > 0) {
+        totalValue = keys.map((itemId) => this.calcTotalValue(itemId)).reduce((a,b) => a + b);
+      }
     }
 
     let sectionTitle;
@@ -82,7 +93,10 @@ class ItemsList extends React.Component {
     return (
       <section>
         <div className="mw6 mw8-ns center">
-          <h2 className="pa3">{sectionTitle} <span className="f5 gray">({itemCount})</span></h2>
+          <div className="flex items-baseline">
+            <h2 className="pa3">{sectionTitle}</h2>
+            <span className="f5 b gray">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${this.formatCurrency(totalValue)}`})</span>
+          </div>
           <div className="flex flex-wrap">
             {output}
             <div className="flex justify-center w-100 w-50-m w-33-ns pa3">

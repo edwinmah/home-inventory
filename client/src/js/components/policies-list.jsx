@@ -15,6 +15,10 @@ class PoliciesList extends React.Component {
     this.props.dispatch(actions.fetchPolicies());
   }
 
+  formatCurrency(number) {
+    return `$${number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+  }
+
   renderPolicies(policyId) {
     const { ownerId, company, policyNumber, coverage, website, phone, email } = this.props.policies[policyId];
     const coverageCommas = coverage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -31,7 +35,9 @@ class PoliciesList extends React.Component {
               return (
                 <dl key={`${i}-${policyId}`} className="flex lh-title mv2">
                   <dt className="mr2 b ttc">{property}:</dt>
-                  <dd className="ml0 dark-gray">{`${this.props.policies[policyId][`${property}`]}`}</dd>
+                  <dd className="ml0 dark-gray">
+                    {(property === 'coverage') ? `${this.formatCurrency(`${this.props.policies[policyId][property]}`)}` : `${this.props.policies[policyId][property]}`}
+                  </dd>
                 </dl>
               );
             })}
