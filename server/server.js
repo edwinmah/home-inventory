@@ -7,7 +7,8 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 import config from './config';
 import passport from 'passport';
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
+//var GoogleStrategy = require('passport-google-oauth20').Strategy;
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 const app = express();
 
 
@@ -32,6 +33,59 @@ app.use('/s3', require('react-dropzone-s3-uploader/s3router')({
   headers: {'Access-Control-Allow-Origin': '*'},
   ACL: 'public-read'
 }));
+app.use(passport.initialize());
+
+
+/*****************
+ * Authentication
+ ****************/
+passport.serializeUser(function(owner, done) {
+  console.log(owner);
+  console.log('owner');
+  var query = { _id: owner._id };
+  Owner.update(query, owner, done);
+});
+
+passport.deserializeUser(function(obj, done) {
+  console.log(obj);
+  done(null, obj);
+});
+
+
+passport.use(new GoogleStrategy({
+  clientID: config.GOOGLE_CLIENT_ID,
+  clientSecret: config.GOOGLE_CLIENT_SECRET,
+  callbackURL: "http://localhost:8080/auth/google/callback"
+},
+  function(accessToken, refreshToken, profile, cb) {
+  console.log(profile);
+    Owner.findOne({ googleId: profile.id })
+      .then(function(owner) {
+        if (!owner) {
+          return Owner.create({ googleId: profile.id, name: profile.displayName });
+        }
+        return owner;
+      })
+      .then(function(owner) {
+        return cb(null, owner);
+      })
+      .catch(function(err, owner) {
+        return cb(err, owner);
+      })
+  }
+));
+
+
+app.get('/auth/google',
+        passport.authenticate('google', { scope: ['profile'] }));
+
+app.get('/auth/google/callback',
+        passport.authenticate('google', { failureRedirect: '/login' }),
+        function(req, res) {
+  // Successful authentication, redirect home.
+  res.cookie('accessToken', req.user.accessToken, {expires: 0});
+  res.redirect('/');
+});
 
 
 /**********
@@ -63,7 +117,7 @@ const runServer = (callback) => {
  * GET Endpoints
  ***************/
 // GET all owners
-app.get('/owners', (req, res) => {
+app.get('/owners', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   Owner.find((err, owners) => {
     if (err) {
       console.log(err);
