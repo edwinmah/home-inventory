@@ -30,7 +30,7 @@ class OwnersList extends React.Component {
               return (
                 <dl key={`${i}-${ownerId}`} className="flex lh-title mv2">
                   <dt className="mr2 b ttc">{property}:</dt>
-                  <dd className="ml0 dark-gray">{`${this.props.owners[ownerId][`${property}`]}`}</dd>
+                  <dd className="ml0 dark-gray">{`${this.props.owners[ownerId][property]}`}</dd>
                 </dl>
               );
             })}
