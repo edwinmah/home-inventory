@@ -21,7 +21,6 @@ class PoliciesList extends React.Component {
 
   renderPolicies(policyId) {
     const { ownerId, company, policyNumber, coverage, website, phone, email } = this.props.policies[policyId];
-    const coverageCommas = coverage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const keys = Object.keys(this.props.policies[policyId]).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId';
     });
