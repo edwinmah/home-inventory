@@ -6,6 +6,8 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import config from './config';
+import passport from 'passport';
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
 const app = express();
 
 
