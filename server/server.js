@@ -130,7 +130,7 @@ app.get('/owners', passport.authenticate('google', { failureRedirect: '/login' }
 });
 
 // GET all policies
-app.get('/policies', (req, res) => {
+app.get('/policies', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   Policy.find((err, policies) => {
     if (err) {
       console.log(err);
@@ -143,7 +143,7 @@ app.get('/policies', (req, res) => {
 });
 
 // GET a single policy
-app.get('/policy/:id', (req, res) => {
+app.get('/policy/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query  = { _id: req.params.id };
   Policy.findOne(query, (err, policy) => {
     if (err) {
@@ -157,7 +157,7 @@ app.get('/policy/:id', (req, res) => {
 });
 
 // GET all items
-app.get('/items', (req, res) => {
+app.get('/items', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   Item.find((err, items) => {
     if (err) {
       console.log(err);
@@ -170,7 +170,7 @@ app.get('/items', (req, res) => {
 });
 
 // GET a single item
-app.get('/item/:id', (req, res) => {
+app.get('/item/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query  = { _id: req.params.id };
   Item.findOne(query, (err, item) => {
     if (err) {
@@ -184,7 +184,7 @@ app.get('/item/:id', (req, res) => {
 });
 
 // GET all categories
-app.get('/categories', (req, res) => {
+app.get('/categories', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   Category.find((err, categories) => {
     if (err) {
       console.log(err);
@@ -197,7 +197,7 @@ app.get('/categories', (req, res) => {
 });
 
 // GET items for a single category
-app.get('/category/:id/items', (req, res) => {
+app.get('/category/:id/items', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query = { _id: req.params.id }
   Category.findOne(query, (err, category) => {
     if (err) {
@@ -230,7 +230,7 @@ app.get('/category/:id/items', (req, res) => {
  * POST Endpoints
  ****************/
 // POST a single owner
-app.post('/owner', (req, res) => {
+app.post('/owner', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query = {
     name    : req.body.name,
     address : req.body.address,
@@ -253,7 +253,7 @@ app.post('/owner', (req, res) => {
 });
 
 // POST a single policy
-app.post('/policy', (req, res) => {
+app.post('/policy', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query = {
     ownerId      : req.body.ownerId,
     company      : req.body.company,
@@ -276,7 +276,7 @@ app.post('/policy', (req, res) => {
 });
 
 // POST a single item
-app.post('/item', (req, res) => {
+app.post('/item', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query = {
     ownerId         : req.body.ownerId,
     categoryId      : req.body.categoryId,
@@ -302,7 +302,7 @@ app.post('/item', (req, res) => {
 });
 
 // POST a single category
-app.post('/category', (req, res) => {
+app.post('/category', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query = {
     name        : req.body.name,
     description : req.body.description
@@ -324,7 +324,7 @@ app.post('/category', (req, res) => {
  * PUT Endpoints
  ***************/
 // PUT a single owner
-app.put('/owner/:id', (req, res) => {
+app.put('/owner/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query  = { _id : req.params.id }
   let update = {
     $set: {
@@ -350,7 +350,7 @@ app.put('/owner/:id', (req, res) => {
 });
 
 // PUT a single policy
-app.put('/policy/:id', (req, res) => {
+app.put('/policy/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query  = { _id : req.params.id }
   let update = {
     $set: {
@@ -376,7 +376,7 @@ app.put('/policy/:id', (req, res) => {
 });
 
 // PUT a single item
-app.put('/item/:id', (req, res) => {
+app.put('/item/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query  = { _id : req.params.id }
   let update = {
     $set: {
@@ -405,7 +405,7 @@ app.put('/item/:id', (req, res) => {
 });
 
 // PUT a single category
-app.put('/category/:id', (req, res) => {
+app.put('/category/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query  = { _id : req.params.id }
   let update = {
     $set: {
@@ -430,7 +430,7 @@ app.put('/category/:id', (req, res) => {
  * DELETE Endpoints
  ******************/
 // DELETE a single owner
-app.delete('/owner/:id', (req, res) => {
+app.delete('/owner/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query = { _id: req.params.id };
   Owner.findOneAndRemove(query, (err, owner) => {
     if (err) {
@@ -444,7 +444,7 @@ app.delete('/owner/:id', (req, res) => {
 });
 
 // DELETE a single policy
-app.delete('/policy/:id', (req, res) => {
+app.delete('/policy/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query = { _id: req.params.id };
   Policy.findOneAndRemove(query, (err, policy) => {
     if (err) {
@@ -458,7 +458,7 @@ app.delete('/policy/:id', (req, res) => {
 });
 
 // DELETE a single item
-app.delete('/item/:id', (req, res) => {
+app.delete('/item/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query = { _id: req.params.id };
   Item.findOneAndRemove(query, (err, item) => {
     if (err) {
@@ -472,7 +472,7 @@ app.delete('/item/:id', (req, res) => {
 });
 
 // DELETE a single category
-app.delete('/category/:id', (req, res) => {
+app.delete('/category/:id', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   let query = { _id: req.params.id };
   Category.findOneAndRemove(query, (err, category) => {
     if (err) {
