@@ -62,6 +62,7 @@
     "passport-http-bearer": "^1.0.1",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
+    "react-cookie": "^1.0.4",
     "react-datetime": "^2.8.3",
     "react-dom": "^15.4.1",
     "react-dropzone-s3-uploader": "^0.10.0",
