@@ -1,4 +1,5 @@
 require('isomorphic-fetch');
+import cookie from 'react-cookie';
 
 
 const FETCH_OWNERS_SUCCESS = 'FETCH_OWNERS_SUCCESS';
@@ -21,8 +22,14 @@ const fetchOwnersError = (owners, error) => {
 
 
 const fetchOwners = () => {
+  var myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
+  myHeaders.append('Authorization', `Bearer ${cookie.load('accessToken')}`);
   return (dispatch) => {
-    const init = { method: 'GET' };
+    const init = {
+      method: 'GET',
+      headers: myHeaders
+    };
     const url  = '/owners';
 
     return fetch(url, init).then((response) => {
