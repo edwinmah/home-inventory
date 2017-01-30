@@ -84,7 +84,12 @@ class ItemsList extends React.Component {
         <section>
           <div className="mw6 mw8-ns center">
             <h2 className="pa3">{sectionTitle}</h2>
-            <p className="pa3">Loading items...</p>
+            <div className="flex flex-wrap">
+              <p className="pa3">Loading items...</p>
+              <div className="flex justify-center w-100 w-50-m w-33-ns pa3">
+                <Link to={`/item/add`} className="flex flex-column items-center justify-center w-100 pa3 b--dashed bw1 b--black-20 br2 f4 b dark-blue link hover-bg-light-yellow tc">Add Item <span className="f1 b" dangerouslySetInnerHTML={{__html: '&plus;'}}></span></Link>
+              </div>
+            </div>
           </div>
         </section>
       );
