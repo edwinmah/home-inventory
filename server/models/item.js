@@ -8,7 +8,7 @@ const ItemSchema = new mongoose.Schema({
   },
   categoryId: {
     type    : String,
-    required: true,
+    required: false,
     trim    : true
   },
   accessToken: {
@@ -33,7 +33,7 @@ const ItemSchema = new mongoose.Schema({
   },
   replaceValue: {
     type    : Number,
-    required: true,
+    required: false,
     get: v  => Math.round(v),
     set: v  => Math.round(v)
   },
