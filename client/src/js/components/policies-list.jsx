@@ -22,9 +22,9 @@ class PoliciesList extends React.Component {
   renderPolicies(policyId) {
     const { ownerId, company, policyNumber, coverage, website, phone, email } = this.props.policies[policyId];
     const keys = Object.keys(this.props.policies[policyId]).filter((property) => {
-      return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken';
+      return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'company';
     });
-console.log(this.props.policies[policyId]._id);
+
     return (
       <article key={policyId} id={`item-${policyId}`}>
         <h3>{company}</h3>

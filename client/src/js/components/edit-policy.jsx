@@ -16,6 +16,7 @@ class EditPolicy extends React.Component {
     //dispatch to edit policy
     const req = {
       ownerId: this.refs.ownerId.value || this.props.currentPolicy.ownerId,
+      accessToken: this.props.currentPolicy.accessToken,
       company: this.refs.company.value,
       policyNumber: this.refs.policyNumber.value,
       coverage: this.refs.coverage.value,
@@ -46,9 +47,11 @@ class EditPolicy extends React.Component {
         </div>
       );
     }
-
+    console.log(this.props.currentPolicy);
     const { _id, ownerId, company, policyNumber, coverage, website, phone, email } = this.props.currentPolicy;
-    const keys = Object.keys(this.props.currentPolicy).slice(1, 8);
+    const keys = Object.keys(this.props.currentPolicy).filter((property) => {
+      return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken';
+    });
 
     return (
       <div className="mw6 center ph3">

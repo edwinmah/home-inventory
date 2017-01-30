@@ -18,7 +18,7 @@ class OwnersList extends React.Component {
   renderOwners(ownerId) {
     const { name, address, city, state, zip, phone, email } = this.props.owners[ownerId];
     const keys = Object.keys(this.props.owners[ownerId]).filter((property) => {
-      return property !== '_id' && property !== '__v' && property !== 'accessToken' && property !== 'googleId';
+      return property !== '_id' && property !== '__v' && property !== 'accessToken' && property !== 'googleId' && property !== 'name';
     });
 
     return (

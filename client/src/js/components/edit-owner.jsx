@@ -47,7 +47,7 @@ class EditOwner extends React.Component {
 
     const { _id, name } = this.props.currentOwner;
     const keys = Object.keys(this.props.currentOwner).filter((property) => {
-      return property !== '_id' && property !== '__v';
+      return property !== '_id' && property !== '__v' && property !== 'accessToken' && property !== 'googleId';
     });
 
     return (
