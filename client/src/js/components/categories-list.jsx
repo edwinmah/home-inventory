@@ -17,17 +17,19 @@ class CategoriesList extends React.Component {
   renderCategoryNames(categoryId) {
     const { name } = this.props.categories[categoryId];
     return (
-      <Link key={categoryId} to={`/category/${categoryId}/items`}  id={`category-${categoryId}`} className="db pa3 bt b--black-20 dark-blue hover-navy link bg-light-gray hover-bg-light-silver">
-        {name}
-      </Link>
+      <li key={categoryId} id={`category-${categoryId}`}>
+        <Link to={`/category/${categoryId}/items`} className="db pa3 bt b--black-20 dark-blue hover-navy link bg-light-gray hover-bg-light-silver">
+          {name}
+        </Link>
+      </li>
     );
   }
 
   render() {
     return (
-      <li>
+      <span>
         {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
-      </li>
+      </span>
     );
   }
 }
