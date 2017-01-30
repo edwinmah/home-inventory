@@ -6,6 +6,11 @@ const PolicySchema = new mongoose.Schema({
     required: true,
     trim    : true
   },
+  accessToken: {
+    type    : String,
+    required: true,
+    trim    : true
+  },
   company: {
     type    : String,
     required: true,
