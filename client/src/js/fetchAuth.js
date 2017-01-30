@@ -2,13 +2,14 @@ require('isomorphic-fetch');
 import cookie from 'react-cookie';
 
 
-export default function fetchAuth(method, url) {
+export default function fetchAuth(method, url, obj) {
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
   myHeaders.append('Authorization', `Bearer ${cookie.load('accessToken')}`);
 
   const init = {
     method: method,
+    body: JSON.stringify(obj),
     headers: myHeaders
   }
 
