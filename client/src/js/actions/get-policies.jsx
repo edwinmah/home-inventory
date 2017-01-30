@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+import fetchAuth from '../fetchAuth';
 
 
 const FETCH_POLICIES_SUCCESS = 'FETCH_POLICIES_SUCCESS';
@@ -20,30 +20,15 @@ const fetchPoliciesError = (policies, error) => {
 };
 
 
-const fetchPolicies = () => {
-  return (dispatch) => {
-    const init = { method: 'GET' };
-    const url  = '/policies';
-
-    return fetch(url, init).then((response) => {
-      if (response.status < 200 || response.status >= 300) {
-        const error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-      }
-      return response;
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const policies = data;
-        return dispatch(fetchPoliciesSuccess(policies));
-      })
-      .catch((error) => {
-        return dispatch(fetchPoliciesError(error));
-      });
-  }
+const fetchPolicies = () => dispatch => {
+  fetchAuth('GET', '/policies')
+  .then((data) => {
+    const policies = data;
+    return dispatch(fetchPoliciesSuccess(policies));
+  })
+  .catch((error) => {
+    return dispatch(fetchPoliciesError(error));
+  });
 };
 
 

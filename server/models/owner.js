@@ -34,8 +34,7 @@ const OwnerSchema = new mongoose.Schema({
   zip: {
     type      : String,
     required  : false,
-    trim      : true,
-    maxlength : 5
+    trim      : true
   },
   phone: {
     type    : String,
