@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { fetchOwners } from '../actions/get-owners';
 import { fetchCategoryNames } from '../actions/get-categories';
+import { deleteCategory } from '../actions/delete-category';
+import { createCategory } from '../actions/create-category';
+import { editCategory } from '../actions/edit-category';
 
 
 class EditCategory extends React.Component {
@@ -10,15 +14,22 @@ class EditCategory extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    document.body.scrollTop = 0;
+    if (!this.props.params.id) {
+      this.props.dispatch(fetchOwners());
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const req = {
-      ownerId: this.props.currentCategory.ownerId,
+      ownerId: this.props.currentCategory.ownerId || Object.keys(this.props.owners)[0],
       name: this.refs.name.value,
       description: this.refs.description.value
     }
     console.log(this.refs);
-    //this.props.dispatch(actions.editCategory(this.props.categories[]._id, req));
+    //this.props.dispatch(editCategory(this.props.currentCategory._id, req));
   }
 
   renderFormInputs(property, i) {
@@ -31,7 +42,6 @@ class EditCategory extends React.Component {
   }
 
   render() {
-console.log(this.props);
     if (!this.props.currentCategory) {
       this.props.dispatch(fetchCategoryNames());
       return (
@@ -66,6 +76,7 @@ console.log(this.props);
 const mapStateToProps = (state, props) => {
   return {
     categories: state.categories,
+    owners: state.owners,
     currentCategory: state.categories[props.params.id]
   }
 };
