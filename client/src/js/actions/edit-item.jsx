@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
 import actions from './get-single-item';
 
@@ -22,42 +22,21 @@ var editItemError = function(item, error) {
 };
 
 
-var editItem = function(itemId, obj) {
-  var myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
-  return function(dispatch) {
-    var init = {
-      method: 'PUT',
-      body: JSON.stringify(obj),
-      headers: myHeaders
-    };
-    var url  = '/item/' + itemId;
-
-    return fetch(url, init).then(function(response) {
-      if (response.status < 200 || response.status >= 300) {
-        var error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-      }
-      return response;
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        var item = data;
-        return dispatch(editItemSuccess(item));
-      })
-      .then(function() {
-        dispatch(actions.fetchSingleItem(itemId));
-        hashHistory.push(url);
-        document.body.scrollTop = 0;
-      })
-      .catch(function(error) {
-        console.log(error);
-        return dispatch(editItemError(error));
-      });
-  }
+var editItem = (itemId, obj) => dispatch => {
+  fetchAuth('PUT', `/item/${itemId}`, obj)
+  .then(function(data) {
+    var item = data;
+    return dispatch(editItemSuccess(item));
+  })
+  .then(function() {
+    dispatch(actions.fetchSingleItem(itemId));
+    hashHistory.push(`/item/${itemId}`);
+    document.body.scrollTop = 0;
+  })
+  .catch(function(error) {
+    console.log(error);
+    return dispatch(editItemError(error));
+  });
 };
 
 
