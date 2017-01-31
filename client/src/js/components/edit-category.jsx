@@ -73,6 +73,14 @@ class EditCategory extends React.Component {
 }
 
 
+EditCategory.defaultProps = {
+  currentCategory: {
+    name: 'Edit this name',
+    description: 'Edit this description'
+  }
+}
+
+
 const mapStateToProps = (state, props) => {
   return {
     categories: state.categories,
