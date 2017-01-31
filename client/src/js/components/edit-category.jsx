@@ -75,7 +75,7 @@ class EditCategory extends React.Component {
           {keys.map((property, i) => this.renderFormInputs(property, i))}
           <div className="flex flex-row">
             <Link to={'/categories'} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-mid-gray hover-bg-dark-gray sans-serif tc">Cancel</Link>
-            {(!this.props.params.id) ? this.renderDeleteLink()}
+            {(!this.props.params.id) ? this.renderDeleteLink() : ''}
             <button type="submit" className="w-third link bn br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy sans-serif">Save</button>
           </div>
         </form>
