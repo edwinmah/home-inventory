@@ -6,11 +6,6 @@ const CategorySchema = new mongoose.Schema({
     required: true,
     trim    : true
   },
-  accessToken: {
-    type    : String,
-    required: true,
-    trim    : true
-  },
   name: {
     type    : String,
     required: true,
