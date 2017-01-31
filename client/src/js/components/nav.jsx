@@ -34,6 +34,7 @@ class Nav extends React.Component {
             </ul>
           </li>
           <li className="pa3"><Link to={'/account'} className="dark-blue hover-navy link">Account Info</Link></li>
+          <li className="pa3"><a href="/auth/google" className="dark-blue hover-navy link">Login/logout</a></li>
         </ul>
       </nav>
     );
