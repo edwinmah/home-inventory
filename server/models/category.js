@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 
 const CategorySchema = new mongoose.Schema({
+  ownerId: {
+    type    : String,
+    required: true,
+    trim    : true
+  },
   accessToken: {
     type    : String,
     required: true,
