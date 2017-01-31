@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
 import actions from './get-policies';
 
@@ -22,42 +22,21 @@ var editPolicyError = function(policy, error) {
 };
 
 
-var editPolicy = function(policyId, obj) {
-  var myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
-  return function(dispatch) {
-    var init = {
-      method: 'PUT',
-      body: JSON.stringify(obj),
-      headers: myHeaders
-    };
-    var url  = '/policy/' + policyId;
-
-    return fetch(url, init).then(function(response) {
-      if (response.status < 200 || response.status >= 300) {
-        var error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-      }
-      return response;
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-      var policy = data;
-        return dispatch(editPolicySuccess(policy));
-      })
-      .then(function() {
-        dispatch(actions.fetchPolicies());
-        hashHistory.push('/account');
-        document.body.scrollTop = 0;
-      })
-      .catch(function(error) {
-        console.log(error);
-        return dispatch(editPolicyError(error));
-      });
-  }
+var editPolicy = (policyId, obj) => dispatch => {
+  fetchAuth('PUT', `/policy/${policyId}`, obj)
+  .then(function(data) {
+    var policy = data;
+    return dispatch(editPolicySuccess(policy));
+  })
+  .then(function() {
+    dispatch(actions.fetchPolicies());
+    hashHistory.push('/account');
+    document.body.scrollTop = 0;
+  })
+  .catch(function(error) {
+    console.log(error);
+    return dispatch(editPolicyError(error));
+  });
 };
 
 

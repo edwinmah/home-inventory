@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
 import actions from './get-owners';
 
@@ -22,42 +22,21 @@ var editOwnerError = function(owner, error) {
 };
 
 
-var editOwner = function(ownerId, obj) {
-  var myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
-  return function(dispatch) {
-    var init = {
-      method: 'PUT',
-      body: JSON.stringify(obj),
-      headers: myHeaders
-    };
-    var url  = '/owner/' + ownerId;
-
-    return fetch(url, init).then(function(response) {
-      if (response.status < 200 || response.status >= 300) {
-        var error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-      }
-      return response;
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        var owner = data;
-        return dispatch(editOwnerSuccess(owner));
-      })
-      .then(function() {
-        dispatch(actions.fetchOwners());
-        hashHistory.push('/account');
-        document.body.scrollTop = 0;
-      })
-      .catch(function(error) {
-        console.log(error);
-        return dispatch(editOwnerError(error));
-      });
-  }
+var editOwner = (ownerId, obj) => dispatch => {
+  fetchAuth('PUT', `/owner/${ownerId}`, obj)
+  .then(function(data) {
+    var owner = data;
+    return dispatch(editOwnerSuccess(owner));
+  })
+    .then(function() {
+    dispatch(actions.fetchOwners());
+    hashHistory.push('/account');
+    document.body.scrollTop = 0;
+  })
+    .catch(function(error) {
+    console.log(error);
+    return dispatch(editOwnerError(error));
+  });
 };
 
 
