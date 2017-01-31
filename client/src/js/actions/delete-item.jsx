@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
 
 
@@ -21,33 +21,18 @@ var deleteSingleItemError = function(itemId, error) {
 };
 
 
-var deleteSingleItem = function(itemId) {
-  return function(dispatch) {
-    var init = { method: 'DELETE' };
-    var url  = '/item/' + itemId;
-
-    return fetch(url, init).then(function(response) {
-      if (response.status < 200 || response.status >= 300) {
-        var error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-      }
-      return response;
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(item) {
-        return dispatch(deleteSingleItemSuccess(item._id));
-      })
-      .then(function() {
-        hashHistory.push('/');
-      })
-      .catch(function(error) {
-        console.log(error);
-        return dispatch(deleteSingleItemError(error));
-      });
-  }
+var deleteSingleItem = (itemId) => dispatch => {
+  fetchAuth('DELETE', `/item/${itemId}`)
+  .then(function(item) {
+    return dispatch(deleteSingleItemSuccess(item._id));
+  })
+  .then(function() {
+    hashHistory.push('/');
+  })
+  .catch(function(error) {
+    console.log(error);
+    return dispatch(deleteSingleItemError(error));
+  });
 };
 
 
