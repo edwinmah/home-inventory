@@ -15,6 +15,8 @@ import DeleteItem from './components/delete-item';
 import AcctInfo from './components/acct-info';
 import EditOwner from './components/edit-owner';
 import EditPolicy from './components/edit-policy';
+import CategoriesPanel from './components/categories-panel';
+import EditCategory from './components/edit-category';
 
 
 
@@ -33,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
           </Route>
           <Route path="/item/:id/delete" component={DeleteItem} />
           <Route path="/category/:id/items" component={AllItems} />
+          <Route path="/categories" component={CategoriesPanel}>
+            <Route path="/category/edit/:id" component={EditCategory} />
+          </Route>
         </Route>
       </Router>
     </Provider>,
