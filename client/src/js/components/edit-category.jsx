@@ -28,8 +28,14 @@ class EditCategory extends React.Component {
       name: this.refs.name.value,
       description: this.refs.description.value
     }
-    console.log(this.refs);
-    //this.props.dispatch(editCategory(this.props.currentCategory._id, req));
+
+    console.log(req);
+
+//    if (this.props.params.id) {
+//      this.props.dispatch(editCategory(this.props.currentCategory._id, req));
+//    } else {
+//      this.props.dispatch(createCategory(req));
+//    }
   }
 
   renderFormInputs(property, i) {
@@ -63,7 +69,7 @@ class EditCategory extends React.Component {
           {keys.map((property, i) => this.renderFormInputs(property, i))}
           <div className="flex flex-row">
             <Link to={'/categories'} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-mid-gray hover-bg-dark-gray sans-serif tc">Cancel</Link>
-            <Link to={`/category/delete/${_id}`} className={'w-third link bn br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red sans-serif tc'}>Delete</Link>
+            <Link to={`/category/delete/${_id}`} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red sans-serif tc">Delete</Link>
             <button type="submit" className="w-third link bn br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy sans-serif">Save</button>
           </div>
         </form>
