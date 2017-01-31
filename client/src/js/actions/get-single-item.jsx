@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+import fetchAuth from '../fetchAuth';
 
 
 var FETCH_SINGLE_ITEM_SUCCESS = 'FETCH_SINGLE_ITEM_SUCCESS';
@@ -20,30 +20,15 @@ var fetchSingleItemError = function(item, error) {
 };
 
 
-var fetchSingleItem = function(itemId) {
-  return function(dispatch) {
-    var init = { method: 'GET' };
-    var url  = '/item/' + itemId;
-
-    return fetch(url, init).then(function(response) {
-      if (response.status < 200 || response.status >= 300) {
-        var error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-      }
-      return response;
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        var item = data;
-        return dispatch(fetchSingleItemSuccess(item));
-      })
-      .catch(function(error) {
-        return dispatch(fetchSingleItemError(error));
-      });
-  }
+var fetchSingleItem = (itemId) => dispatch => {
+  fetchAuth('GET', `/item/${itemId}`)
+  .then(function(data) {
+    var item = data;
+    return dispatch(fetchSingleItemSuccess(item));
+  })
+  .catch(function(error) {
+    return dispatch(fetchSingleItemError(error));
+  });
 };
 
 
