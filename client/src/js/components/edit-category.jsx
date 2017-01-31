@@ -83,4 +83,3 @@ const mapStateToProps = (state, props) => {
 
 
 export default connect(mapStateToProps)(EditCategory);
-//export default EditCategory;
