@@ -30,7 +30,7 @@ var createItem = (obj) => dispatch => {
   })
   .then(function(data) {
     dispatch(actions.fetchSingleItem(data.item._id));
-    hashHistory.push(`${url}/${data.item._id}`);
+    hashHistory.push(`/item/${data.item._id}`);
     document.body.scrollTop = 0;
   })
   .catch(function(error) {
