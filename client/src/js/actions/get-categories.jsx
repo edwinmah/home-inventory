@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+import fetchAuth from '../fetchAuth';
 
 
 const FETCH_CATEGORY_NAMES_SUCCESS = 'FETCH_CATEGORY_NAMES_SUCCESS';
@@ -20,30 +20,15 @@ const fetchCategoryNamesError = (categories, error) => {
 };
 
 
-const fetchCategoryNames = () => {
-  return (dispatch) => {
-    const init = { method: 'GET' };
-    const url  = '/categories';
-
-    return fetch(url, init).then((response) => {
-      if (response.status < 200 || response.status >= 300) {
-        const error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-      }
-      return response;
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const categories = data;
-        return dispatch(fetchCategoryNamesSuccess(categories));
-      })
-      .catch((error) => {
-        return dispatch(fetchCategoryNamesError(error));
-      });
-  }
+const fetchCategoryNames = () => dispatch => {
+  fetchAuth('GET', '/categories')
+  .then((data) => {
+    const categories = data;
+    return dispatch(fetchCategoryNamesSuccess(categories));
+  })
+  .catch((error) => {
+    return dispatch(fetchCategoryNamesError(error));
+  });
 };
 
 
