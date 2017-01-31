@@ -22,7 +22,7 @@ var createItemError = function(item, error) {
 };
 
 
-var createItem = (obj) => (dispatch, obj) => {
+var createItem = (obj) => dispatch => {
   fetchAuth('POST', '/item', obj)
   .then(function(data) {
     var item = data;
