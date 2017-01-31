@@ -11,11 +11,6 @@ const ItemSchema = new mongoose.Schema({
     required: false,
     trim    : true
   },
-  accessToken: {
-    type    : String,
-    required: true,
-    trim    : true
-  },
   name: {
     type    : String,
     required: true,
