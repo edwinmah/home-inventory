@@ -21,7 +21,7 @@ export default function fetchAuth(method, url, obj) {
     }
     return response;
   })
-    .then((response) => {
+  .then((response) => {
     return response.json();
   })
 }
