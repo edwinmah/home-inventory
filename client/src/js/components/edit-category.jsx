@@ -30,11 +30,11 @@ class EditCategory extends React.Component {
 
     console.log(req);
 
-//    if (this.props.params.id) {
-//      this.props.dispatch(editCategory(this.props.currentCategory._id, req));
-//    } else {
-//      this.props.dispatch(createCategory(req));
-//    }
+    if (this.props.params.id) {
+      this.props.dispatch(editCategory(this.props.currentCategory._id, req));
+    } else {
+      this.props.dispatch(createCategory(req));
+    }
   }
 
   renderFormInputs(property, i) {
