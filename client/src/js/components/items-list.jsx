@@ -1,7 +1,6 @@
 import React from 'react';
 import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
-import actions from '../actions/get-items';
 
 
 class ItemsList extends React.Component {
@@ -11,7 +10,6 @@ class ItemsList extends React.Component {
 
   componentDidMount() {
     // dispatch to get all items
-    this.props.dispatch(actions.fetchItems());
     document.body.scrollTop = 0;
   }
 

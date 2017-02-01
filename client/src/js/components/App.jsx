@@ -1,11 +1,19 @@
 import React from 'react';
 import Header from './header';
 import Footer from './footer';
+import { connect } from 'react-redux';
+import actions from '../actions/get-items';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    // dispatch to get all items
+    this.props.dispatch(actions.fetchItems());
+    document.body.scrollTop = 0;
   }
 
   render() {
@@ -22,4 +30,14 @@ class App extends React.Component {
 }
 
 
-export default App;
+const mapStateToProps = (state, props) => {
+  return {
+    items: state.items
+  }
+};
+
+
+export default connect(mapStateToProps)(App);
+
+
+//export default App;
