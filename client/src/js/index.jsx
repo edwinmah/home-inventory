@@ -17,6 +17,7 @@ import EditOwner from './components/edit-owner';
 import EditPolicy from './components/edit-policy';
 import CategoriesPanel from './components/categories-panel';
 import EditCategory from './components/edit-category';
+import DeleteCategory from './components/delete-category';
 
 
 
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <Route path="/category/edit/:id" component={EditCategory} />
             <Route path="/category/add" component={EditCategory} />
           </Route>
+          <Route path="/category/delete/:id" component={DeleteCategory} />
         </Route>
       </Router>
     </Provider>,
