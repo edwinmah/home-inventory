@@ -9,7 +9,6 @@ class ItemsList extends React.Component {
   }
 
   componentDidMount() {
-    // dispatch to get all items
     document.body.scrollTop = 0;
   }
 
