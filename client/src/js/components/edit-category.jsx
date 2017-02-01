@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { fetchOwners } from '../actions/get-owners';
-import { fetchCategoryNames } from '../actions/get-categories';
 import { deleteCategory } from '../actions/delete-category';
 import { createCategory } from '../actions/create-category';
 import { editCategory } from '../actions/edit-category';
@@ -54,9 +53,7 @@ class EditCategory extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     if (!this.props.currentCategory) {
-      this.props.dispatch(fetchCategoryNames());
       return (
         <div className="w-100 w-50-ns">
           <p>Loading...</p>
