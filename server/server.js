@@ -61,16 +61,37 @@ passport.use(new GoogleStrategy({
     Owner.findOne({ googleId: profile.id })
       .then(function(owner) {
         if (!owner) {
+          let newOwner;
           return Owner.create({
             googleId: profile.id,
             name: profile.displayName,
-            accessToken: accessToken
+            accessToken: accessToken,
+            address: 'Address',
+            city: 'City',
+            state: 'State',
+            zip: '12345',
+            phone: '456-789-0123',
+            email: 'yourname@email.com'
           })
           .then(function(owner) {
-            cb(null, owner);
+            newOwner = owner;
             return Policy.create({
-
-            });
+              ownerId: owner._id,
+              company: 'Insurance company name',
+              policyNumber: 'Policy number',
+              coverage: 0,
+              website: 'https://www.insurancecompany.com',
+              phone: '123-456-7890',
+              email: 'email@insurancecompany.com'
+            })
+          })
+          .then(function(policy) {
+            cb(null, newOwner);
+            return Category.create({
+              ownerId: newOwner._id,
+              name: 'Uncategorized',
+              description: 'Items that don\'t fit any category'
+            })
           })
         }
         return cb(null, owner);
