@@ -49,11 +49,12 @@ class EditCategory extends React.Component {
 
   renderDeleteLink() {
     return (
-      <Link to={`/category/delete/${_id}`} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red sans-serif tc">Delete</Link>
+      <Link to={`/category/delete/${this.props.params.id}`} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red sans-serif tc">Delete</Link>
     );
   }
 
   render() {
+    console.log(this.props);
     if (!this.props.currentCategory) {
       this.props.dispatch(fetchCategoryNames());
       return (
@@ -67,6 +68,10 @@ class EditCategory extends React.Component {
     const keys = Object.keys(this.props.categories[this.props.params.id]).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId';
     });
+    const widthStyle  = (!this.props.params.id) ? 'w-50' : 'w-third';
+    const sharedStyle = 'link bn br2 ph3 pv2 mr2 mv3 white';
+    const cancelStyle = 'bg-mid-gray hover-bg-dark-gray tc';
+    const saveStyle   = 'bg-dark-blue hover-bg-navy';
 
     return (
       <section className="w-100 w-50-ns">
@@ -74,9 +79,9 @@ class EditCategory extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {keys.map((property, i) => this.renderFormInputs(property, i))}
           <div className="flex flex-row">
-            <Link to={'/categories'} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-mid-gray hover-bg-dark-gray sans-serif tc">Cancel</Link>
-            {(!this.props.params.id) ? this.renderDeleteLink() : ''}
-            <button type="submit" className="w-third link bn br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy sans-serif">Save</button>
+            <Link to={'/categories'} className={`${widthStyle} ${sharedStyle} ${cancelStyle} sans-serif tc`}>Cancel</Link>
+            {(this.props.params.id) ? this.renderDeleteLink() : ''}
+            <button type="submit" className={`${widthStyle} ${sharedStyle} ${saveStyle} sans-serif`}>Save</button>
           </div>
         </form>
       </section>
