@@ -1,5 +1,5 @@
 import React from 'react';
-import { router, Link } from 'react-router';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { deleteCategory } from '../actions/delete-category';
 
@@ -19,6 +19,20 @@ class DeleteCategory extends React.Component {
     this.props.dispatch(deleteCategory(this.props.params.id));
   }
 
+  calcTotalValue(itemId) {
+    return this.props.items[itemId].replaceValue;
+  }
+
+  formatCurrency(number) {
+    return `$${number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+  }
+
+  renderItemMsg(itemCount, totalValue) {
+    return (
+      <span>This category contains {`${itemCount} ${(itemCount > 1) ? 'items' : 'item'}`} worth {`${this.formatCurrency(totalValue)}.`} <Link to={`/category/${this.props.params.id}/items`} className="dark-blue hover-navy link">Please reclassify these {`${(itemCount > 1) ? 'items' : 'item'}`}</Link> before deleting this category.</span>
+    )
+  }
+
   render() {
     if (!this.props.currentCategory) {
       return (
@@ -30,6 +44,15 @@ class DeleteCategory extends React.Component {
 
     const { name, description } = this.props.currentCategory;
     const sharedStyle = 'w-50 link bn br2 ph3 pv2 mr2 mv3 white';
+
+    const keys = Object.keys(this.props.items);
+    const categoryFilter = keys.filter((itemId) => {
+      return this.props.params.id === this.props.items[itemId].categoryId;
+    });
+
+    const itemCount  = categoryFilter.length;
+    const totalValue = categoryFilter.map((itemId) => this.calcTotalValue(itemId)).reduce((a,b) => a + b);
+    const isDisabled = (itemCount > 0) ? 'disabled' : '';
 
     return (
       <div className="mw6 mw8-ns center ph3">
@@ -43,10 +66,10 @@ class DeleteCategory extends React.Component {
           </div>
 
           <form onSubmit={this.handleSubmit} className="w-100 w-50-ns">
-            <p className="f5 f4-l b">Are you sure you want to delete this category?</p>
+            <p className="lh-title b">{(itemCount > 0) ? this.renderItemMsg(itemCount, totalValue) : 'Are you sure you want to delete this category?'}</p>
             <div className="flex">
-              <Link to={'/categories'} className={`${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>No, go back.</Link>
-              <button type="submit" className={`${sharedStyle} bg-red hover-bg-dark-red`}>Yes, delete.</button>
+              <Link to={'/categories'} className={`${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>{(isDisabled) ? 'Go back' : 'No, go back.'}</Link>
+              <button type="submit" disabled={isDisabled} className={`${sharedStyle} bg-red ${(!isDisabled) ? 'hover-bg-dark-red' : ''}`}>{(isDisabled) ? 'Disabled' : 'Yes, delete'}</button>
             </div>
           </form>
         </div>
@@ -58,6 +81,7 @@ class DeleteCategory extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
+    items: state.items,
     categories: state.categories,
     currentCategory: state.categories[props.params.id]
   }
