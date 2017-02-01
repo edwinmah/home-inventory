@@ -2,17 +2,11 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import EditPolicy from './edit-policy';
-import actions from '../actions/get-policies';
 
 
 class PoliciesList extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    // dispatch to get policies
-    this.props.dispatch(actions.fetchPolicies());
   }
 
   formatCurrency(number) {

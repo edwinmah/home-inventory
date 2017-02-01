@@ -1,18 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import actions from '../actions/get-owners';
 
 
 
 class OwnersList extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    // dispatch to get owners
-    this.props.dispatch(actions.fetchOwners());
   }
 
   renderOwners(ownerId) {

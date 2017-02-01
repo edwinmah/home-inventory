@@ -4,6 +4,8 @@ import Footer from './footer';
 import { connect } from 'react-redux';
 import { fetchItems } from '../actions/get-items';
 import { fetchCategoryNames } from '../actions/get-categories';
+import { fetchPolicies } from '../actions/get-policies';
+import { fetchOwners } from '../actions/get-owners';
 
 
 class App extends React.Component {
@@ -14,6 +16,8 @@ class App extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchItems());
     this.props.dispatch(fetchCategoryNames());
+    this.props.dispatch(fetchPolicies());
+    this.props.dispatch(fetchOwners());
     document.body.scrollTop = 0;
   }
 
