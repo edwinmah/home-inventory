@@ -129,7 +129,6 @@ app.get('/auth/google/callback',
         passport.authenticate('google', { failureRedirect: '/login' }),
         function(req, res) {
   // Successful authentication, redirect home.
-  console.log(req.user)
   res.cookie('accessToken', req.user.accessToken, {expires: 0});
   res.redirect('/');
 });
@@ -186,7 +185,7 @@ app.get('/policies', (req, res) => {
 
 // GET a single policy
 app.get('/policy/:id', (req, res) => {
-  let query  = { _id: req.params.id };
+  let query = { _id: req.params.id };
   Policy.findOne(query, (err, policy) => {
     if (err) {
       console.log(err);
