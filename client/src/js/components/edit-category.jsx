@@ -28,8 +28,6 @@ class EditCategory extends React.Component {
       description: this.refs.description.value
     }
 
-    console.log(req);
-
     if (this.props.params.id) {
       this.props.dispatch(editCategory(this.props.currentCategory._id, req));
     } else {
@@ -48,7 +46,7 @@ class EditCategory extends React.Component {
 
   renderDeleteLink() {
     return (
-      <Link to={`/category/delete/${this.props.params.id}`} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red sans-serif tc">Delete</Link>
+      <Link to={`/category/delete/${this.props.params.id}`} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red tc">Delete</Link>
     );
   }
 
