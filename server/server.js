@@ -171,8 +171,9 @@ app.get('/owners', auth, (req, res) => {
 });
 
 // GET all policies
-app.get('/policies', (req, res) => {
-  Policy.find((err, policies) => {
+app.get('/policies', auth, (req, res) => {
+  let query = { ownerId: req.user._id };
+  Policy.find(query, (err, policies) => {
     if (err) {
       console.log(err);
       return res.status(400).json({
@@ -198,7 +199,7 @@ app.get('/policy/:id', (req, res) => {
 });
 
 // GET all items
-app.get('/items', (req, res) => {
+app.get('/items', auth, (req, res) => {
   let query = { ownerId: req.user._id };
   Item.find(query, (err, items) => {
     if (err) {
@@ -226,8 +227,9 @@ app.get('/item/:id', (req, res) => {
 });
 
 // GET all categories
-app.get('/categories', (req, res) => {
-  Category.find((err, categories) => {
+app.get('/categories', auth, (req, res) => {
+  let query = { ownerId: req.user._id };
+  Category.find(query, (err, categories) => {
     if (err) {
       console.log(err);
       return res.status(400).json({
