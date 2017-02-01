@@ -25,11 +25,11 @@ var editCategoryError = function(category, error) {
 var editCategory = (categoryId, obj) => dispatch => {
   fetchAuth('PUT', `/category/${categoryId}`, obj)
   .then(function(data) {
-    var item = data;
+    var category = data;
     return dispatch(editCategorySuccess(category));
   })
   .then(function() {
-    //dispatch(actions.fetchCategoryNames());
+    dispatch(actions.fetchCategoryNames());
     hashHistory.push(`/categories`);
     document.body.scrollTop = 0;
   })
