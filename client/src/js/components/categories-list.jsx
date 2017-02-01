@@ -1,17 +1,11 @@
 import React from 'react';
 import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
-import actions from '../actions/get-categories';
 
 
 class CategoriesList extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    // dispatch to get category names
-    this.props.dispatch(actions.fetchCategoryNames());
   }
 
   renderCategoryNames(categoryId) {

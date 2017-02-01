@@ -2,7 +2,8 @@ import React from 'react';
 import Header from './header';
 import Footer from './footer';
 import { connect } from 'react-redux';
-import actions from '../actions/get-items';
+import { fetchItems } from '../actions/get-items';
+import { fetchCategoryNames } from '../actions/get-categories';
 
 
 class App extends React.Component {
@@ -11,8 +12,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // dispatch to get all items
-    this.props.dispatch(actions.fetchItems());
+    this.props.dispatch(fetchItems());
+    this.props.dispatch(fetchCategoryNames());
     document.body.scrollTop = 0;
   }
 
