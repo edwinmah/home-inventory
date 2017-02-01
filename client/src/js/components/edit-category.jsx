@@ -23,7 +23,7 @@ class EditCategory extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const req = {
-      ownerId: this.props.currentCategory.ownerId || Object.keys(this.props.owners)[0],
+      ownerId: Object.keys(this.props.owners)[0],
       name: this.refs.name.value,
       description: this.refs.description.value
     }
