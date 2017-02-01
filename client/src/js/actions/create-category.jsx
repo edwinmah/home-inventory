@@ -29,7 +29,7 @@ var createCategory = (obj) => dispatch => {
     return dispatch(createCategorySuccess(category));
   })
   .then(function(data) {
-    //dispatch(actions.fetchCategoryNames());
+    dispatch(actions.fetchCategoryNames());
     hashHistory.push(`/categories`);
     document.body.scrollTop = 0;
   })
