@@ -348,6 +348,7 @@ app.post('/item', (req, res) => {
 // POST a single category
 app.post('/category', (req, res) => {
   let query = {
+    ownerId     : req.body.ownerId,
     name        : req.body.name,
     description : req.body.description
   };
