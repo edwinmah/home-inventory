@@ -33,7 +33,7 @@ class EditItem extends React.Component {
     event.preventDefault();
     //dispatch to edit/add item
     const req = {
-      ownerId: this.props.currentItem.ownerId || Object.keys(this.props.owners)[0],
+      ownerId: Object.keys(this.props.owners)[0],
       categoryId: this.refs.category.value,
       name: this.refs.name.value,
       replaceValue: parseInt(this.refs.replaceValue.value),
