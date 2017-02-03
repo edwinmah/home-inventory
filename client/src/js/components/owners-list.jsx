@@ -10,14 +10,13 @@ class OwnersList extends React.Component {
   }
 
   renderOwners(ownerId) {
-    const { name, address, city, state, zip, phone, email } = this.props.owners[ownerId];
     const keys = Object.keys(this.props.owners[ownerId]).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'accessToken' && property !== 'googleId' && property !== 'name';
     });
 
     return (
       <article key={ownerId} id={`owner-${ownerId}`}>
-        <h3>{name}</h3>
+        <h3>{this.props.owners[ownerId].name}</h3>
         <div className="flex flex-column">
           <div>
             {keys.map((property, i) => {
