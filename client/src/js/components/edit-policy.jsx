@@ -48,7 +48,6 @@ class EditPolicy extends React.Component {
       );
     }
 
-    const { _id, ownerId, company, policyNumber, coverage, website, phone, email } = this.props.currentPolicy;
     const keys = Object.keys(this.props.currentPolicy).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken';
     });
@@ -56,8 +55,8 @@ class EditPolicy extends React.Component {
 
     return (
       <div className="mw6 center ph3">
-        <article id={`item-${_id}`}>
-          <h3>{company}</h3>
+        <article id={`item-${this.props.currentPolicy._id}`}>
+          <h3>{this.props.currentPolicy.company}</h3>
           <div className="flex flex-column">
             <form className="flex flex-column" onSubmit={this.handleSubmit}>
               {keys.map((property, i) => this.renderFormInputs(property, i))}
