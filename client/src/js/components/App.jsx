@@ -6,6 +6,8 @@ import { fetchItems } from '../actions/get-items';
 import { fetchCategoryNames } from '../actions/get-categories';
 import { fetchPolicies } from '../actions/get-policies';
 import { fetchOwners } from '../actions/get-owners';
+import GoogleAuthorization from './auth';
+import cookie from 'react-cookie';
 
 
 class App extends React.Component {
@@ -21,12 +23,19 @@ class App extends React.Component {
     document.body.scrollTop = 0;
   }
 
+  renderMainContent() {
+    if (!cookie.load('accessToken')) {
+      return <GoogleAuthorization />;
+    }
+    return this.props.children;
+  }
+
   render() {
     return (
       <div className="bt bw2 b--dark-blue sans-serif">
         <Header />
         <main id="content">
-          {this.props.children}
+          {this.renderMainContent()}
         </main>
         <Footer />
       </div>
@@ -43,6 +52,3 @@ const mapStateToProps = (state, props) => {
 
 
 export default connect(mapStateToProps)(App);
-
-
-//export default App;
