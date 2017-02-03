@@ -45,15 +45,14 @@ class EditOwner extends React.Component {
       );
     }
 
-    const { _id, name } = this.props.currentOwner;
     const keys = Object.keys(this.props.currentOwner).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'accessToken' && property !== 'googleId';
     });
 
     return (
       <div className="mw6 center ph3">
-        <article id={`item-${_id}`}>
-          <h3>{name}</h3>
+        <article id={`item-${this.props.currentOwner._id}`}>
+          <h3>{this.props.currentOwner.name}</h3>
           <div className="flex flex-column">
             <form className="flex flex-column" onSubmit={this.handleSubmit}>
               {keys.map((property, i) => this.renderFormInputs(property, i))}
