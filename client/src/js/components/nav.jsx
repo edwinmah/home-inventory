@@ -1,5 +1,6 @@
 import React from 'react';
-import { router, Link } from 'react-router';
+import { hashHistory, Link } from 'react-router';
+import cookie from 'react-cookie';
 import CategoriesList from './categories-list';
 
 
@@ -9,7 +10,13 @@ class Nav extends React.Component {
     this.state = {
       menuIsHidden: true
     };
+    this.handleSignOut = this.handleSignOut.bind(this);
     this.handleMenuDisplay = this.handleMenuDisplay.bind(this);
+  }
+
+  handleSignOut() {
+    cookie.remove('accessToken');
+    hashHistory.push('/');
   }
 
   handleMenuDisplay() {
@@ -18,6 +25,12 @@ class Nav extends React.Component {
         menuIsHidden: !prevState.menuIsHidden
       })
     );
+  }
+
+  renderSignOut() {
+    if (cookie.load('accessToken')) {
+      return <li className="pa3 dark-blue hover-navy link pointer" onClick={this.handleSignOut}>Sign out</li>;
+    }
   }
 
   render() {
@@ -34,7 +47,7 @@ class Nav extends React.Component {
             </ul>
           </li>
           <li className="pa3"><Link to={'/account'} className="dark-blue hover-navy link">Account Info</Link></li>
-          <li className="pa3"><a href="/auth/google" className="dark-blue hover-navy link">Login/logout</a></li>
+          {this.renderSignOut()}
         </ul>
       </nav>
     );
