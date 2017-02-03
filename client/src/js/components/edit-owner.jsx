@@ -30,7 +30,7 @@ class EditOwner extends React.Component {
     return (
       <p key={`${i}-${this.props.currentOwner._id}`} className="flex items-center mt0 mb2">
         <label htmlFor={property} className="w-20 b ttc">{property}:</label>
-        <input type="text" name={property} id={property} className="w-80 input-reset ba b--black-20 br2 pa2 sans-serif" defaultValue={`${this.props.currentOwner[`${property}`]}`} ref={property} />
+        <input type="text" name={property} id={property} className="w-80 input-reset ba b--black-20 br2 pa2 sans-serif" defaultValue={this.props.currentOwner[property]} ref={property} />
       </p>
     );
   }
