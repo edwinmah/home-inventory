@@ -12,7 +12,6 @@ class PoliciesList extends React.Component {
 
   renderPolicies(policyId) {
     const { ownerId, company, policyNumber, coverage, website, phone, email } = this.props.policies[policyId];
-    const coverageValid = (coverage) ? coverage : 0;
     const keys = Object.keys(this.props.policies[policyId]).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'company';
     });
@@ -27,7 +26,7 @@ class PoliciesList extends React.Component {
                 <dl key={`${i}-${policyId}`} className="flex lh-title mv2">
                   <dt className="mr2 b ttc">{property}:</dt>
                   <dd className="ml0 dark-gray">
-                    {(property === 'coverage') ? `${formatAsCurrency(`${coverageValid}`)}` : `${this.props.policies[policyId][property]}`}
+                    {(property === 'coverage') ? `${formatAsCurrency(`${coverage}`)}` : `${this.props.policies[policyId][property]}`}
                   </dd>
                 </dl>
               );

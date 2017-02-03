@@ -18,7 +18,6 @@ class SingleItem extends React.Component {
 
   renderSingleItem() {
     const { name, categoryId, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
-    const replaceValueValid = (replaceValue) ? replaceValue : 0;
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
 
     if (this.props.children) {
@@ -33,7 +32,7 @@ class SingleItem extends React.Component {
             <div className="w-100 w-50-ns f5 f4-l">
               <dl className="flex lh-title mv2">
                 <dt className="mr2 b">Replacement Value:</dt>
-                <dd className="ml0 dark-gray">{formatAsCurrency(replaceValueValid)}</dd>
+                <dd className="ml0 dark-gray">{formatAsCurrency(replaceValue)}</dd>
               </dl>
               <dl className="flex lh-title mv2">
                 <dt className="mr2 b">Category:</dt>

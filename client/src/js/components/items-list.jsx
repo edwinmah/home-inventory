@@ -15,7 +15,6 @@ class ItemsList extends React.Component {
 
   renderItems(itemId) {
     const { name, categoryId, replaceValue, image } = this.props.items[itemId];
-    const replaceValueValid = (replaceValue) ? replaceValue : 0;
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
 
     return (
@@ -24,7 +23,7 @@ class ItemsList extends React.Component {
           <img src={`${image}`} alt={name} className={imgStyle} />
           <div className="flex justify-between items-center">
             <h3 className="mb0 f5">{name}</h3>
-            <p className="mb0"><span className="visuallyhidden focusable">Replacement Value of</span>{formatAsCurrency(replaceValueValid)}</p>
+            <p className="mb0"><span className="visuallyhidden focusable">Replacement Value of</span>{formatAsCurrency(replaceValue)}</p>
           </div>
         </Link>
         <p className="f6"><span className="mid-gray b">Category: </span>

@@ -1,4 +1,7 @@
 export const formatAsCurrency = (number) => {
+  if (number === '' || number === null || number === undefined) {
+    number = 0
+  }
   return `$${number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
 }
 
