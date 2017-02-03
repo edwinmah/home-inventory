@@ -68,7 +68,12 @@ class SingleItem extends React.Component {
   }
 
   renderSingleItem() {
-    const { name, categoryId, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
+    const { name, image } = this.props.currentItem;
+
+    const keys = Object.keys(this.props.currentItem).filter((property) => {
+      return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'image' && property !== 'name';
+    });
+
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
     const sharedStyle = 'w-50 f5 link br2 ph3 pv2 mr2 mv3 white tc';
 
