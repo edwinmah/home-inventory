@@ -44,8 +44,14 @@ class DeleteCategory extends React.Component {
     });
 
     const itemCount  = categoryFilter.length;
-    const totalValue = calcTotalValue(categoryFilter, this.props.items, 'replaceValue');
-    const isDisabled = (itemCount > 0) ? 'disabled' : '';
+    let totalValue = 0;
+    let isDisabled = '';
+    let statusMsg  = 'Are you sure you want to delete this category?';
+    if (itemCount > 0) {
+      totalValue = calcTotalValue(categoryFilter, this.props.items, 'replaceValue');
+      statusMsg  = this.renderItemMsg(itemCount, totalValue);
+      isDisabled = 'disabled';
+    }
 
     return (
       <div className="mw6 mw8-ns center ph3">
@@ -59,7 +65,7 @@ class DeleteCategory extends React.Component {
           </div>
 
           <form onSubmit={this.handleSubmit} className="w-100 w-50-ns">
-            <p className="lh-title b">{(itemCount > 0) ? this.renderItemMsg(itemCount, totalValue) : 'Are you sure you want to delete this category?'}</p>
+            <p className="lh-copy b">{statusMsg}</p>
             <div className="flex">
               <Link to={'/categories'} className={`${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>{(isDisabled) ? 'Go back' : 'No, go back.'}</Link>
               <button type="submit" disabled={isDisabled} className={`${sharedStyle} bg-red ${(!isDisabled) ? 'hover-bg-dark-red' : ''}`}>{(isDisabled) ? 'Disabled' : 'Yes, delete'}</button>
