@@ -52,6 +52,7 @@ describe('Server should', function() {
       Owner.create(
         {
           name    : 'Sara Allen',
+          accessToken: 'abc123456',
           address : '1313 Mockingbird Lane NW #303',
           city    : 'Washington',
           state   : 'DC',
@@ -60,6 +61,7 @@ describe('Server should', function() {
           email   : 'sallen@email.com'
         }, {
           name    : 'Joe Schmoe',
+          accessToken: 'xyx789012',
           address : '1717 Jennifer Street NW #B4',
           city    : 'Washington',
           state   : 'DC',
