@@ -52,7 +52,7 @@ class EditPolicy extends React.Component {
     const keys = Object.keys(this.props.currentPolicy).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken';
     });
-    const sharedStyle = 'w-50 link bn br2 ph3 pv2 mr2 mv3 white';
+    const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white';
 
     return (
       <div className="mw6 center ph3">
