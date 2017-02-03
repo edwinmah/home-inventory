@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import EditPolicy from './edit-policy';
+import { formatAsCurrency } from '../utils';
 
 
 class PoliciesList extends React.Component {
@@ -9,12 +10,9 @@ class PoliciesList extends React.Component {
     super(props);
   }
 
-  formatCurrency(number) {
-    return `$${number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
-  }
-
   renderPolicies(policyId) {
     const { ownerId, company, policyNumber, coverage, website, phone, email } = this.props.policies[policyId];
+    const coverageValid = (coverage) ? coverage : 0;
     const keys = Object.keys(this.props.policies[policyId]).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'company';
     });
@@ -29,7 +27,7 @@ class PoliciesList extends React.Component {
                 <dl key={`${i}-${policyId}`} className="flex lh-title mv2">
                   <dt className="mr2 b ttc">{property}:</dt>
                   <dd className="ml0 dark-gray">
-                    {(property === 'coverage') ? `${this.formatCurrency(`${this.props.policies[policyId][property]}`)}` : `${this.props.policies[policyId][property]}`}
+                    {(property === 'coverage') ? `${formatAsCurrency(`${coverageValid}`)}` : `${this.props.policies[policyId][property]}`}
                   </dd>
                 </dl>
               );
