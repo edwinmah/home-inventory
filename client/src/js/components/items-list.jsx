@@ -1,7 +1,7 @@
 import React from 'react';
 import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
-import { formatAsCurrency } from '../utils';
+import { formatAsCurrency, calcTotalValue } from '../utils';
 
 
 class ItemsList extends React.Component {
@@ -11,10 +11,6 @@ class ItemsList extends React.Component {
 
   componentDidMount() {
     document.body.scrollTop = 0;
-  }
-
-  calcTotalValue(itemId) {
-    return this.props.items[itemId].replaceValue;
   }
 
   renderItems(itemId) {
@@ -54,14 +50,14 @@ class ItemsList extends React.Component {
     }
     else if (this.props.params.id !== undefined) {
       output = categoryFilter.map((itemId) => this.renderItems(itemId));
-      totalValue = categoryFilter.map((itemId) => this.calcTotalValue(itemId)).reduce((a,b) => a + b);
-      itemCount = categoryFilter.length;
+      totalValue = calcTotalValue(categoryFilter, this.props.items, 'replaceValue');
+      itemCount  = categoryFilter.length;
     }
     else {
       output = keys.map((itemId) => this.renderItems(itemId));
       itemCount = keys.length;
       if (itemCount > 0) {
-        totalValue = keys.map((itemId) => this.calcTotalValue(itemId)).reduce((a,b) => a + b);
+        totalValue = calcTotalValue(keys, this.props.items, 'replaceValue');
       }
     }
 

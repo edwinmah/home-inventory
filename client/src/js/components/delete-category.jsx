@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { deleteCategory } from '../actions/delete-category';
-import { formatAsCurrency } from '../utils';
+import { formatAsCurrency, calcTotalValue } from '../utils';
 
 
 class DeleteCategory extends React.Component {
@@ -18,10 +18,6 @@ class DeleteCategory extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.dispatch(deleteCategory(this.props.params.id));
-  }
-
-  calcTotalValue(itemId) {
-    return this.props.items[itemId].replaceValue;
   }
 
   renderItemMsg(itemCount, totalValue) {
@@ -48,7 +44,7 @@ class DeleteCategory extends React.Component {
     });
 
     const itemCount  = categoryFilter.length;
-    const totalValue = categoryFilter.map((itemId) => this.calcTotalValue(itemId)).reduce((a,b) => a + b);
+    const totalValue = calcTotalValue(categoryFilter, this.props.items, 'replaceValue');
     const isDisabled = (itemCount > 0) ? 'disabled' : '';
 
     return (
