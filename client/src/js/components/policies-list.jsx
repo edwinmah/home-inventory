@@ -59,7 +59,7 @@ class PoliciesList extends React.Component {
     });
 
     return (
-      <article key={policyId} id={`item-${policyId}`}>
+      <article key={policyId} id={`policy-${policyId}`}>
         <h3>{company}</h3>
         <div className="flex flex-column">
           {keys.map((property, i) => this.renderDefinitionLists(property, i))}
