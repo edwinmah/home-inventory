@@ -9,6 +9,16 @@ class OwnersList extends React.Component {
     super(props);
   }
 
+  renderDefinitionLists(property, i) {
+    const ownerId = Object.keys(this.props.owners)[0];
+    return (
+      <dl key={`${i}-${ownerId}`} className="flex lh-title mv1">
+        <dt className="mr2 b ttc">{property}:</dt>
+        <dd className="ml0 dark-gray">{this.props.owners[ownerId][property]}</dd>
+      </dl>
+    );
+  }
+
   renderOwners(ownerId) {
     const keys = Object.keys(this.props.owners[ownerId]).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'accessToken' && property !== 'googleId' && property !== 'name';
@@ -18,16 +28,7 @@ class OwnersList extends React.Component {
       <article key={ownerId} id={`owner-${ownerId}`}>
         <h3>{this.props.owners[ownerId].name}</h3>
         <div className="flex flex-column">
-          <div>
-            {keys.map((property, i) => {
-              return (
-                <dl key={`${i}-${ownerId}`} className="flex lh-title mv2">
-                  <dt className="mr2 b ttc">{property}:</dt>
-                  <dd className="ml0 dark-gray">{`${this.props.owners[ownerId][property]}`}</dd>
-                </dl>
-              );
-            })}
-          </div>
+          {keys.map((property, i) => this.renderDefinitionLists(property, i))}
           <Link to={`/account/owner/edit/${ownerId}`} className="w-50 w-25-l link br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy tc">Edit Owner</Link>
         </div>
       </article>
