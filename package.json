@@ -13,7 +13,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node ./server/server.js",
     "dev": "source .env && run-p serve watch",
-    "test": "DATABASE_URL='mongodb://localhost/home-inventory-test' mocha --recursive --compilers jsx:babel-core/register",
+    "test": "source .env && DATABASE_URL='mongodb://localhost/home-inventory-test' mocha --recursive --compilers jsx:babel-core/register",
     "build-dev": "webpack --progress",
     "build-prod": "NODE_ENV=production webpack -p --progress --bail",
     "clean": "rimraf build",
