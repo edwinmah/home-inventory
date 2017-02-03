@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../actions/edit-policy';
 import { fetchPolicies } from '../actions/get-policies';
+import { sanitizeNumber } from '../utils';
 
 
 class EditPolicy extends React.Component {
@@ -18,11 +19,11 @@ class EditPolicy extends React.Component {
       ownerId: this.props.currentPolicy.ownerId,
       company: this.refs.company.value,
       policyNumber: this.refs.policyNumber.value,
-      coverage: this.refs.coverage.value,
+      coverage: sanitizeNumber(this.refs.coverage.value),
       website: this.refs.website.value,
       phone: this.refs.phone.value,
       email: this.refs.email.value
-    }
+    };
     this.props.dispatch(actions.editPolicy(this.props.currentPolicy._id, req));
   }
 

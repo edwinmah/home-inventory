@@ -6,6 +6,7 @@ import actionsCreate from '../actions/create-item';
 import actionsOwners from '../actions/get-owners';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 import Datetime from 'react-datetime';
+import { sanitizeNumber } from '../utils';
 
 
 class EditItem extends React.Component {
@@ -36,14 +37,14 @@ class EditItem extends React.Component {
       ownerId: Object.keys(this.props.owners)[0],
       categoryId: this.refs.category.value,
       name: this.refs.name.value,
-      replaceValue: parseInt(this.refs.replaceValue.value),
+      replaceValue: sanitizeNumber(this.refs.replaceValue.value),
       notes: this.refs.notes.value,
       serialNumber: this.refs.serialNumber.value,
       purchaseDate: this.refs.purchaseDate.state.inputValue,
       placePurchased: this.refs.placePurchased.value,
       image: this.state.imgUrl,
       receipt: this.state.recUrl
-    }
+    };
 
     if (this.props.params.id) {
       this.props.dispatch(actions.editItem(this.props.currentItem._id, req));
@@ -167,7 +168,8 @@ class EditItem extends React.Component {
 EditItem.defaultProps = {
   currentItem: {
     image: '/assets/image.svg',
-    receipt: '/assets/image.svg'
+    receipt: '/assets/image.svg',
+    replaceValue: 0
   }
 }
 
