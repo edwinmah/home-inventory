@@ -16,6 +16,57 @@ class SingleItem extends React.Component {
     this.props.dispatch(actions.fetchSingleItem(this.props.params.id));
   }
 
+  renderCategoryLink() {
+    const { categoryId } = this.props.currentItem;
+    return <Link to={`/category/${categoryId}/items`} className="dark-blue hover-navy link">{this.props.categories[categoryId].name}</Link>;
+  }
+
+  renderReceiptLink() {
+    const { receipt } = this.props.currentItem
+    return <a href={`${receipt}`} className="dark-blue hover-navy link">View receipt</a>;
+  }
+
+  renderDefinitionLists(property, i) {
+    let ddValue, dtValue;
+    switch (property) {
+      case 'replaceValue' :
+        dtValue = `${property.slice(0, 7)}ment ${property.slice(-5)}`;
+        ddValue = formatAsCurrency(this.props.currentItem.replaceValue);
+        break;
+      case 'categoryId' :
+        dtValue = `${property.slice(0, 8)}`;
+        ddValue = this.renderCategoryLink();
+        break;
+      case 'receipt' :
+        dtValue = property;
+        ddValue = this.renderReceiptLink();
+        break;
+      case 'purchaseDate' :
+        dtValue = `${property.slice(0, 8)} ${property.slice(-4)}`;
+        ddValue = this.props.currentItem[property];
+        break;
+      case 'placePurchased' :
+        dtValue = `${property.slice(0, 5)} ${property.slice(-9)}`;
+        ddValue = this.props.currentItem[property];
+        break;
+      case 'serialNumber' :
+        dtValue = `${property.slice(0, 6)} ${property.slice(-6)}`;
+        ddValue = this.props.currentItem[property];
+        break;
+      case 'notes' :
+        dtValue = property;
+        ddValue = this.props.currentItem[property];
+        break;
+    }
+
+    return (
+      <dl key={`${i}-${this.props.currentItem._id}`} className="flex lh-title mv2">
+        <dt className="mr2 b ttc">{dtValue}:</dt>
+        <dd className="ml0 dark-gray">{ddValue}</dd>
+      </dl>
+    );
+  }
+
   renderSingleItem() {
     const { name, categoryId, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
@@ -31,36 +82,7 @@ class SingleItem extends React.Component {
               <img src={`${image}`} alt={name} className={imgStyle} />
             </div>
             <div className="w-100 w-50-ns f5 f4-l">
-              <dl className="flex lh-title mv2">
-                <dt className="mr2 b">Replacement Value:</dt>
-                <dd className="ml0 dark-gray">{formatAsCurrency(replaceValue)}</dd>
-              </dl>
-              <dl className="flex lh-title mv2">
-                <dt className="mr2 b">Category:</dt>
-                <dd className="ml0 dark-gray">
-                  <Link to={`/category/${categoryId}/items`} className="dark-blue hover-navy link">{this.props.categories[categoryId].name}</Link>
-                </dd>
-              </dl>
-              <dl className="flex lh-title mv2">
-                <dt className="mr2 b">Serial Number:</dt>
-                <dd className="ml0 dark-gray">{serialNumber}</dd>
-              </dl>
-              <dl className="flex lh-title mv2">
-                <dt className="mr2 b">Purchase Date:</dt>
-                <dd className="ml0 dark-gray">{purchaseDate}</dd>
-              </dl>
-              <dl className="flex lh-title mv2">
-                <dt className="mr2 b">Place Purchased:</dt>
-                <dd className="ml0 dark-gray">{placePurchased}</dd>
-              </dl>
-              <dl className="flex lh-title mv2">
-                <dt className="mr2 b">Receipt:</dt>
-                <dd className="ml0"><a href={`${receipt}`} className="dark-blue hover-navy link">View receipt</a></dd>
-              </dl>
-              <dl className="flex lh-title mv2">
-                <dt className="mr2 b">Notes:</dt>
-                <dd className="ml0 dark-gray">{notes}</dd>
-              </dl>
+              {keys.map((property, i) => this.renderDefinitionLists(property, i))}
               <div className="flex edit tr">
                 <Link to={`${this.props.location.pathname}/delete`} className={`${sharedStyle} mr2 bg-red hover-bg-dark-red`}>Delete Item</Link>
                 <Link to={`${this.props.location.pathname}/edit`} className={`${sharedStyle} ml2 white bg-dark-blue hover-bg-navy`}>Edit Item</Link>
