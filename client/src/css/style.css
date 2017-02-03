@@ -26,5 +26,6 @@
 }
 
 .rdtPicker {
+  /* lower default react datetime picker z-index */
   z-index: 999 !important;
 }
