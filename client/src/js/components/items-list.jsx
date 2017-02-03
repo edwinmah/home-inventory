@@ -1,6 +1,7 @@
 import React from 'react';
 import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
+import { formatAsCurrency } from '../utils';
 
 
 class ItemsList extends React.Component {
@@ -16,10 +17,6 @@ class ItemsList extends React.Component {
     return this.props.items[itemId].replaceValue;
   }
 
-  formatCurrency(number) {
-    return `$${number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
-  }
-
   renderItems(itemId) {
     const { name, categoryId, replaceValue, image } = this.props.items[itemId];
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
@@ -30,7 +27,7 @@ class ItemsList extends React.Component {
           <img src={`${image}`} alt={name} className={imgStyle} />
           <div className="flex justify-between items-center">
             <h3 className="mb0 f5">{name}</h3>
-            <p className="mb0"><span className="visuallyhidden focusable">Replacement Value of</span>{this.formatCurrency(replaceValue)}</p>
+            <p className="mb0"><span className="visuallyhidden focusable">Replacement Value of</span>{formatAsCurrency(replaceValue)}</p>
           </div>
         </Link>
         <p className="f6"><span className="mid-gray b">Category: </span>
@@ -97,7 +94,7 @@ class ItemsList extends React.Component {
         <div className="mw6 mw8-ns center">
           <div className="flex items-baseline">
             <h2 className="pa3">{sectionTitle}</h2>
-            <span className="f5 b mid-gray">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${this.formatCurrency(totalValue)}`})</span>
+            <span className="f5 b mid-gray">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${formatAsCurrency(totalValue)}`})</span>
           </div>
           <div className="flex flex-wrap">
             {output}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { deleteCategory } from '../actions/delete-category';
+import { formatAsCurrency } from '../utils';
 
 
 class DeleteCategory extends React.Component {
@@ -23,13 +24,9 @@ class DeleteCategory extends React.Component {
     return this.props.items[itemId].replaceValue;
   }
 
-  formatCurrency(number) {
-    return `$${number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
-  }
-
   renderItemMsg(itemCount, totalValue) {
     return (
-      <span>This category contains {`${itemCount} ${(itemCount > 1) ? 'items' : 'item'}`} worth {`${this.formatCurrency(totalValue)}.`} <Link to={`/category/${this.props.params.id}/items`} className="dark-blue hover-navy link">Please reclassify these {`${(itemCount > 1) ? 'items' : 'item'}`}</Link> before deleting this category.</span>
+      <span>This category contains {`${itemCount} ${(itemCount > 1) ? 'items' : 'item'}`} worth {`${formatAsCurrency(totalValue)}.`} <Link to={`/category/${this.props.params.id}/items`} className="dark-blue hover-navy link">Please reclassify these {`${(itemCount > 1) ? 'items' : 'item'}`}</Link> before deleting this category.</span>
     )
   }
 
