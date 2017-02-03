@@ -10,6 +10,6 @@ export const sanitizeNumber = (string) => {
   if (string === '' || string === null || string === undefined) {
     string = '0';
   }
-  return parseInt(string.replace(/[`_+-.,!@#$%^&*();\/|<>"']/g, ''));
+  return parseInt(string.replace(/[\D]/g, ''));
 }
 
