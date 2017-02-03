@@ -60,7 +60,7 @@ class EditPolicy extends React.Component {
               {keys.map((property, i) => this.renderFormInputs(property, i))}
               <div className="flex flex-row">
                 <Link to={'/account'} className={`${sharedStyle} mr2 bg-mid-gray hover-bg-dark-gray tc`}>Cancel</Link>
-                <button type="submit" className={`${sharedStyle} ml2 bg-dark-blue hover-bg-navy`}>Save</button>
+                <button type="submit" className={`${sharedStyle} ml2 bg-dark-blue hover-bg-navy sans-serif`}>Save</button>
               </div>
             </form>
           </div>
