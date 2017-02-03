@@ -52,6 +52,7 @@ class EditPolicy extends React.Component {
     const keys = Object.keys(this.props.currentPolicy).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken';
     });
+    const sharedStyle = 'w-50 link bn br2 ph3 pv2 mr2 mv3 white';
 
     return (
       <div className="mw6 center ph3">
@@ -61,8 +62,8 @@ class EditPolicy extends React.Component {
             <form className="flex flex-column" onSubmit={this.handleSubmit}>
               {keys.map((property, i) => this.renderFormInputs(property, i))}
               <div className="flex flex-row">
-                <Link to={'/account'} className="w-50 link bn br2 ph3 pv2 mr2 mv3 white bg-mid-gray hover-bg-dark-gray sans-serif tc">Cancel</Link>
-                <button type="submit" className="w-50 link bn br2 ph3 pv2 ml2 mv3 white bg-dark-blue hover-bg-navy sans-serif">Save</button>
+                <Link to={'/account'} className={`${sharedStyle} mr2 bg-mid-gray hover-bg-dark-gray tc`}>Cancel</Link>
+                <button type="submit" className={`${sharedStyle} ml2 bg-dark-blue hover-bg-navy`}>Save</button>
               </div>
             </form>
           </div>
