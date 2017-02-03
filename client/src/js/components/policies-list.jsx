@@ -24,7 +24,7 @@ class PoliciesList extends React.Component {
             {keys.map((property, i) => {
               return (
                 <dl key={`${i}-${policyId}`} className="flex lh-title mv2">
-                  <dt className="mr2 b ttc">{property}:</dt>
+                  <dt className="mr2 b ttc">{(property === 'policyNumber') ? `${property.slice(0, 6)} ${property.slice(-6)}` : property}:</dt>
                   <dd className="ml0 dark-gray">
                     {(property === 'coverage') ? `${formatAsCurrency(`${coverage}`)}` : `${this.props.policies[policyId][property]}`}
                   </dd>
