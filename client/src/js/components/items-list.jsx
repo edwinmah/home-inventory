@@ -37,6 +37,14 @@ class ItemsList extends React.Component {
     return <p className="pa3">There are currently no items in this category.</p>;
   }
 
+  renderAddItem() {
+    return (
+      <div className="flex justify-center w-100 w-50-m w-33-ns pa3">
+        <Link to={`/item/add`} className="flex flex-column items-center justify-center w-100 pa3 b--dashed bw1 b--black-20 br2 f4 b dark-blue link hover-bg-light-yellow tc">Add Item <span className="f1 b" dangerouslySetInnerHTML={{__html: '&plus;'}}></span></Link>
+      </div>
+    );
+  }
+
   render() {
     const keys = Object.keys(this.props.items);
 
@@ -76,9 +84,7 @@ class ItemsList extends React.Component {
             <h2 className="pa3">{sectionTitle}</h2>
             <div className="flex flex-wrap">
               <p className="pa3">Loading items...</p>
-              <div className="flex justify-center w-100 w-50-m w-33-ns pa3">
-                <Link to={`/item/add`} className="flex flex-column items-center justify-center w-100 pa3 b--dashed bw1 b--black-20 br2 f4 b dark-blue link hover-bg-light-yellow tc">Add Item <span className="f1 b" dangerouslySetInnerHTML={{__html: '&plus;'}}></span></Link>
-              </div>
+              {this.renderAddItem()}
             </div>
           </div>
         </section>
@@ -94,9 +100,7 @@ class ItemsList extends React.Component {
           </div>
           <div className="flex flex-wrap">
             {output}
-            <div className="flex justify-center w-100 w-50-m w-33-ns pa3">
-              <Link to={`/item/add`} className="flex flex-column items-center justify-center w-100 pa3 b--dashed bw1 b--black-20 br2 f4 b dark-blue link hover-bg-light-yellow tc">Add Item <span className="f1 b" dangerouslySetInnerHTML={{__html: '&plus;'}}></span></Link>
-            </div>
+            {this.renderAddItem()}
           </div>
         </div>
       </section>
