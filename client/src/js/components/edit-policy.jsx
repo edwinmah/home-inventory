@@ -28,12 +28,10 @@ class EditPolicy extends React.Component {
   }
 
   renderFormInputs(property, i) {
-    const isDisabled = (property === 'ownerId');
-
     return (
       <p key={`${i}-${this.props.currentPolicy._id}`} className="flex items-center mt0 mb2">
         <label htmlFor={property} className="w-30 b ttc">{property}:</label>
-        <input type="text" name={property} id={property} disabled={isDisabled} className="w-70 input-reset ba b--black-20 br2 pa2 sans-serif" defaultValue={this.props.currentPolicy[property]} ref={property} />
+        <input type="text" name={property} id={property} className="w-70 input-reset ba b--black-20 br2 pa2 sans-serif" defaultValue={this.props.currentPolicy[property]} ref={property} />
       </p>
     );
   }
