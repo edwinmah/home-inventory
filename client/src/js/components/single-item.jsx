@@ -19,6 +19,7 @@ class SingleItem extends React.Component {
   renderSingleItem() {
     const { name, categoryId, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
+    const sharedStyle = 'w-50 f5 link br2 ph3 pv2 mr2 mv3 white tc';
 
     if (this.props.children) {
       return <EditItem params={this.props.params} />;
@@ -61,8 +62,8 @@ class SingleItem extends React.Component {
                 <dd className="ml0 dark-gray">{notes}</dd>
               </dl>
               <div className="flex edit tr">
-                <Link to={`${this.props.location.pathname}/delete`} className="w-50 f5 link br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red tc">Delete Item</Link>
-                <Link to={`${this.props.location.pathname}/edit`} className="w-50 f5 link br2 ph3 pv2 ml2 mv3 white bg-dark-blue hover-bg-navy tc">Edit Item</Link>
+                <Link to={`${this.props.location.pathname}/delete`} className={`${sharedStyle} mr2 bg-red hover-bg-dark-red`}>Delete Item</Link>
+                <Link to={`${this.props.location.pathname}/edit`} className={`${sharedStyle} ml2 white bg-dark-blue hover-bg-navy`}>Edit Item</Link>
               </div>
             </div>
           </div>
