@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 
-
 class OwnersList extends React.Component {
   constructor(props) {
     super(props);
