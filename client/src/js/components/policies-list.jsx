@@ -53,14 +53,13 @@ class PoliciesList extends React.Component {
   }
 
   renderPolicies(policyId) {
-    const { company, coverage } = this.props.policies[policyId];
     const keys = Object.keys(this.props.policies[policyId]).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'company';
     });
 
     return (
       <article key={policyId} id={`policy-${policyId}`}>
-        <h3>{company}</h3>
+        <h3>{this.props.policies[policyId].company}</h3>
         <div className="flex flex-column">
           {keys.map((property, i) => this.renderDefinitionLists(property, i))}
           <Link to={`account/policy/edit/${policyId}`} className="w-50 w-25-l link br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy tc">Edit Policy</Link>
