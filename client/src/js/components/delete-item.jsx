@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { deleteSingleItem } from '../actions/delete-item';
-import { fetchItems } from '../actions/get-items';
 import { formatAsCurrency } from '../utils';
 
 
@@ -23,7 +22,6 @@ class DeleteItem extends React.Component {
 
   render() {
     if (!this.props.currentItem) {
-      this.props.dispatch(fetchItems());
       return (
         <div className="mw6 mw8-ns center">
           <p className="pa3">Loading item...</p>
