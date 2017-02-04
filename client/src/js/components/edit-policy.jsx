@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { editPolicy } from '../actions/edit-policy';
-import { fetchPolicies } from '../actions/get-policies';
 import { sanitizeNumber } from '../utils';
 
 
@@ -38,7 +37,6 @@ class EditPolicy extends React.Component {
 
   render() {
     if (!this.props.currentPolicy) {
-      this.props.dispatch(fetchPolicies());
       return (
         <div className="mw6 mw8-ns center">
           <p className="pa3">Loading policy...</p>
