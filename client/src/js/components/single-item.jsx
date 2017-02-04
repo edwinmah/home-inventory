@@ -13,7 +13,7 @@ class SingleItem extends React.Component {
 
   componentDidMount() {
     document.body.scrollTop = 0;
-    this.props.dispatch(actions.fetchSingleItem(this.props.params.id));
+    this.props.dispatch(fetchSingleItem(this.props.params.id));
   }
 
   renderCategoryLink() {
