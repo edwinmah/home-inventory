@@ -62,8 +62,6 @@ class EditCategory extends React.Component {
     const { _id, name, description } = this.props.currentCategory;
     const widthStyle  = (!this.props.params.id) ? 'w-50' : 'w-third';
     const sharedStyle = 'link bn br2 ph3 pv2 mr2 mv3 white';
-    const cancelStyle = 'bg-mid-gray hover-bg-dark-gray tc';
-    const saveStyle   = 'bg-dark-blue hover-bg-navy';
 
     const keys = Object.keys(this.props.currentCategory).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId';
@@ -75,9 +73,9 @@ class EditCategory extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {keys.map((property, i) => this.renderFormInputs(property, i))}
           <div className="flex flex-row">
-            <Link to={'/categories'} className={`${widthStyle} ${sharedStyle} ${cancelStyle}`}>Cancel</Link>
+            <Link to={'/categories'} className={`${widthStyle} ${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>Cancel</Link>
             {(this.props.params.id) ? this.renderDeleteLink() : ''}
-            <button type="submit" className={`${widthStyle} ${sharedStyle} ${saveStyle}`}>Save</button>
+            <button type="submit" className={`${widthStyle} ${sharedStyle} bg-dark-blue hover-bg-navy sans-serif`}>Save</button>
           </div>
         </form>
       </section>
