@@ -1,5 +1,5 @@
 import React from 'react';
-import { router, Link } from 'react-router';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { deleteSingleItem } from '../actions/delete-item';
 import { fetchItems } from '../actions/get-items';
