@@ -1,8 +1,8 @@
 import fetchAuth from '../fetchAuth';
 
 
-var FETCH_SINGLE_ITEM_SUCCESS = 'FETCH_SINGLE_ITEM_SUCCESS';
-var fetchSingleItemSuccess = function(item) {
+const FETCH_SINGLE_ITEM_SUCCESS = 'FETCH_SINGLE_ITEM_SUCCESS';
+const fetchSingleItemSuccess = (item) => {
   return {
     type: FETCH_SINGLE_ITEM_SUCCESS,
     item: item
@@ -10,8 +10,8 @@ var fetchSingleItemSuccess = function(item) {
 };
 
 
-var FETCH_SINGLE_ITEM_ERROR = 'FETCH_SINGLE_ITEM_ERROR';
-var fetchSingleItemError = function(item, error) {
+const FETCH_SINGLE_ITEM_ERROR = 'FETCH_SINGLE_ITEM_ERROR';
+const fetchSingleItemError = (item, error) => {
   return {
     type: FETCH_SINGLE_ITEM_ERROR,
     item: item,
@@ -20,13 +20,13 @@ var fetchSingleItemError = function(item, error) {
 };
 
 
-var fetchSingleItem = (itemId) => dispatch => {
+const fetchSingleItem = (itemId) => dispatch => {
   fetchAuth('GET', `/item/${itemId}`)
-  .then(function(data) {
+  .then((data) => {
     var item = data;
     return dispatch(fetchSingleItemSuccess(item));
   })
-  .catch(function(error) {
+  .catch((error) => {
     return dispatch(fetchSingleItemError(error));
   });
 };
