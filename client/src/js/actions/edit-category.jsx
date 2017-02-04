@@ -3,8 +3,8 @@ import { hashHistory } from 'react-router';
 import actions from './get-categories';
 
 
-var EDIT_CATEGORY_SUCCESS = 'EDIT_CATEGORY_SUCCESS';
-var editCategorySuccess = function(category) {
+const EDIT_CATEGORY_SUCCESS = 'EDIT_CATEGORY_SUCCESS';
+const editCategorySuccess = (category) => {
   return {
     type: EDIT_CATEGORY_SUCCESS,
     category: category
@@ -12,8 +12,8 @@ var editCategorySuccess = function(category) {
 };
 
 
-var EDIT_CATEGORY_ERROR = 'EDIT_CATEGORY_ERROR';
-var editCategoryError = function(category, error) {
+const EDIT_CATEGORY_ERROR = 'EDIT_CATEGORY_ERROR';
+const editCategoryError = (category, error) => {
   return {
     type: EDIT_CATEGORY_ERROR,
     category: category,
@@ -22,18 +22,18 @@ var editCategoryError = function(category, error) {
 };
 
 
-var editCategory = (categoryId, obj) => dispatch => {
+const editCategory = (categoryId, obj) => dispatch => {
   fetchAuth('PUT', `/category/${categoryId}`, obj)
-  .then(function(data) {
-    var category = data;
+  .then((data) => {
+    const category = data;
     return dispatch(editCategorySuccess(category));
   })
-  .then(function() {
+  .then(() => {
     dispatch(actions.fetchCategoryNames());
     hashHistory.push(`/categories`);
     document.body.scrollTop = 0;
   })
-  .catch(function(error) {
+  .catch((error) => {
     console.log(error);
     return dispatch(editCategoryError(error));
   });

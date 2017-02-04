@@ -3,8 +3,8 @@ import { hashHistory } from 'react-router';
 import actions from './get-owners';
 
 
-var EDIT_OWNER_SUCCESS = 'EDIT_OWNER_SUCCESS';
-var editOwnerSuccess = function(owner) {
+const EDIT_OWNER_SUCCESS = 'EDIT_OWNER_SUCCESS';
+const editOwnerSuccess = (owner) => {
   return {
     type: EDIT_OWNER_SUCCESS,
     owner: owner
@@ -12,8 +12,8 @@ var editOwnerSuccess = function(owner) {
 };
 
 
-var EDIT_OWNER_ERROR = 'EDIT_OWNER_ERROR';
-var editOwnerError = function(owner, error) {
+const EDIT_OWNER_ERROR = 'EDIT_OWNER_ERROR';
+const editOwnerError = (owner, error) => {
   return {
     type: EDIT_OWNER_ERROR,
     owner: owner,
@@ -22,18 +22,18 @@ var editOwnerError = function(owner, error) {
 };
 
 
-var editOwner = (ownerId, obj) => dispatch => {
+const editOwner = (ownerId, obj) => dispatch => {
   fetchAuth('PUT', `/owner/${ownerId}`, obj)
-  .then(function(data) {
-    var owner = data;
+  .then((data) => {
+    const owner = data;
     return dispatch(editOwnerSuccess(owner));
   })
-    .then(function() {
+    .then(() => {
     dispatch(actions.fetchOwners());
     hashHistory.push('/account');
     document.body.scrollTop = 0;
   })
-    .catch(function(error) {
+    .catch((error) => {
     console.log(error);
     return dispatch(editOwnerError(error));
   });

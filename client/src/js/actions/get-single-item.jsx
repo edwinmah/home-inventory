@@ -23,7 +23,7 @@ const fetchSingleItemError = (item, error) => {
 const fetchSingleItem = (itemId) => dispatch => {
   fetchAuth('GET', `/item/${itemId}`)
   .then((data) => {
-    var item = data;
+    const item = data;
     return dispatch(fetchSingleItemSuccess(item));
   })
   .catch((error) => {

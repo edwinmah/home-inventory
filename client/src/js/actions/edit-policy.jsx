@@ -3,8 +3,8 @@ import { hashHistory } from 'react-router';
 import actions from './get-policies';
 
 
-var EDIT_POLICY_SUCCESS = 'EDIT_POLICY_SUCCESS';
-var editPolicySuccess = function(policy) {
+const EDIT_POLICY_SUCCESS = 'EDIT_POLICY_SUCCESS';
+const editPolicySuccess = (policy) => {
   return {
     type: EDIT_POLICY_SUCCESS,
     policy: policy
@@ -12,8 +12,8 @@ var editPolicySuccess = function(policy) {
 };
 
 
-var EDIT_POLICY_ERROR = 'EDIT_POLICY_ERROR';
-var editPolicyError = function(policy, error) {
+const EDIT_POLICY_ERROR = 'EDIT_POLICY_ERROR';
+const editPolicyError = (policy, error) => {
   return {
     type: EDIT_POLICY_ERROR,
     policy: policy,
@@ -22,18 +22,18 @@ var editPolicyError = function(policy, error) {
 };
 
 
-var editPolicy = (policyId, obj) => dispatch => {
+const editPolicy = (policyId, obj) => dispatch => {
   fetchAuth('PUT', `/policy/${policyId}`, obj)
-  .then(function(data) {
-    var policy = data;
+  .then((data) => {
+    const policy = data;
     return dispatch(editPolicySuccess(policy));
   })
-  .then(function() {
+  .then(() => {
     dispatch(actions.fetchPolicies());
     hashHistory.push('/account');
     document.body.scrollTop = 0;
   })
-  .catch(function(error) {
+  .catch((error) => {
     console.log(error);
     return dispatch(editPolicyError(error));
   });
