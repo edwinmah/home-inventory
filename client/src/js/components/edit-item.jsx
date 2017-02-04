@@ -89,14 +89,13 @@ class EditItem extends React.Component {
     const uploadImgMsg   = (this.state.isImgUploadFinished) ? 'Your image was uploaded successfully.' : 'Click or drag here to upload an image.';
     const uploadRecMsg   = (this.state.isRecUploadFinished) ? 'Your receipt was uploaded successfully.' : 'Click or drag here to upload a receipt.';
     const finishUpload   = (property === 'image') ? this.handleImgUpload : this.handleRecUpload;
-    const imageWidth     = (property === 'image') ? 'w-50' : '';
     const dropZoneHeight = (property === 'image') ? 'vh-50' : 'h5';
 
     return (
       <div>
         <p className="mt0 mb2 b ttc">{property}:</p>
         <DropzoneS3Uploader onFinish={finishUpload} style={{backgroundColor: '#ffffff'}} activeStyle={{backgroundColor: '#fbf1a9'}} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className={`flex justify-center overflow-hidden ${dropZoneHeight} b--dashed bw1 b--black-20 br2 pointer`}>
-          <img src={this.props.currentItem.image} alt={this.props.currentItem.name} className={`h-auto ${imageWidth} nested-img img br2`} />
+          <img src={this.props.currentItem.image} alt={this.props.currentItem.name} className="h-auto h5 nested-img img br2" />
         </DropzoneS3Uploader>
         <p className="mb4">{(property === 'image') ? uploadImgMsg : uploadRecMsg}</p>
       </div>
