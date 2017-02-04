@@ -188,11 +188,11 @@ class EditItem extends React.Component {
       <div className="mw6 mw8-ns center ph3">
         {this.renderHeading()}
         <div className="flex flex-column flex-row-ns">
-          <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
+          <div className="order-2 order-1-ns w-100 w-50-ns mb3 mb0-ns mr4-ns">
             {this.renderDropZone('image')}
             {this.renderDropZone('receipt')}
           </div>
-          <form className="flex flex-column w-100 w-50-ns" onSubmit={this.handleSubmit}>
+          <form className="flex flex-column order-1 order-2-ns w-100 w-50-ns" onSubmit={this.handleSubmit}>
             {keys.map((property, i) => this.renderForm(property, i))}
 
             <div className="flex flex-row">
