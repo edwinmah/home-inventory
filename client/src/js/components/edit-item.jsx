@@ -208,9 +208,15 @@ class EditItem extends React.Component {
 
 EditItem.defaultProps = {
   currentItem: {
+    categoryId: '',
+    name: '',
+    serialNumber: '',
+    notes: '',
+    replaceValue: 0,
+    purchaseDate: '',
+    placePurchased: '',
     image: '/assets/image.svg',
     receipt: '/assets/image.svg',
-    replaceValue: 0
   }
 }
 
