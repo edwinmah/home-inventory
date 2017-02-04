@@ -3,8 +3,8 @@ import { hashHistory } from 'react-router';
 import { fetchSingleItem } from './get-single-item';
 
 
-var CREATE_ITEM_SUCCESS = 'CREATE_ITEM_SUCCESS';
-var createItemSuccess = function(item) {
+const CREATE_ITEM_SUCCESS = 'CREATE_ITEM_SUCCESS';
+const createItemSuccess = (item) => {
   return {
     type: CREATE_ITEM_SUCCESS,
     item: item
@@ -12,8 +12,8 @@ var createItemSuccess = function(item) {
 };
 
 
-var CREATE_ITEM_ERROR = 'CREATE_ITEM_ERROR';
-var createItemError = function(item, error) {
+const CREATE_ITEM_ERROR = 'CREATE_ITEM_ERROR';
+const createItemError = (item, error) => {
   return {
     type: CREATE_ITEM_ERROR,
     item: item,
@@ -22,18 +22,18 @@ var createItemError = function(item, error) {
 };
 
 
-var createItem = (obj) => dispatch => {
+const createItem = (obj) => dispatch => {
   fetchAuth('POST', '/item', obj)
-  .then(function(data) {
-    var item = data;
+  .then((data) => {
+    const item = data;
     return dispatch(createItemSuccess(item));
   })
-  .then(function(data) {
+  .then((data) => {
     dispatch(fetchSingleItem(data.item._id));
     hashHistory.push(`/item/${data.item._id}`);
     document.body.scrollTop = 0;
   })
-  .catch(function(error) {
+  .catch((error) => {
     console.log(error);
     return dispatch(createItemError(error));
   });

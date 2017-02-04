@@ -2,8 +2,8 @@ import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
 
 
-var DELETE_CATEGORY_SUCCESS = 'DELETE_CATEGORY_SUCCESS';
-var deleteCategorySuccess = function(categoryId) {
+const DELETE_CATEGORY_SUCCESS = 'DELETE_CATEGORY_SUCCESS';
+const deleteCategorySuccess = (categoryId) => {
   return {
     type: DELETE_CATEGORY_SUCCESS,
     categoryId: categoryId
@@ -11,8 +11,8 @@ var deleteCategorySuccess = function(categoryId) {
 };
 
 
-var DELETE_CATEGORY_ERROR = 'DELETE_CATEGORY_ERROR';
-var deleteCategoryError = function(categoryId, error) {
+const DELETE_CATEGORY_ERROR = 'DELETE_CATEGORY_ERROR';
+const deleteCategoryError = (categoryId, error) => {
   return {
     type: DELETE_CATEGORY_ERROR,
     categoryId: categoryId,
@@ -21,16 +21,16 @@ var deleteCategoryError = function(categoryId, error) {
 };
 
 
-var deleteCategory = (categoryId) => dispatch => {
+const deleteCategory = (categoryId) => dispatch => {
   fetchAuth('DELETE', `/category/${categoryId}`)
-  .then(function(category) {
+  .then((category) => {
     return dispatch(deleteCategorySuccess(categoryId));
   })
-  .then(function() {
+  .then(() => {
     hashHistory.push('/categories');
     document.body.scrollTop = 0;
   })
-  .catch(function(error) {
+  .catch((error) => {
     console.log(error);
     return dispatch(deleteCategoryError(error));
   });

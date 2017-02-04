@@ -3,8 +3,8 @@ import { hashHistory } from 'react-router';
 import { fetchCategoryNames } from './get-categories';
 
 
-var CREATE_CATEGORY_SUCCESS = 'CREATE_CATEGORY_SUCCESS';
-var createCategorySuccess = function(category) {
+const CREATE_CATEGORY_SUCCESS = 'CREATE_CATEGORY_SUCCESS';
+const createCategorySuccess = (category) => {
   return {
     type: CREATE_CATEGORY_SUCCESS,
     category: category
@@ -12,8 +12,8 @@ var createCategorySuccess = function(category) {
 };
 
 
-var CREATE_CATEGORY_ERROR = 'CREATE_CATEGORY_ERROR';
-var createCategoryError = function(category, error) {
+const CREATE_CATEGORY_ERROR = 'CREATE_CATEGORY_ERROR';
+const createCategoryError = (category, error) => {
   return {
     type: CREATE_CATEGORY_ERROR,
     category: category,
@@ -22,18 +22,18 @@ var createCategoryError = function(category, error) {
 };
 
 
-var createCategory = (obj) => dispatch => {
+const createCategory = (obj) => dispatch => {
   fetchAuth('POST', '/category', obj)
-  .then(function(data) {
-    var category = data;
+  .then((data) => {
+    const category = data;
     return dispatch(createCategorySuccess(category));
   })
-  .then(function(data) {
+  .then((data) => {
     dispatch(fetchCategoryNames());
     hashHistory.push(`/categories`);
     document.body.scrollTop = 0;
   })
-  .catch(function(error) {
+  .catch((error) => {
     console.log(error);
     return dispatch(createCategoryError(error));
   });

@@ -2,8 +2,8 @@ import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
 
 
-var DELETE_SINGLE_ITEM_SUCCESS = 'DELETE_SINGLE_ITEM_SUCCESS';
-var deleteSingleItemSuccess = function(itemId) {
+const DELETE_SINGLE_ITEM_SUCCESS = 'DELETE_SINGLE_ITEM_SUCCESS';
+const deleteSingleItemSuccess = (itemId) => {
   return {
     type: DELETE_SINGLE_ITEM_SUCCESS,
     itemId: itemId
@@ -11,8 +11,8 @@ var deleteSingleItemSuccess = function(itemId) {
 };
 
 
-var DELETE_SINGLE_ITEM_ERROR = 'DELETE_SINGLE_ITEM_ERROR';
-var deleteSingleItemError = function(itemId, error) {
+const DELETE_SINGLE_ITEM_ERROR = 'DELETE_SINGLE_ITEM_ERROR';
+const deleteSingleItemError = (itemId, error) => {
   return {
     type: DELETE_SINGLE_ITEM_ERROR,
     itemId: itemId,
@@ -21,15 +21,15 @@ var deleteSingleItemError = function(itemId, error) {
 };
 
 
-var deleteSingleItem = (itemId) => dispatch => {
+const deleteSingleItem = (itemId) => dispatch => {
   fetchAuth('DELETE', `/item/${itemId}`)
-  .then(function(item) {
+  .then((item) => {
     return dispatch(deleteSingleItemSuccess(item._id));
   })
-  .then(function() {
+  .then(() => {
     hashHistory.push('/');
   })
-  .catch(function(error) {
+  .catch((error) => {
     console.log(error);
     return dispatch(deleteSingleItemError(error));
   });
