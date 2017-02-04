@@ -66,7 +66,7 @@ class DeleteCategory extends React.Component {
             <p className="lh-copy b">{statusMsg}</p>
             <div className="flex">
               <Link to={'/categories'} className={`${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>{(itemCount > 0) ? 'Go back' : 'No, go back'}</Link>
-              <button type="submit" disabled={itemCount > 0} className={`${sharedStyle} bg-red ${(!(itemCount > 0)) ? 'hover-bg-dark-red' : ''}`}>{(itemCount > 0) ? 'Disabled' : 'Yes, delete'}</button>
+              <button type="submit" disabled={itemCount > 0} className={`${sharedStyle} bg-red ${(!(itemCount > 0)) ? 'hover-bg-dark-red' : ''} sans-serif`}>{(itemCount > 0) ? 'Disabled' : 'Yes, delete'}</button>
             </div>
           </form>
         </div>
