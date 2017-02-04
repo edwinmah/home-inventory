@@ -1,12 +1,12 @@
 import React from 'react';
-import { router, Link } from 'react-router';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import actions from '../actions/edit-item';
-import actionsCreate from '../actions/create-item';
-import actionsOwners from '../actions/get-owners';
+import { editItem } from '../actions/edit-item';
+import { createItem } from '../actions/create-item';
+import { fetchOwners } from '../actions/get-owners';
+import { sanitizeNumber } from '../utils';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 import Datetime from 'react-datetime';
-import { sanitizeNumber } from '../utils';
 
 
 class EditItem extends React.Component {
@@ -26,7 +26,7 @@ class EditItem extends React.Component {
   componentDidMount() {
     document.body.scrollTop = 0;
     if (!this.props.params.id) {
-      this.props.dispatch(actionsOwners.fetchOwners());
+      this.props.dispatch(fetchOwners());
     }
   }
 
@@ -47,9 +47,9 @@ class EditItem extends React.Component {
     };
 
     if (this.props.params.id) {
-      this.props.dispatch(actions.editItem(this.props.currentItem._id, req));
+      this.props.dispatch(editItem(this.props.currentItem._id, req));
     } else {
-      this.props.dispatch(actionsCreate.createItem(req));
+      this.props.dispatch(createItem(req));
     }
   }
 
