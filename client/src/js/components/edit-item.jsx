@@ -182,6 +182,7 @@ class EditItem extends React.Component {
     const keys = Object.keys(this.props.currentItem).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'image' && property !== 'receipt';
     });
+    const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white tc';
 
     return (
       <div className="mw6 mw8-ns center ph3">
@@ -195,8 +196,8 @@ class EditItem extends React.Component {
             {keys.map((property, i) => this.renderForm(property, i))}
 
             <div className="flex flex-row">
-              <Link to={`/item/${this.props.currentItem._id}`} className="w-50 link bn br2 ph3 pv2 mr2 mv3 white bg-mid-gray hover-bg-dark-gray sans-serif tc">Cancel</Link>
-              <button type="submit" className="w-50 link bn br2 ph3 pv2 ml2 mv3 white bg-dark-blue hover-bg-navy sans-serif">Save</button>
+              <Link to={`/item/${this.props.currentItem._id}`} className={`${sharedStyle} mr2 bg-mid-gray hover-bg-dark-gray tc`}>Cancel</Link>
+              <button type="submit" className={`${sharedStyle} ml2 bg-dark-blue hover-bg-navy sans-serif`}>Save</button>
             </div>
           </form>
         </div>
