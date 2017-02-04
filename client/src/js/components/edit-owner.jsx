@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import actions from '../actions/edit-owner';
+import { editOwner } from '../actions/edit-owner';
 import { fetchOwners } from '../actions/get-owners';
 
 
@@ -23,7 +23,7 @@ class EditOwner extends React.Component {
       phone: this.refs.phone.value,
       email: this.refs.email.value
     }
-    this.props.dispatch(actions.editOwner(this.props.currentOwner._id, req));
+    this.props.dispatch(editOwner(this.props.currentOwner._id, req));
   }
 
   renderFormInputs(property, i) {
