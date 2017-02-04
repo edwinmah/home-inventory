@@ -148,7 +148,7 @@ class EditItem extends React.Component {
             <DropzoneS3Uploader onFinish={this.handleRecUpload} style={style} activeStyle={activeStyle} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className="flex items-center justify-center relative h4 h5-l b--dashed bw1 b--black-20 br2 pointer">
               <img src={image} alt={name} className="h-auto w-25 nested-img img br2" />
             </DropzoneS3Uploader>
-            <p className="ph2">{uploadRecMsg}</p>
+            <p>{uploadRecMsg}</p>
 
             <label htmlFor="notes" className="b db mt3 mb2">Notes:</label>
             <textarea name="notes" id="notes" className="db border-box hover-black w-100 vh-25 measure ba b--black-20 pa2 br2 mb3 sans-serif" defaultValue={notes} ref="notes"></textarea>
