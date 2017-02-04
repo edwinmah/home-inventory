@@ -39,7 +39,7 @@ class EditCategory extends React.Component {
     return (
       <p key={`${i}-${this.props.currentCategory._id}`} className="flex items-center mt0 mb2">
         <label htmlFor={property} className="w-25 b ttc">{property}:</label>
-        <input type="text" name={property} id={property} className="w-75 input-reset ba b--black-20 br2 pa2 sans-serif" defaultValue={`${this.props.currentCategory[`${property}`]}`} ref={property} />
+        <input type="text" name={property} id={property} className="w-75 input-reset ba b--black-20 br2 pa2 sans-serif" defaultValue={this.props.currentCategory[property]} ref={property} />
       </p>
     );
   }
