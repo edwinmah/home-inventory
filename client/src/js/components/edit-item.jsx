@@ -94,8 +94,8 @@ class EditItem extends React.Component {
     return (
       <div>
         <p className="mt0 mb2 b ttc">{property}:</p>
-        <DropzoneS3Uploader onFinish={finishUpload} style={{backgroundColor: '#ffffff'}} activeStyle={{backgroundColor: '#fbf1a9'}} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className={`flex justify-center overflow-hidden ${dropZoneHeight} b--dashed bw1 b--black-20 br2 pointer`}>
-          <img src={this.props.currentItem.image} alt={this.props.currentItem.name} className="h-auto h5 nested-img img br2" />
+        <DropzoneS3Uploader onFinish={finishUpload} style={{backgroundColor: '#ffffff'}} activeStyle={{backgroundColor: '#fbf1a9'}} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className={`flex justify-center items-center overflow-hidden h5 b--dashed bw1 b--black-20 br2 pointer`}>
+          <img src={this.props.currentItem[property]} alt={this.props.currentItem.name} className="h4 nested-img img br2" />
         </DropzoneS3Uploader>
         <p className="mb4">{(property === 'image') ? uploadImgMsg : uploadRecMsg}</p>
       </div>
@@ -191,7 +191,7 @@ class EditItem extends React.Component {
             {this.renderDropZone('image')}
             {this.renderDropZone('receipt')}
           </div>
-          <form className="flex flex-column order-1 order-2-ns w-100 w-50-ns" onSubmit={this.handleSubmit}>
+          <form className="flex flex-column order-1 order-2-ns mb4 mb0-ns w-100 w-50-ns" onSubmit={this.handleSubmit}>
             {keys.map((property, i) => this.renderForm(property, i))}
 
             <div className="flex flex-row">
