@@ -1,7 +1,7 @@
 import React from 'react';
-import { router, Link } from 'react-router';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import actions from '../actions/get-single-item';
+import { fetchSingleItem } from '../actions/get-single-item';
 import EditItem from './edit-item';
 import { formatAsCurrency } from '../utils';
 
