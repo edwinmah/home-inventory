@@ -101,9 +101,6 @@ class EditItem extends React.Component {
   render() {
     const { _id, categoryId, name, serialNumber, notes, replaceValue, purchaseDate, placePurchased, receipt, image } = this.props.currentItem;
 
-    const style = { backgroundColor: '#ffffff'};
-    const activeStyle = { backgroundColor: '#fbf1a9' };
-
     const uploadImgMsg = (this.state.isImgUploadFinished) ? 'Your image was uploaded successfully.' : 'Click or drag here to upload an image.';
     const uploadRecMsg = (this.state.isRecUploadFinished) ? 'Your receipt was uploaded successfully.' : 'Click or drag here to upload a receipt.';
 
@@ -113,12 +110,18 @@ class EditItem extends React.Component {
       className: 'db w-100 pa2 input-reset ba b--black-20 br2 sans-serif'
     };
 
+    const keys = Object.keys(this.props.currentItem).filter((property) => {
+      return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'image';
+    });
+
+    console.log(keys);
+
     return (
       <div className="mw6 mw8-ns center ph3">
         {this.renderHeading()}
         <div className="flex flex-column flex-row-ns">
           <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
-            <DropzoneS3Uploader onFinish={this.handleImgUpload} style={style} activeStyle={activeStyle} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className="flex items-center justify-center relative overflow-hidden vh-50 b--dashed bw1 b--black-20 br2 pointer">
+            <DropzoneS3Uploader onFinish={this.handleImgUpload} style={{backgroundColor: '#ffffff'}} activeStyle={{backgroundColor: '#fbf1a9'}} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className="flex items-center justify-center relative overflow-hidden vh-50 b--dashed bw1 b--black-20 br2 pointer">
               <img src={image} alt={name} className="h-auto w-50 nested-img img br2" />
             </DropzoneS3Uploader>
             <p>{uploadImgMsg}</p>
@@ -145,7 +148,7 @@ class EditItem extends React.Component {
             <input type="text" name="purchasePlace" id="purchasePlace" className="db input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={placePurchased} ref="placePurchased" />
 
             <label htmlFor="receiptUpload" className="b db mb2">Receipt:</label>
-            <DropzoneS3Uploader onFinish={this.handleRecUpload} style={style} activeStyle={activeStyle} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className="flex items-center justify-center relative h4 h5-l b--dashed bw1 b--black-20 br2 pointer">
+            <DropzoneS3Uploader onFinish={this.handleRecUpload} style={{backgroundColor: '#ffffff'}} activeStyle={{backgroundColor: '#fbf1a9'}} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className="flex items-center justify-center relative h4 h5-l b--dashed bw1 b--black-20 br2 pointer">
               <img src={image} alt={name} className="h-auto w-25 nested-img img br2" />
             </DropzoneS3Uploader>
             <p>{uploadRecMsg}</p>
