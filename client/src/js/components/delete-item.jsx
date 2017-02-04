@@ -32,6 +32,7 @@ class DeleteItem extends React.Component {
     }
 
     const { _id, name, categoryId, replaceValue } = this.props.currentItem;
+    const sharedStyles = 'w-50 f5 link bn br2 ph3 pv2 mr2 mv3 white';
 
     return (
       <div className="mw6 mw8-ns center ph3">
@@ -53,8 +54,8 @@ class DeleteItem extends React.Component {
           <form onSubmit={this.handleSubmit} className="w-100 w-50-ns">
             <p className="f5 f4-l b">Are you sure you want to delete this item?</p>
             <div className="flex">
-              <Link to={`/item/${_id}`} className="w-50 f5 link bn br2 ph3 pv2 mr2 mv3 white bg-mid-gray hover-bg-dark-gray sans-serif tc">No, go back</Link>
-              <button type="submit" className="w-50 f5 link bn br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red tc">Yes, delete</button>
+              <Link to={`/item/${_id}`} className={`${sharedStyles} bg-mid-gray hover-bg-dark-gray tc`}>No, go back</Link>
+              <button type="submit" className={`${sharedStyles} bg-red hover-bg-dark-red sans-serif tc`}>Yes, delete</button>
             </div>
           </form>
         </div>
