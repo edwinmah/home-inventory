@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { editOwner } from '../actions/edit-owner';
-import { fetchOwners } from '../actions/get-owners';
 
 
 class EditOwner extends React.Component {
@@ -37,7 +36,6 @@ class EditOwner extends React.Component {
 
   render() {
     if (!this.props.currentOwner) {
-      this.props.dispatch(fetchOwners());
       return (
         <div className="mw6 mw8-ns center">
           <p className="pa3">Loading owner...</p>
