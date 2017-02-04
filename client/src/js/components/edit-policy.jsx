@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import actions from '../actions/edit-policy';
+import { editPolicy } from '../actions/edit-policy';
 import { fetchPolicies } from '../actions/get-policies';
 import { sanitizeNumber } from '../utils';
 
@@ -24,7 +24,7 @@ class EditPolicy extends React.Component {
       phone: this.refs.phone.value,
       email: this.refs.email.value
     };
-    this.props.dispatch(actions.editPolicy(this.props.currentPolicy._id, req));
+    this.props.dispatch(editPolicy(this.props.currentPolicy._id, req));
   }
 
   renderFormInputs(property, i) {
