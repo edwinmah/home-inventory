@@ -3,6 +3,7 @@ import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../actions/delete-item';
 import { fetchItems } from '../actions/get-items';
+import { formatAsCurrency } from '../utils';
 
 
 class DeleteItem extends React.Component {
@@ -31,7 +32,6 @@ class DeleteItem extends React.Component {
     }
 
     const { _id, name, categoryId, replaceValue } = this.props.currentItem;
-    const replaceValueCommas = replaceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     return (
       <div className="mw6 mw8-ns center ph3">
@@ -40,7 +40,7 @@ class DeleteItem extends React.Component {
             <h2 className="pv3">{name}</h2>
             <dl className="flex lh-title mv2">
               <dt className="mr2 b">Replacement Value:</dt>
-              <dd className="ml0 dark-gray">${replaceValueCommas}</dd>
+              <dd className="ml0 dark-gray">{formatAsCurrency(replaceValue)}</dd>
             </dl>
             <dl className="flex lh-title mv2">
               <dt className="mr2 b">Category:</dt>
