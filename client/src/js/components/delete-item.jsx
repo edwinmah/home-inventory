@@ -1,7 +1,7 @@
 import React from 'react';
 import { router, Link } from 'react-router';
 import { connect } from 'react-redux';
-import actions from '../actions/delete-item';
+import { deleteSingleItem } from '../actions/delete-item';
 import { fetchItems } from '../actions/get-items';
 import { formatAsCurrency } from '../utils';
 
@@ -18,7 +18,7 @@ class DeleteItem extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.dispatch(actions.deleteSingleItem(this.props.params.id));
+    this.props.dispatch(deleteSingleItem(this.props.params.id));
   }
 
   render() {
