@@ -1,6 +1,6 @@
 import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
-import actions from './get-owners';
+import { fetchOwners } from './get-owners';
 
 
 const EDIT_OWNER_SUCCESS = 'EDIT_OWNER_SUCCESS';
@@ -29,7 +29,7 @@ const editOwner = (ownerId, obj) => dispatch => {
     return dispatch(editOwnerSuccess(owner));
   })
     .then(() => {
-    dispatch(actions.fetchOwners());
+    dispatch(fetchOwners());
     hashHistory.push('/account');
     document.body.scrollTop = 0;
   })

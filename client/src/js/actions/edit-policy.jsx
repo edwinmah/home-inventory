@@ -1,6 +1,6 @@
 import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
-import actions from './get-policies';
+import { fetchPolicies } from './get-policies';
 
 
 const EDIT_POLICY_SUCCESS = 'EDIT_POLICY_SUCCESS';
@@ -29,7 +29,7 @@ const editPolicy = (policyId, obj) => dispatch => {
     return dispatch(editPolicySuccess(policy));
   })
   .then(() => {
-    dispatch(actions.fetchPolicies());
+    dispatch(fetchPolicies());
     hashHistory.push('/account');
     document.body.scrollTop = 0;
   })

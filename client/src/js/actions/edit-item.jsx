@@ -1,6 +1,6 @@
 import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
-import actions from './get-single-item';
+import { fetchSingleItem } from './get-single-item';
 
 
 const EDIT_ITEM_SUCCESS = 'EDIT_ITEM_SUCCESS';
@@ -29,7 +29,7 @@ const editItem = (itemId, obj) => dispatch => {
     return dispatch(editItemSuccess(item));
   })
   .then(() => {
-    dispatch(actions.fetchSingleItem(itemId));
+    dispatch(fetchSingleItem(itemId));
     hashHistory.push(`/item/${itemId}`);
     document.body.scrollTop = 0;
   })

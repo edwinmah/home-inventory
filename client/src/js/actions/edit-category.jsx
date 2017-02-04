@@ -1,6 +1,6 @@
 import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
-import actions from './get-categories';
+import { fetchCategoryNames } from './get-categories';
 
 
 const EDIT_CATEGORY_SUCCESS = 'EDIT_CATEGORY_SUCCESS';
@@ -29,7 +29,7 @@ const editCategory = (categoryId, obj) => dispatch => {
     return dispatch(editCategorySuccess(category));
   })
   .then(() => {
-    dispatch(actions.fetchCategoryNames());
+    dispatch(fetchCategoryNames());
     hashHistory.push(`/categories`);
     document.body.scrollTop = 0;
   })
