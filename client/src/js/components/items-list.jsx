@@ -47,34 +47,28 @@ class ItemsList extends React.Component {
 
   render() {
     const keys = Object.keys(this.props.items);
-
     const categoryFilter = keys.filter((itemId) => {
       return this.props.params.id === this.props.items[itemId].categoryId;
     });
 
     let output, itemCount = 0, totalValue;
     if (this.props.params.id !== undefined && categoryFilter.length === 0) {
-      output = this.renderNoItems();
-    }
-    else if (this.props.params.id !== undefined) {
-      output = categoryFilter.map((itemId) => this.renderItems(itemId));
+      output     = this.renderNoItems();
+    } else if (this.props.params.id !== undefined) {
+      output     = categoryFilter.map((itemId) => this.renderItems(itemId));
       totalValue = calcTotalValue(categoryFilter, this.props.items, 'replaceValue');
       itemCount  = categoryFilter.length;
-    }
-    else {
-      output = keys.map((itemId) => this.renderItems(itemId));
+    } else {
+      output    = keys.map((itemId) => this.renderItems(itemId));
       itemCount = keys.length;
       if (itemCount > 0) {
         totalValue = calcTotalValue(keys, this.props.items, 'replaceValue');
       }
     }
 
-    let sectionTitle;
+    let sectionTitle = 'All Items';
     if (Object.keys(this.props.categories).length > 0 && this.props.params.id !== undefined) {
       sectionTitle = this.props.categories[this.props.params.id].name;
-    }
-    else {
-      sectionTitle = 'All Items';
     }
 
     if (keys.length === 0) {
