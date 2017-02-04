@@ -1,4 +1,4 @@
-import actions from '../actions/get-policies';
+import { FETCH_POLICIES_SUCCESS } from '../actions/get-policies';
 import { EDIT_POLICY_SUCCESS } from '../actions/edit-policy';
 
 
@@ -9,7 +9,7 @@ const AllPolicies = (state, action) => {
   state = state || initialState;
 
   switch (action.type) {
-    case actions.FETCH_POLICIES_SUCCESS :
+    case FETCH_POLICIES_SUCCESS :
       let newPolicies = {};
       action.policies.forEach((policy) => newPolicies[policy._id] = policy);
       return Object.assign({}, state, newPolicies);

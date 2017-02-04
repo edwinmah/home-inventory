@@ -1,4 +1,4 @@
-import actions from '../actions/get-items';
+import { FETCH_ITEMS_SUCCESS } from '../actions/get-items';
 import { FETCH_SINGLE_ITEM_SUCCESS } from '../actions/get-single-item';
 import { EDIT_ITEM_SUCCESS } from '../actions/edit-item';
 import { DELETE_SINGLE_ITEM_SUCCESS } from '../actions/delete-item';
@@ -11,7 +11,7 @@ const AllItems = (state, action) => {
   state = state || initialState;
 
   switch (action.type) {
-    case actions.FETCH_ITEMS_SUCCESS :
+    case FETCH_ITEMS_SUCCESS :
       let newItems = {};
       action.items.forEach((item) => newItems[item._id] = item);
       return Object.assign({}, state, newItems);

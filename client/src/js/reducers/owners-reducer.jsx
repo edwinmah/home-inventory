@@ -1,4 +1,4 @@
-import actions from '../actions/get-owners';
+import { FETCH_OWNERS_SUCCESS } from '../actions/get-owners';
 import { EDIT_OWNER_SUCCESS } from '../actions/edit-owner';
 
 
@@ -9,7 +9,7 @@ const AllOwners = (state, action) => {
   state = state || initialState;
 
   switch (action.type) {
-    case actions.FETCH_OWNERS_SUCCESS :
+    case FETCH_OWNERS_SUCCESS :
       let newOwners = {};
       action.owners.forEach((owner) => newOwners[owner._id] = owner);
       return Object.assign({}, state, newOwners);
