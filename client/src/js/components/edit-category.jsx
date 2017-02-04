@@ -59,7 +59,6 @@ class EditCategory extends React.Component {
       );
     }
 
-    const { _id, name, description } = this.props.currentCategory;
     const widthStyle  = (!this.props.params.id) ? 'w-50' : 'w-third';
     const sharedStyle = 'link bn br2 ph3 pv2 mr2 mv3 white';
 
@@ -69,7 +68,7 @@ class EditCategory extends React.Component {
 
     return (
       <section className="w-100 w-50-ns">
-        <h2 className="ttc">{(!this.props.params.id) ? 'Add a category' : name}</h2>
+        <h2 className="ttc">{(!this.props.params.id) ? 'Add a category' : this.props.currentCategory.name}</h2>
         <form onSubmit={this.handleSubmit}>
           {keys.map((property, i) => this.renderFormInputs(property, i))}
           <div className="flex flex-row">
