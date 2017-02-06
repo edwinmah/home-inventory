@@ -3,7 +3,7 @@ import TestUtils from 'react-addons-test-utils';
 import { should } from 'chai';
 import { fetchCategoryNames } from '../client/src/js/actions/get-categories';
 import { fetchItems } from '../client/src/js/actions/get-items';
-import actionsSingle from '../client/src/js/actions/get-single-item';
+import { fetchSingleItem } from '../client/src/js/actions/get-single-item';
 import { fetchOwners } from '../client/src/js/actions/get-owners';
 import { fetchPolicies } from '../client/src/js/actions/get-policies';
 import CategoryNames from '../client/src/js/reducers/categories-reducer';
