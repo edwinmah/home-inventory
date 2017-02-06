@@ -303,6 +303,7 @@ describe('The action', () => {
 
     categoryIds.forEach((categoryId) => {
       newState[categoryId]._id.should.equal(categoryId);
+      newState[categoryId].ownerId.should.equal('586d48582ea3d63d2dafd2df');
     })
 
     newState[categoryIds[0]].name.should.equal('Uncategorized');
