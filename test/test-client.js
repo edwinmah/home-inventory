@@ -230,7 +230,7 @@ const items = [
   }
 ];
 
-let itemsList;
+let itemsList, categoriesList, ownersList, policiesList;
 
 /*****************************
  * actions and reducers tests
