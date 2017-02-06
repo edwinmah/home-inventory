@@ -22,7 +22,9 @@ const initialState = {};
 const owners = [
   {
     "_id": "586d48582ea3d63d2dafd2df",
+    "googleId": "goog789",
     "name": "Your Name",
+    "accessToken": "abc123",
     "address": "Your Address",
     "city": "City",
     "state": "ST",
