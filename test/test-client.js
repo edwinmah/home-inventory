@@ -335,7 +335,9 @@ describe('The action', () => {
     newState.should.be.an('object');
     ownerIds.length.should.equal(1);
     owner._id.should.equal('586d48582ea3d63d2dafd2df');
+    owner.googleId.should.equal('goog789');
     owner.name.should.equal('Your Name');
+    owner.accessToken.should.equal('abc123');
     owner.address.should.equal('Your Address');
     owner.city.should.equal('City');
     owner.state.should.equal('ST');
