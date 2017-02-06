@@ -1,11 +1,11 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { should } from 'chai';
-import actionsCat from '../client/src/js/actions/get-categories';
-import actionsItems from '../client/src/js/actions/get-items';
+import { fetchCategoryNames } from '../client/src/js/actions/get-categories';
+import { fetchItems } from '../client/src/js/actions/get-items';
 import actionsSingle from '../client/src/js/actions/get-single-item';
-import actionsOwners from '../client/src/js/actions/get-owners';
-import actionsPolicies from '../client/src/js/actions/get-policies';
+import { fetchOwners } from '../client/src/js/actions/get-owners';
+import { fetchPolicies } from '../client/src/js/actions/get-policies';
 import CategoryNames from '../client/src/js/reducers/categories-reducer';
 import AllItems from '../client/src/js/reducers/items-reducer';
 import AllOwners from '../client/src/js/reducers/owners-reducer';
@@ -238,7 +238,7 @@ let itemsList;
 describe('The action', () => {
 
   it('FETCH_ITEMS_SUCCESS can get items.', () => {
-    actionsItems.fetchItems();
+    fetchItems();
 
     const action = {
       type: 'FETCH_ITEMS_SUCCESS',
@@ -288,7 +288,7 @@ describe('The action', () => {
   it('FETCH_CATEGORY_NAMES_SUCCESS can get categories.', () => {
     state = initialState;
 
-    actionsCat.fetchCategoryNames();
+    fetchCategoryNames();
 
     const action = {
       type: 'FETCH_CATEGORY_NAMES_SUCCESS',
@@ -320,7 +320,7 @@ describe('The action', () => {
   it('FETCH_OWNERS_SUCCESS can get owners.', () => {
     state = initialState;
 
-    actionsOwners.fetchOwners();
+    fetchOwners();
 
     const action = {
       type: 'FETCH_OWNERS_SUCCESS',
@@ -347,7 +347,7 @@ describe('The action', () => {
   it('FETCH_POLICIES_SUCCESS can get policies.', () => {
     state = initialState;
 
-    actionsPolicies.fetchPolicies();
+    fetchPolicies();
 
     const action = {
       type: 'FETCH_POLICIES_SUCCESS',
