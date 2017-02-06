@@ -331,44 +331,6 @@ describe('Server should', function() {
   /*************
    * POST tests
    ************/
-//  it('POST a single owner', function(done) {
-//    chai.request(app)
-//      .post('/owner')
-//      .set('authorization', 'Bearer abc123456')
-//      .send({
-//        googleId    : 'rl0986',
-//        name        : 'Ragnar Lothbrock',
-//        accessToken : 'abc123456',
-//        address     : '123 7th Street NW #801',
-//        city        : 'Washington',
-//        state       : 'DC',
-//        zip         : '20001',
-//        phone       : '202-111-1111',
-//        email       : 'rlothbrock@email.com'
-//      })
-//      .end(function(err, res) {
-//        should.equal(err, null);
-//        res.unauthorized.should.equal(false);
-//        res.should.have.status(201);
-//        res.should.be.json;
-//        res.body.should.be.an('object');
-//        res.body.should.include.keys('googleId', 'name', 'accessToken', 'address', 'city', 'state', 'zip', 'phone', 'email');
-//        res.body.name.should.equal('Ragnar Lothbrock');
-//        chai.request(app)
-//          .get('/owners')
-//          .set('authorization', 'Bearer abc123456')
-//          .end(function(err, res) {
-//            should.equal(err, null);
-//            res.unauthorized.should.equal(false);
-//            res.should.have.status(200);
-//            res.should.be.json;
-//            res.body.should.be.an('array');
-//            res.body.should.have.length(2);
-//            done();
-//          })
-//      });
-//  });
-
   it('POST a single policy', function(done) {
     chai.request(app)
       .post('/policy')
