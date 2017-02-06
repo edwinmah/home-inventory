@@ -63,34 +63,34 @@ passport.use(new GoogleStrategy({
         if (!owner) {
           let newOwner;
           return Owner.create({
-            googleId: profile.id,
-            name: profile.displayName,
-            accessToken: accessToken,
-            address: 'Address',
-            city: 'City',
-            state: 'State',
-            zip: '12345',
-            phone: '456-789-0123',
-            email: 'yourname@email.com'
+            googleId    : profile.id,
+            name        : profile.displayName,
+            accessToken : accessToken,
+            address     : 'Address',
+            city        : 'City',
+            state       : 'State',
+            zip         : '12345',
+            phone       : '456-789-0123',
+            email       : 'yourname@email.com'
           })
           .then(function(owner) {
             newOwner = owner;
             return Policy.create({
-              ownerId: owner._id,
-              company: 'Insurance company name',
-              policyNumber: 'Policy number',
-              coverage: 0,
-              website: 'https://www.insurancecompany.com',
-              phone: '123-456-7890',
-              email: 'email@insurancecompany.com'
+              ownerId      : owner._id,
+              company      : 'Insurance company name',
+              policyNumber : 'Policy number',
+              coverage     : 0,
+              website      : 'https://www.insurancecompany.com',
+              phone        : '123-456-7890',
+              email        : 'email@insurancecompany.com'
             })
           })
           .then(function(policy) {
             cb(null, newOwner);
             return Category.create({
-              ownerId: newOwner._id,
-              name: 'Uncategorized',
-              description: 'Items that don\'t fit any category'
+              ownerId      : newOwner._id,
+              name        : 'Uncategorized',
+              description : 'Items that don\'t fit any category'
             })
           })
         }
@@ -276,13 +276,14 @@ app.get('/category/:id/items', (req, res) => {
 // POST a single owner
 app.post('/owner', (req, res) => {
   let query = {
-    name    : req.body.name,
-    address : req.body.address,
-    city    : req.body.city,
-    state   : req.body.state,
-    zip     : req.body.zip,
-    phone   : req.body.phone,
-    email   : req.body.email
+    name        : req.body.name,
+    accessToken : accessToken,
+    address     : req.body.address,
+    city        : req.body.city,
+    state       : req.body.state,
+    zip         : req.body.zip,
+    phone       : req.body.phone,
+    email       : req.body.email
   };
 
   Owner.create(query, (err, owner) => {
