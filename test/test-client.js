@@ -296,6 +296,7 @@ describe('The action', () => {
     };
     const newState    = CategoryNames(state, action);
     const categoryIds = Object.keys(newState);
+    categoriesList = newState;
 
     // assertions
     newState.should.be.an('object');
@@ -394,6 +395,25 @@ describe('The action', () => {
   });
 
 
+  it('EDIT_CATEGORY_SUCCESS can edit a category.', () => {
+    state = categoriesList;
 
+    let category = categoriesList['586d40b07560373ca9caa3bf'];
+    category.name = 'Miscellaneous';
+
+    const action = {
+      type: 'EDIT_CATEGORY_SUCCESS',
+      category: category
+    }
+
+    const newState = CategoryNames(state, action);
+    const editedCategory = newState['586d40b07560373ca9caa3bf'];
+
+    newState.should.be.an('object');
+    editedCategory._id.should.equal('586d40b07560373ca9caa3bf');
+    editedCategory.ownerId.should.equal('586d48582ea3d63d2dafd2df');
+    editedCategory.name.should.equal('Miscellaneous');
+
+  });
 
 });
