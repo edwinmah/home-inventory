@@ -373,4 +373,27 @@ describe('The action', () => {
     policy.email.should.equal('Company email');
   });
 
+
+  it('EDIT_ITEM_SUCCESS can edit an item.', () => {
+    state = itemsList;
+
+    let item = itemsList['58713c8da1e12902ea3cf843'];
+        item.notes = 'includes power cord and USB cable';
+    const action = {
+      type: 'EDIT_ITEM_SUCCESS',
+      item: item
+    };
+
+    const newState = AllItems(state, action);
+    const editedItem = newState['58713c8da1e12902ea3cf843'];
+
+    newState.should.be.an('object');
+    editedItem._id.should.equal('58713c8da1e12902ea3cf843');
+    editedItem.ownerId.should.equal('586d48582ea3d63d2dafd2df');
+    editedItem.notes.should.equal('includes power cord and USB cable');
+  });
+
+
+
+
 });
