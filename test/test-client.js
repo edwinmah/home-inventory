@@ -21,212 +21,212 @@ const initialState = {};
 
 const owners = [
   {
-    "_id": "586d48582ea3d63d2dafd2df",
-    "googleId": "goog789",
-    "name": "Your Name",
-    "accessToken": "abc123",
-    "address": "Your Address",
-    "city": "City",
-    "state": "ST",
-    "zip": "12345",
-    "phone": "123-456-7890",
-    "email": "yourname@email.com",
-    "__v": 0
+    '_id': '586d48582ea3d63d2dafd2df',
+    'googleId': 'goog789',
+    'name': 'Your Name',
+    'accessToken': 'abc123',
+    'address': 'Your Address',
+    'city': 'City',
+    'state': 'ST',
+    'zip': '12345',
+    'phone': '123-456-7890',
+    'email': 'yourname@email.com',
+    '__v': 0
   }
 ];
 
 const policies = [
   {
-    "_id": "586d48582ea3d63d2dafd2e0",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "company": "Insurance company name",
-    "policyNumber": "Policy number",
-    "coverage": 0,
-    "website": "Company website",
-    "phone": "Company phone number",
-    "email": "Company email",
-    "__v": 0
+    '_id': '586d48582ea3d63d2dafd2e0',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'company': 'Insurance company name',
+    'policyNumber': 'Policy number',
+    'coverage': 0,
+    'website': 'Company website',
+    'phone': 'Company phone number',
+    'email': 'Company email',
+    '__v': 0
   }
 ];
 
 const categories = [
   {
-    "_id": "586d40b07560373ca9caa3bf",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "name": "Uncategorized",
-    "description": "Items that don't fit any category",
-    "__v": 0
+    '_id': '586d40b07560373ca9caa3bf',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'name': 'Uncategorized',
+    'description': 'Items that don\'t fit any category',
+    '__v': 0
   },
   {
-    "_id": "586d40b07560373ca9caa3c0",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "name": "Furniture",
-    "description": "Includes all household furniture",
-    "__v": 0
+    '_id': '586d40b07560373ca9caa3c0',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'name': 'Furniture',
+    'description': 'Includes all household furniture',
+    '__v': 0
   },
   {
-    "_id": "586d40b07560373ca9caa3c1",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "name": "Electronics",
-    "description": "Includes TVs, stereo, etc.",
-    "__v": 0
+    '_id': '586d40b07560373ca9caa3c1',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'name': 'Electronics',
+    'description': 'Includes TVs, stereo, etc.',
+    '__v': 0
   },
   {
-    "_id": "586d40b07560373ca9caa3c2",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "name": "Clothing",
-    "description": "",
-    "__v": 0
+    '_id': '586d40b07560373ca9caa3c2',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'name': 'Clothing',
+    'description': '',
+    '__v': 0
   },
   {
-    "_id": "586d40b07560373ca9caa3c3",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "name": "Linens",
-    "description": "Includes sheets, towels, blankets, etc.",
-    "__v": 0
+    '_id': '586d40b07560373ca9caa3c3',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'name': 'Linens',
+    'description': 'Includes sheets, towels, blankets, etc.',
+    '__v': 0
   },
   {
-    "_id": "586d40b07560373ca9caa3c4",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "name": "Bathroom",
-    "description": "Includes any bathroom items, etc.",
-    "__v": 0
+    '_id': '586d40b07560373ca9caa3c4',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'name': 'Bathroom',
+    'description': 'Includes any bathroom items, etc.',
+    '__v': 0
   },
   {
-    "_id": "586d40b07560373ca9caa3c5",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "name": "Books and media",
-    "description": "Includes books, CDs, DVDs, etc.",
-    "__v": 0
+    '_id': '586d40b07560373ca9caa3c5',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'name': 'Books and media',
+    'description': 'Includes books, CDs, DVDs, etc.',
+    '__v': 0
   },
   {
-    "_id": "586d40b07560373ca9caa3c6",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "name": "Artwork",
-    "description": "Includes paintings, photos, sculptures, etc.",
-    "__v": 0
+    '_id': '586d40b07560373ca9caa3c6',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'name': 'Artwork',
+    'description': 'Includes paintings, photos, sculptures, etc.',
+    '__v': 0
   },
   {
-    "_id": "586d40b07560373ca9caa3c7",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "name": "Plants",
-    "description": "",
-    "__v": 0
+    '_id': '586d40b07560373ca9caa3c7',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'name': 'Plants',
+    'description': '',
+    '__v': 0
   }
 ];
 
 const items = [
   {
-    "_id": "58713c8da1e12902ea3cf843",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "categoryId": "586d40b07560373ca9caa3c1",
-    "name": "Epson laser printer",
-    "serialNumber": "EPL982-84392",
-    "notes": "Nulla vitae elit libero, a pharetra augue.",
-    "replaceValue": 90,
-    "purchaseDate": "2014-04-01T00:00:00.000Z",
-    "placePurchased": "Amazon",
-    "receipt": "https://aws.com?391301.png",
-    "image": "https://aws.com?3918319.png",
-    "__v": 0
+    '_id': '58713c8da1e12902ea3cf843',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'categoryId': '586d40b07560373ca9caa3c1',
+    'name': 'Epson laser printer',
+    'serialNumber': 'EPL982-84392',
+    'notes': 'Nulla vitae elit libero, a pharetra augue.',
+    'replaceValue': 90,
+    'purchaseDate': '2014-04-01T00:00:00.000Z',
+    'placePurchased': 'Amazon',
+    'receipt': 'https://aws.com?391301.png',
+    'image': 'https://aws.com?3918319.png',
+    '__v': 0
   },
   {
-    "_id": "58713c8da1e12902ea3cf844",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "categoryId": "586d40b07560373ca9caa3c0",
-    "name": "Leather recliner",
-    "serialNumber": "none",
-    "notes": "",
-    "replaceValue": 1800,
-    "purchaseDate": "2004-09-30T00:00:00.000Z",
-    "placePurchased": "Pottery Barn",
-    "receipt": "https://aws.com?3901994.png",
-    "image": "https://aws.com?3918319.png",
-    "__v": 0
+    '_id': '58713c8da1e12902ea3cf844',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'categoryId': '586d40b07560373ca9caa3c0',
+    'name': 'Leather recliner',
+    'serialNumber': 'none',
+    'notes': '',
+    'replaceValue': 1800,
+    'purchaseDate': '2004-09-30T00:00:00.000Z',
+    'placePurchased': 'Pottery Barn',
+    'receipt': 'https://aws.com?3901994.png',
+    'image': 'https://aws.com?3918319.png',
+    '__v': 0
   },
   {
-    "_id": "58713c8da1e12902ea3cf845",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "categoryId": "586d40b07560373ca9caa3c0",
-    "name": "Computer table",
-    "serialNumber": "",
-    "notes": "Maecenas faucibus mollis interdum.",
-    "replaceValue": 300,
-    "purchaseDate": "2007-07-14T00:00:00.000Z",
-    "placePurchased": "IKEA",
-    "receipt": "https://aws.com?3920109.png",
-    "image": "https://aws.com?3014928.png",
-    "__v": 0
+    '_id': '58713c8da1e12902ea3cf845',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'categoryId': '586d40b07560373ca9caa3c0',
+    'name': 'Computer table',
+    'serialNumber': '',
+    'notes': 'Maecenas faucibus mollis interdum.',
+    'replaceValue': 300,
+    'purchaseDate': '2007-07-14T00:00:00.000Z',
+    'placePurchased': 'IKEA',
+    'receipt': 'https://aws.com?3920109.png',
+    'image': 'https://aws.com?3014928.png',
+    '__v': 0
   },
   {
-    "_id": "58713c8da1e12902ea3cf846",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "categoryId": "586d40b07560373ca9caa3c1",
-    "name": "Epson flatbed scanner",
-    "serialNumber": "EPSC1893-39183",
-    "notes": "Sed posuere consectetur est at lobortis.",
-    "replaceValue": 60,
-    "purchaseDate": "2008-02-28T00:00:00.000Z",
-    "placePurchased": "Amazon",
-    "receipt": "https://aws.com?3810913.png",
-    "image": "https://aws.com?5837282.png",
-    "__v": 0
+    '_id': '58713c8da1e12902ea3cf846',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'categoryId': '586d40b07560373ca9caa3c1',
+    'name': 'Epson flatbed scanner',
+    'serialNumber': 'EPSC1893-39183',
+    'notes': 'Sed posuere consectetur est at lobortis.',
+    'replaceValue': 60,
+    'purchaseDate': '2008-02-28T00:00:00.000Z',
+    'placePurchased': 'Amazon',
+    'receipt': 'https://aws.com?3810913.png',
+    'image': 'https://aws.com?5837282.png',
+    '__v': 0
   },
   {
-    "_id": "58713c8da1e12902ea3cf847",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "categoryId": "586d40b07560373ca9caa3c2",
-    "name": "Blue Jeans",
-    "serialNumber": "",
-    "notes": "Ipsum Pellentesque Magna.",
-    "replaceValue": 170,
-    "purchaseDate": "2015-11-28T00:00:00.000Z",
-    "placePurchased": "Banana Republic",
-    "receipt": "https://aws.com?3812843.png",
-    "image": "https://aws.com?9817282.png",
-    "__v": 0
+    '_id': '58713c8da1e12902ea3cf847',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'categoryId': '586d40b07560373ca9caa3c2',
+    'name': 'Blue Jeans',
+    'serialNumber': '',
+    'notes': 'Ipsum Pellentesque Magna.',
+    'replaceValue': 170,
+    'purchaseDate': '2015-11-28T00:00:00.000Z',
+    'placePurchased': 'Banana Republic',
+    'receipt': 'https://aws.com?3812843.png',
+    'image': 'https://aws.com?9817282.png',
+    '__v': 0
   },
   {
-    "_id": "58713c8da1e12902ea3cf848",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "categoryId": "586d40b07560373ca9caa3c3",
-    "name": "Queen-size Bed Comfortor",
-    "serialNumber": "",
-    "notes": "Aenean lacinia bibendum nulla sed consectetur.",
-    "replaceValue": 110,
-    "purchaseDate": "2015-11-28T00:00:00.000Z",
-    "placePurchased": "Target",
-    "receipt": "https://aws.com?1332813.png",
-    "image": "https://aws.com?1384722.png",
-    "__v": 0
+    '_id': '58713c8da1e12902ea3cf848',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'categoryId': '586d40b07560373ca9caa3c3',
+    'name': 'Queen-size Bed Comfortor',
+    'serialNumber': '',
+    'notes': 'Aenean lacinia bibendum nulla sed consectetur.',
+    'replaceValue': 110,
+    'purchaseDate': '2015-11-28T00:00:00.000Z',
+    'placePurchased': 'Target',
+    'receipt': 'https://aws.com?1332813.png',
+    'image': 'https://aws.com?1384722.png',
+    '__v': 0
   },
   {
-    "_id": "58713c8da1e12902ea3cf849",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "categoryId": "586d40b07560373ca9caa3c0",
-    "name": "Book shelf",
-    "serialNumber": "",
-    "notes": "",
-    "replaceValue": 90,
-    "purchaseDate": "2008-10-12T00:00:00.000Z",
-    "placePurchased": "Target",
-    "receipt": "https://aws.com?23u4u2384u.png",
-    "image": "https://aws.com?2309852091.png",
-    "__v": 0
+    '_id': '58713c8da1e12902ea3cf849',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'categoryId': '586d40b07560373ca9caa3c0',
+    'name': 'Book shelf',
+    'serialNumber': '',
+    'notes': '',
+    'replaceValue': 90,
+    'purchaseDate': '2008-10-12T00:00:00.000Z',
+    'placePurchased': 'Target',
+    'receipt': 'https://aws.com?23u4u2384u.png',
+    'image': 'https://aws.com?2309852091.png',
+    '__v': 0
   },
   {
-    "_id": "58713c8da1e12902ea3cf84a",
-    "ownerId": "586d48582ea3d63d2dafd2df",
-    "categoryId": "586d40b07560373ca9caa3c2",
-    "name": "Khaki Pants",
-    "serialNumber": "",
-    "notes": "4 pairs",
-    "replaceValue": 180,
-    "purchaseDate": "2014-09-15T04:00:00.000Z",
-    "placePurchased": "Banana Republic",
-    "receipt": "https://aws.com?1239843.png",
-    "image": "https://aws.com?4716422.png",
-    "__v": 0
+    '_id': '58713c8da1e12902ea3cf84a',
+    'ownerId': '586d48582ea3d63d2dafd2df',
+    'categoryId': '586d40b07560373ca9caa3c2',
+    'name': 'Khaki Pants',
+    'serialNumber': '',
+    'notes': '4 pairs',
+    'replaceValue': 180,
+    'purchaseDate': '2014-09-15T04:00:00.000Z',
+    'placePurchased': 'Banana Republic',
+    'receipt': 'https://aws.com?1239843.png',
+    'image': 'https://aws.com?4716422.png',
+    '__v': 0
   }
 ];
 
