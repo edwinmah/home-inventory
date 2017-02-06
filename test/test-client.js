@@ -389,6 +389,7 @@ describe('The action', () => {
     const newState = AllItems(state, action);
     const editedItem = newState['58713c8da1e12902ea3cf843'];
 
+    // assertions
     newState.should.be.an('object');
     editedItem._id.should.equal('58713c8da1e12902ea3cf843');
     editedItem.ownerId.should.equal('586d48582ea3d63d2dafd2df');
@@ -410,6 +411,7 @@ describe('The action', () => {
     const newState = CategoryNames(state, action);
     const editedCategory = newState['586d40b07560373ca9caa3bf'];
 
+    // assertions
     newState.should.be.an('object');
     editedCategory._id.should.equal('586d40b07560373ca9caa3bf');
     editedCategory.ownerId.should.equal('586d48582ea3d63d2dafd2df');
