@@ -380,6 +380,7 @@ describe('The action', () => {
 
     let item = itemsList['58713c8da1e12902ea3cf843'];
         item.notes = 'includes power cord and USB cable';
+
     const action = {
       type: 'EDIT_ITEM_SUCCESS',
       item: item
@@ -413,7 +414,6 @@ describe('The action', () => {
     editedCategory._id.should.equal('586d40b07560373ca9caa3bf');
     editedCategory.ownerId.should.equal('586d48582ea3d63d2dafd2df');
     editedCategory.name.should.equal('Miscellaneous');
-
   });
 
 });
