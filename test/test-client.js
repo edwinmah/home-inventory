@@ -52,54 +52,63 @@ const policies = [
 const categories = [
   {
     "_id": "586d40b07560373ca9caa3bf",
+    "ownerId": "586d48582ea3d63d2dafd2df",
     "name": "Uncategorized",
     "description": "Items that don't fit any category",
     "__v": 0
   },
   {
     "_id": "586d40b07560373ca9caa3c0",
+    "ownerId": "586d48582ea3d63d2dafd2df",
     "name": "Furniture",
     "description": "Includes all household furniture",
     "__v": 0
   },
   {
     "_id": "586d40b07560373ca9caa3c1",
+    "ownerId": "586d48582ea3d63d2dafd2df",
     "name": "Electronics",
     "description": "Includes TVs, stereo, etc.",
     "__v": 0
   },
   {
     "_id": "586d40b07560373ca9caa3c2",
+    "ownerId": "586d48582ea3d63d2dafd2df",
     "name": "Clothing",
     "description": "",
     "__v": 0
   },
   {
     "_id": "586d40b07560373ca9caa3c3",
+    "ownerId": "586d48582ea3d63d2dafd2df",
     "name": "Linens",
     "description": "Includes sheets, towels, blankets, etc.",
     "__v": 0
   },
   {
     "_id": "586d40b07560373ca9caa3c4",
+    "ownerId": "586d48582ea3d63d2dafd2df",
     "name": "Bathroom",
     "description": "Includes any bathroom items, etc.",
     "__v": 0
   },
   {
     "_id": "586d40b07560373ca9caa3c5",
+    "ownerId": "586d48582ea3d63d2dafd2df",
     "name": "Books and media",
     "description": "Includes books, CDs, DVDs, etc.",
     "__v": 0
   },
   {
     "_id": "586d40b07560373ca9caa3c6",
+    "ownerId": "586d48582ea3d63d2dafd2df",
     "name": "Artwork",
     "description": "Includes paintings, photos, sculptures, etc.",
     "__v": 0
   },
   {
     "_id": "586d40b07560373ca9caa3c7",
+    "ownerId": "586d48582ea3d63d2dafd2df",
     "name": "Plants",
     "description": "",
     "__v": 0
