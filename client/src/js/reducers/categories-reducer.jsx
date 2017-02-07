@@ -1,4 +1,5 @@
 import { FETCH_CATEGORY_NAMES_SUCCESS } from '../actions/get-categories';
+import { CREATE_CATEGORY_SUCCESS } from '../actions/create-category';
 import { EDIT_CATEGORY_SUCCESS } from '../actions/edit-category';
 import { DELETE_CATEGORY_SUCCESS } from '../actions/delete-category';
 
@@ -14,6 +15,11 @@ const CategoryNames = (state, action) => {
       let newCategories = {};
       action.categories.forEach((category) => newCategories[category._id] = category);
       return Object.assign({}, state, newCategories);
+      break;
+
+    case CREATE_CATEGORY_SUCCESS :
+      const newCategory = action.category;
+      return Object.assign({}, state, { [ newCategory._id]: newCategory });
       break;
 
     case EDIT_CATEGORY_SUCCESS :
