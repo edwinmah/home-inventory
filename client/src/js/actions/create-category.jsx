@@ -1,6 +1,5 @@
 import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
-import { fetchCategoryNames } from './get-categories';
 
 
 const CREATE_CATEGORY_SUCCESS = 'CREATE_CATEGORY_SUCCESS';
@@ -29,7 +28,6 @@ const createCategory = (obj) => dispatch => {
     return dispatch(createCategorySuccess(category));
   })
   .then((data) => {
-    dispatch(fetchCategoryNames());
     hashHistory.push(`/categories`);
     document.body.scrollTop = 0;
   })
