@@ -1,6 +1,5 @@
 import fetchAuth from '../fetchAuth';
 import { hashHistory } from 'react-router';
-import { fetchSingleItem } from './get-single-item';
 
 
 const CREATE_ITEM_SUCCESS = 'CREATE_ITEM_SUCCESS';
@@ -29,7 +28,6 @@ const createItem = (obj) => dispatch => {
     return dispatch(createItemSuccess(item));
   })
   .then((data) => {
-    dispatch(fetchSingleItem(data.item._id));
     hashHistory.push(`/item/${data.item._id}`);
     document.body.scrollTop = 0;
   })
