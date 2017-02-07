@@ -508,4 +508,33 @@ describe('The action', () => {
     newItem.image.should.equal('https://aws.com?4918312.png');
   });
 
+
+  it('CREATE_CATEGORY_SUCCESS can create a category.', () => {
+    state = categoriesList;
+
+    let category = {
+      '_id': 'we98r7t98',
+      'ownerId': '586d48582ea3d63d2dafd2df',
+      'name': 'Household appliances',
+      'description': 'Includes vacuum cleaners, irons, etc.'
+    };
+
+    const action = {
+      type: 'CREATE_CATEGORY_SUCCESS',
+      category: category
+    }
+
+    const newState = CategoryNames(state, action);
+    const newCategory = newState['we98r7t98'];
+
+    // assertions
+    Object.keys(state).length.should.equal(9);
+    Object.keys(newState).length.should.equal(10);
+    newState.should.be.an('object');
+    newCategory._id.should.equal('we98r7t98');
+    newCategory.ownerId.should.equal('586d48582ea3d63d2dafd2df');
+    newCategory.name.should.equal('Household appliances');
+    newCategory.description.should.equal('Includes vacuum cleaners, irons, etc.');
+  });
+
 });
