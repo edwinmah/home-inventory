@@ -5,7 +5,7 @@ import { editItem } from '../actions/edit-item';
 import { createItem } from '../actions/create-item';
 import { fetchOwners } from '../actions/get-owners';
 import { sanitizeNumber } from '../utils';
-import s3bucketName from '../s3bucket-name';
+import { s3bucketName } from '../s3bucket-name';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 import Datetime from 'react-datetime';
 
@@ -58,7 +58,7 @@ class EditItem extends React.Component {
     this.setState(
       prevState => ({
         isImgUploadFinished: !prevState.isImgUploadFinished,
-        imgUrl: `https://homeinventorybucket.s3.amazonaws.com/${image[0].filename}`
+        imgUrl: `https://${s3bucketName}.s3.amazonaws.com/${image[0].filename}`
       })
     );
     setTimeout(() => {
@@ -74,7 +74,7 @@ class EditItem extends React.Component {
     this.setState(
       prevState => ({
         isRecUploadFinished: !prevState.isRecUploadFinished,
-        recUrl: `https://homeinventorybucket.s3.amazonaws.com/${receipt[0].filename}`
+        recUrl: `https://${s3bucketName}.s3.amazonaws.com/${receipt[0].filename}`
       })
     );
     setTimeout(() => {
