@@ -468,7 +468,7 @@ describe('The action', () => {
   it('CREATE_ITEM_SUCCESS can create an item.', () => {
     state = itemsList;
 
-    let item = {
+    const item = {
       '_id': '98273450987',
       'ownerId': '586d48582ea3d63d2dafd2df',
       'categoryId': '586d40b07560373ca9caa3c1',
@@ -512,7 +512,7 @@ describe('The action', () => {
   it('CREATE_CATEGORY_SUCCESS can create a category.', () => {
     state = categoriesList;
 
-    let category = {
+    const category = {
       '_id': 'we98r7t98',
       'ownerId': '586d48582ea3d63d2dafd2df',
       'name': 'Household appliances',
@@ -541,7 +541,7 @@ describe('The action', () => {
   it('DELETE_SINGLE_ITEM_SUCCESS can delete an item.', () => {
     state = itemsList;
 
-    let itemId = '58713c8da1e12902ea3cf843';
+    const itemId = '58713c8da1e12902ea3cf843';
 
     const action = {
       type: 'DELETE_SINGLE_ITEM_SUCCESS',
@@ -553,6 +553,25 @@ describe('The action', () => {
     // assertions
     Object.keys(state).length.should.equal(8);
     Object.keys(newState).length.should.equal(7);
+    newState.should.be.an('object');
+  });
+
+
+  it('DELETE_CATEGORY_SUCCESS can delete a category.', () => {
+    state = categoriesList;
+
+    const categoryId = '586d40b07560373ca9caa3c7';
+
+    const action = {
+      type: 'DELETE_CATEGORY_SUCCESS',
+      categoryId: categoryId
+    }
+
+    const newState = CategoryNames(state, action);
+
+    // assertions
+    Object.keys(state).length.should.equal(9);
+    Object.keys(newState).length.should.equal(8);
     newState.should.be.an('object');
   });
 
