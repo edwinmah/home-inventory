@@ -10,17 +10,19 @@ class CategoriesList extends React.Component {
 
   renderCategoryNames(categoryId) {
     return (
-      <Link to={`/category/${categoryId}/items`} key={categoryId} id={`category-${categoryId}`} className="db pa3 bt b--black-20 dark-blue hover-navy link bg-light-gray hover-bg-light-silver" tabIndex={this.props.menuIsHidden ? '-1' : '0'}>
-        {this.props.categories[categoryId].name}
-      </Link>
+      <li role="menuitem">
+        <Link to={`/category/${categoryId}/items`} key={categoryId} id={`category-${categoryId}`} className="db pa3 bt b--black-20 dark-blue hover-navy link bg-light-gray hover-bg-light-silver" tabIndex={this.props.menuIsHidden ? '-1' : '0'}>
+          {this.props.categories[categoryId].name}
+        </Link>
+      </li>
     );
   }
 
   render() {
     return (
-      <li role="menuitem">
+      <span>
         {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
-      </li>
+      </span>
     );
   }
 }
