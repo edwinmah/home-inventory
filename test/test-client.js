@@ -537,4 +537,23 @@ describe('The action', () => {
     newCategory.description.should.equal('Includes vacuum cleaners, irons, etc.');
   });
 
+
+  it('DELETE_SINGLE_ITEM_SUCCESS can delete an item.', () => {
+    state = itemsList;
+
+    let itemId = '58713c8da1e12902ea3cf843';
+
+    const action = {
+      type: 'DELETE_SINGLE_ITEM_SUCCESS',
+      itemId: itemId
+    }
+
+    const newState = AllItems(state, action);
+
+    // assertions
+    Object.keys(state).length.should.equal(8);
+    Object.keys(newState).length.should.equal(7);
+    newState.should.be.an('object');
+  });
+
 });
