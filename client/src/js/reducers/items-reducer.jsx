@@ -1,5 +1,6 @@
 import { FETCH_ITEMS_SUCCESS } from '../actions/get-items';
 import { FETCH_SINGLE_ITEM_SUCCESS } from '../actions/get-single-item';
+import { CREATE_ITEM_SUCCESS } from '../actions/create-item';
 import { EDIT_ITEM_SUCCESS } from '../actions/edit-item';
 import { DELETE_SINGLE_ITEM_SUCCESS } from '../actions/delete-item';
 
@@ -20,6 +21,11 @@ const AllItems = (state, action) => {
     case FETCH_SINGLE_ITEM_SUCCESS :
       const item = action.item;
       return Object.assign({}, state, { [item._id]: item });
+      break;
+
+    case CREATE_ITEM_SUCCESS :
+      const newItem = action.item;
+      return Object.assign({}, state, { [ newItem._id]: newItem });
       break;
 
     case EDIT_ITEM_SUCCESS :
