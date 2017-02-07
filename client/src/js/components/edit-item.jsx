@@ -5,6 +5,7 @@ import { editItem } from '../actions/edit-item';
 import { createItem } from '../actions/create-item';
 import { fetchOwners } from '../actions/get-owners';
 import { sanitizeNumber } from '../utils';
+import s3bucketName from '../s3bucket-name';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 import Datetime from 'react-datetime';
 
@@ -94,7 +95,7 @@ class EditItem extends React.Component {
     return (
       <div>
         <p className="mt0 mb2 b ttc">{property}:</p>
-        <DropzoneS3Uploader onFinish={finishUpload} style={{backgroundColor: '#ffffff'}} activeStyle={{backgroundColor: '#fbf1a9'}} multiple={false} maxFileSize={1024*1024*50} s3Url="https://homeinventorybucket.s3.amazonaws.com" className={`flex justify-center items-center overflow-hidden h5 b--dashed bw1 b--black-20 br2 pointer`}>
+        <DropzoneS3Uploader onFinish={finishUpload} style={{backgroundColor: '#ffffff'}} activeStyle={{backgroundColor: '#fbf1a9'}} multiple={false} maxFileSize={1024*1024*50} s3Url={`https://${s3bucketName}.s3.amazonaws.com`} className={`flex justify-center items-center overflow-hidden h5 b--dashed bw1 b--black-20 br2 pointer`}>
           <img src={this.props.currentItem[property]} alt={this.props.currentItem.name} className="h4 nested-img img br2" />
         </DropzoneS3Uploader>
         <p className="mb4">{(property === 'image') ? uploadImgMsg : uploadRecMsg}</p>
