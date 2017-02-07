@@ -331,6 +331,7 @@ describe('The action', () => {
     const newState = AllOwners(state, action);
     const ownerIds = Object.keys(newState);
     const owner = newState[ownerIds[0]];
+    ownersList = newState;
 
     // assertions
     newState.should.be.an('object');
@@ -360,6 +361,7 @@ describe('The action', () => {
     const newState  = AllPolicies(state, action);
     const policyIds = Object.keys(newState);
     const policy = newState[policyIds[0]];
+    policiesList = newState;
 
     // assertions
     newState.should.be.an('object');
@@ -416,6 +418,94 @@ describe('The action', () => {
     editedCategory._id.should.equal('586d40b07560373ca9caa3bf');
     editedCategory.ownerId.should.equal('586d48582ea3d63d2dafd2df');
     editedCategory.name.should.equal('Miscellaneous');
+  });
+
+
+  it('EDIT_OWNER_SUCCESS can edit an owner.', () => {
+    state = ownersList;
+
+    let owner = ownersList['586d48582ea3d63d2dafd2df'];
+    owner.address = '1313 Mockingbird Lane NW';
+
+    const action = {
+      type: 'EDIT_OWNER_SUCCESS',
+      owner: owner
+    }
+
+    const newState = AllOwners(state, action);
+    const editedOwner = newState['586d48582ea3d63d2dafd2df'];
+
+    // assertions
+    newState.should.be.an('object');
+    editedOwner._id.should.equal('586d48582ea3d63d2dafd2df');
+    editedOwner.address.should.equal('1313 Mockingbird Lane NW');
+  });
+
+
+  it('EDIT_POLICY_SUCCESS can edit a policy.', () => {
+    state = policiesList;
+
+    let policy = policiesList['586d48582ea3d63d2dafd2e0'];
+    policy.coverage = 60000;
+
+    const action = {
+      type: 'EDIT_POLICY_SUCCESS',
+      policy: policy
+    }
+
+    const newState = AllPolicies(state, action);
+    const editedPolicy = newState['586d48582ea3d63d2dafd2e0'];
+
+    // assertions
+    newState.should.be.an('object');
+    editedPolicy._id.should.equal('586d48582ea3d63d2dafd2e0');
+    editedPolicy.ownerId.should.equal('586d48582ea3d63d2dafd2df');
+    editedPolicy.coverage.should.be.a('number');
+    editedPolicy.coverage.should.equal(60000);
+  });
+
+
+  it('CREATE_ITEM_SUCCESS can create an item.', () => {
+    state = itemsList;
+
+    let item = {
+      '_id': '98273450987',
+      'ownerId': '586d48582ea3d63d2dafd2df',
+      'categoryId': '586d40b07560373ca9caa3c1',
+      'name': 'Fujifilm X100S',
+      'serialNumber': 'FJX100-3945',
+      'notes': 'includes charger',
+      'replaceValue': 1299,
+      'purchaseDate': '2012-04-01T00:00:00.000Z',
+      'placePurchased': 'B&H Photo & Video',
+      'receipt': 'https://aws.com?491306.png',
+      'image': 'https://aws.com?4918312.png'
+    };
+
+    const action = {
+      type: 'CREATE_ITEM_SUCCESS',
+      item: item
+    }
+
+    const newState = AllItems(state, action);
+    const newItem = newState['98273450987'];
+
+    // assertions
+    Object.keys(state).length.should.equal(8);
+    Object.keys(newState).length.should.equal(9);
+    newState.should.be.an('object');
+    newItem._id.should.equal('98273450987');
+    newItem.ownerId.should.equal('586d48582ea3d63d2dafd2df');
+    newItem.categoryId.should.equal('586d40b07560373ca9caa3c1');
+    newItem.name.should.equal('Fujifilm X100S');
+    newItem.replaceValue.should.be.a('number');
+    newItem.replaceValue.should.equal(1299);
+    newItem.serialNumber.should.equal('FJX100-3945');
+    newItem.notes.should.equal('includes charger');
+    newItem.purchaseDate.should.equal('2012-04-01T00:00:00.000Z');
+    newItem.placePurchased.should.equal('B&H Photo & Video');
+    newItem.receipt.should.equal('https://aws.com?491306.png');
+    newItem.image.should.equal('https://aws.com?4918312.png');
   });
 
 });
