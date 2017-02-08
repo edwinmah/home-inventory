@@ -15,7 +15,7 @@ class ItemsList extends React.Component {
 
   renderItems(itemId) {
     const { name, categoryId, replaceValue, image } = this.props.items[itemId];
-    const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
+    const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-gray br2';
 
     return (
       <article key={itemId} id={`item-${itemId}`} className="border-box w-100 w-50-m w-33-ns pa3">

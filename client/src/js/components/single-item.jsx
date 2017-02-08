@@ -74,7 +74,7 @@ class SingleItem extends React.Component {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'image' && property !== 'name';
     });
 
-    const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-silver br2';
+    const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-gray br2';
     const sharedStyle = 'w-50 f5 link br2 ph3 pv2 mv3 white tc';
 
     if (this.props.children) {
