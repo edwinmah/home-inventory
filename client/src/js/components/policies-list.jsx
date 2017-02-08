@@ -20,27 +20,22 @@ class PoliciesList extends React.Component {
 
   renderDefinitionLists(property, i) {
     const policyId = Object.keys(this.props.policies)[0];
-    let ddValue, dtValue;
+
+    let dtValue = property,
+        ddValue = this.props.policies[policyId][property];
+
     switch (property) {
       case 'policyNumber' :
         dtValue = `${property.slice(0, 6)} ${property.slice(-6)}`;
-        ddValue = '';
         break;
       case 'coverage' :
-        dtValue = property;
         ddValue = `${formatAsCurrency(`${this.props.policies[policyId][property]}`)}`;
         break;
       case 'website' :
-        dtValue = property;
         ddValue = this.renderWebsiteLink(policyId);
         break;
       case 'email' :
-        dtValue = property;
         ddValue = this.renderEmailLink(policyId);
-        break;
-      default :
-        dtValue = property;
-        ddValue = this.props.policies[policyId][property];
         break;
     }
 
