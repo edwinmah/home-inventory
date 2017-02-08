@@ -49,11 +49,9 @@ class Nav extends React.Component {
 
   handleCloseMenuDisplay(event) {
     event.preventDefault();
-    this.setState(
-      prevState => ({
-        menuIsHidden: true
-      })
-    );
+    this.setState({
+      menuIsHidden: true
+    });
   }
 
   handleMenuDisplay(event) {
