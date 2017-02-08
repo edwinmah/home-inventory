@@ -10,8 +10,8 @@ class CategoriesList extends React.Component {
 
   renderCategoryNames(categoryId) {
     return (
-      <li key={categoryId} id={`category-${categoryId}`} role="menuitem">
-        <Link to={`/category/${categoryId}/items`} className="db pa3 bt b--black-20 dark-blue hover-navy link bg-light-gray hover-bg-light-silver" tabIndex={this.props.menuIsHidden ? '-1' : '0'}>
+      <li key={categoryId} id={`category-${categoryId}`}>
+        <Link to={`/category/${categoryId}/items`} className="catLink db pa3 bt b--black-20 dark-blue hover-navy link bg-light-gray hover-bg-light-silver" tabIndex={this.props.menuIsHidden ? '-1' : '0'}>
           {this.props.categories[categoryId].name}
         </Link>
       </li>
