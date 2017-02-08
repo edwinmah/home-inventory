@@ -43,7 +43,7 @@ class Nav extends React.Component {
           <li className="relative pa3 nested-list-reset dark-blue hover-navy pointer" aria-haspopup="true" role="menuitem" onClick={this.handleMenuDisplay} onFocus={this.handleMenuDisplay}><span tabIndex="0">Categories</span> <span dangerouslySetInnerHTML={dropDownIcon}></span>
             <ul className={`absolute left-0 z-9999 mt3 bt bw1 b--dark-blue br2 shadow-1 ${dropDownDisplay}`} role="menu" aria-hidden={this.state.menuIsHidden}>
               <CategoriesList menuIsHidden={this.state.menuIsHidden} />
-              <li role="menuitem"><Link to={'/categories'} className="db pa3 bt b--black-20 dark-blue hover-navy link bg-light-gray hover-bg-light-silver" tabIndex={this.state.menuIsHidden ? '-1' : '0'}>Add/Edit</Link></li>
+              <li><Link to={'/categories/edit'} className="db pa3 bt b--black-20 dark-blue hover-navy link bg-light-gray hover-bg-light-silver" tabIndex={this.state.menuIsHidden ? '-1' : '0'}>Add/Edit</Link></li>
             </ul>
           </li>
           <li className="pa3" role="menuitem"><Link to={'/account'} className="dark-blue hover-navy link">Account Info</Link></li>

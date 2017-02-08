@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </Route>
           <Route path="/item/:id/delete" component={DeleteItem} />
           <Route path="/category/:id/items" component={AllItems} />
-          <Route path="/categories" component={CategoriesPanel}>
+          <Route path="/categories/edit" component={CategoriesPanel}>
             <Route path="/category/edit/:id" component={EditCategory} />
             <Route path="/category/add" component={EditCategory} />
           </Route>
