@@ -25,11 +25,19 @@
   overflow: visible;
 }
 
+/* custom header style */
+header:not([role="banner"]) {
+  border-top-width: 2px;
+  border-top-color: #00449e;
+}
+
+/* lower default react datetime picker z-index */
 .rdtPicker {
-  /* lower default react datetime picker z-index */
+
   z-index: 999 !important;
 }
 
+/* h/t: http://codepen.io/timlayton/pen/gppWqz */
 .google-button {
   height: 3rem;
   color: #737373;

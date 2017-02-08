@@ -35,16 +35,20 @@ class CategoriesPanel extends React.Component {
     }
 
     return (
-      <div className="flex mw6 mw8-ns center ph3">
-        <section className="w-100 w-50-ns">
-          <h2>Edit Categories</h2>
-          <ul className="flex flex-column flex-wrap vh-25 pl0 list">
-            {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
-          </ul>
-          <Link to={'/category/add'} className="w-20 link bn br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy">Add Category</Link>
-        </section>
-        {this.renderCategoryForm()}
-      </div>
+      <section className="mw6 mw8-ns center ph3">
+        <header className="mb4 bt bb b--black-20">
+          <h2 className="pa3">Edit Categories</h2>
+        </header>
+        <div className="flex ph3">
+          <div className="w-100 w-50-ns">
+            <ul className="flex flex-column flex-wrap vh-25 pl0 list">
+              {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
+            </ul>
+            <Link to={'/category/add'} className="w-20 link bn br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy">Add Category</Link>
+          </div>
+          {this.renderCategoryForm()}
+        </div>
+      </section>
     );
   }
 }

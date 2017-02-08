@@ -75,7 +75,9 @@ class ItemsList extends React.Component {
       return (
         <section>
           <div className="mw6 mw8-ns center">
-            <h2 className="pa3">{sectionTitle}</h2>
+            <header className="mb4 bt bb b--black-20">
+              <h2 className="pa3">{sectionTitle}</h2>
+            </header>
             <div className="flex flex-wrap">
               <p className="pa3">Loading items...</p>
               {this.renderAddItem()}
@@ -88,10 +90,10 @@ class ItemsList extends React.Component {
     return (
       <section>
         <div className="mw6 mw8-ns center">
-          <div className="flex items-baseline">
+          <header className="flex items-baseline mb4 bt bb b--black-20">
             <h2 className="pa3">{sectionTitle}</h2>
             <span className="f5 b mid-gray">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${formatAsCurrency(totalValue)}`})</span>
-          </div>
+          </header>
           <div className="flex flex-wrap">
             {output}
             {this.renderAddItem()}

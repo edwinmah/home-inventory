@@ -33,10 +33,12 @@ class DeleteItem extends React.Component {
     const sharedStyles = 'w-50 f5 link bn br2 ph3 pv2 mr2 mv3 white';
 
     return (
-      <div className="mw6 mw8-ns center ph3">
+      <section className="mw6 mw8-ns center ph3">
+        <header className="mb4 bt bb b--black-20">
+          <h2 className="mw6 center pa3">{name}</h2>
+        </header>
         <div className="flex flex-column items-center">
           <div className="w-100 w-50-ns mb4">
-            <h2 className="pv3">{name}</h2>
             <dl className="flex lh-title mv2">
               <dt className="mr2 b">Replacement Value:</dt>
               <dd className="ml0 dark-gray">{formatAsCurrency(replaceValue)}</dd>
@@ -57,7 +59,7 @@ class DeleteItem extends React.Component {
             </div>
           </form>
         </div>
-      </div>
+      </section>
     );
   }
 }

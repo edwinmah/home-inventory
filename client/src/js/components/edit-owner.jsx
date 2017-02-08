@@ -49,9 +49,11 @@ class EditOwner extends React.Component {
     const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white';
 
     return (
-      <div className="mw6 center ph3">
-        <article id={`item-${this.props.currentOwner._id}`}>
-          <h3>{this.props.currentOwner.name}</h3>
+      <article id={`item-${this.props.currentOwner._id}`} className="mw6 mw8-ns center ph3">
+        <header className="mb4 bt bb b--black-20">
+          <h2 className="mw6 center pa3">{this.props.currentOwner.name}</h2>
+        </header>
+        <div className="mw6 center ph3">
           <div className="flex flex-column">
             <form className="flex flex-column" onSubmit={this.handleSubmit}>
               {keys.map((property, i) => this.renderFormInputs(property, i))}
@@ -61,8 +63,8 @@ class EditOwner extends React.Component {
               </div>
             </form>
           </div>
-        </article>
-      </div>
+        </div>
+      </article>
     );
   }
 }

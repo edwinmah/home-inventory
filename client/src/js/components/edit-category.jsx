@@ -68,11 +68,11 @@ class EditCategory extends React.Component {
 
     return (
       <section className="w-100 w-50-ns">
-        <h2 className="ttc">{(!this.props.params.id) ? 'Add a category' : this.props.currentCategory.name}</h2>
+        <h3 className="ttc">{(!this.props.params.id) ? 'Add a category' : this.props.currentCategory.name}</h3>
         <form onSubmit={this.handleSubmit}>
           {keys.map((property, i) => this.renderFormInputs(property, i))}
           <div className="flex flex-row">
-            <Link to={'/categories'} className={`${widthStyle} ${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>Cancel</Link>
+            <Link to={'/categories/edit'} className={`${widthStyle} ${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>Cancel</Link>
             {(this.props.params.id) ? this.renderDeleteLink() : ''}
             <button type="submit" className={`${widthStyle} ${sharedStyle} bg-dark-blue hover-bg-navy sans-serif`}>Save</button>
           </div>

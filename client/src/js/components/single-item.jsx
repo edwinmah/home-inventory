@@ -83,7 +83,7 @@ class SingleItem extends React.Component {
       return (
         <div className="mw6 mw8-ns center ph3">
           <div className="flex flex-column flex-row-ns">
-            <div className="w-100 w-50-ns mb3 mb0-ns mr4-ns">
+            <div className="w-100 w-50-ns mt3 mb3 mb0-ns mr4-ns">
               <img src={`${image}`} alt={name} className={imgStyle} />
             </div>
             <div className="w-100 w-50-ns f5 f4-l">
@@ -102,7 +102,7 @@ class SingleItem extends React.Component {
   render() {
     if (!this.props.currentItem) {
       return (
-        <div className="mw6 mw8-ns center">
+        <div className="mw6 mw8-ns center mb4 bt bb b--black-20">
           <p className="pa3">Loading item...</p>
         </div>
       );
@@ -111,7 +111,9 @@ class SingleItem extends React.Component {
     return (
       <article>
         <div className="mw6 mw8-ns center">
-          <h2 className="pa3">{this.props.currentItem.name}</h2>
+          <header className="mb4 bt bb b--black-20">
+            <h2 className="pa3">{this.props.currentItem.name}</h2>
+          </header>
           {this.renderSingleItem()}
         </div>
       </article>

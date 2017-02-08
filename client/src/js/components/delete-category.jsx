@@ -52,10 +52,12 @@ class DeleteCategory extends React.Component {
     }
 
     return (
-      <div className="mw6 mw8-ns center ph3">
+      <section className="mw6 mw8-ns center ph3">
+        <header className="mb4 bt bb b--black-20">
+          <h2 className="mw6 center pa3">{name}</h2>
+        </header>
         <div className="flex flex-column items-center">
           <div className="w-100 w-50-ns mb4">
-            <h2 className="mb0 pv3">{name}</h2>
             <dl className="flex lh-title mv2">
               <dt className="mr2 b">Description:</dt>
               <dd className="ml0 dark-gray">{(description) ? description : 'No description for this category'}</dd>
@@ -65,12 +67,12 @@ class DeleteCategory extends React.Component {
           <form onSubmit={this.handleSubmit} className="w-100 w-50-ns">
             <p className="lh-copy b">{statusMsg}</p>
             <div className="flex">
-              <Link to={'/categories'} className={`${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>{(itemCount > 0) ? 'Go back' : 'No, go back'}</Link>
+              <Link to={'/categories/edit'} className={`${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>{(itemCount > 0) ? 'Go back' : 'No, go back'}</Link>
               <button type="submit" disabled={itemCount > 0} className={`${sharedStyle} bg-red ${(!(itemCount > 0)) ? 'hover-bg-dark-red' : ''} sans-serif`}>{(itemCount > 0) ? 'Disabled' : 'Yes, delete'}</button>
             </div>
           </form>
         </div>
-      </div>
+      </section>
     );
   }
 }
