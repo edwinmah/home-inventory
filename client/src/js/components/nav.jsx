@@ -100,7 +100,7 @@ class Nav extends React.Component {
                Categories <span dangerouslySetInnerHTML={dropDownIcon}></span>
             </a>
             <ul id="category-list"
-                className={`absolute left-0 z-9999 mt3 bt bw1 b--dark-blue br2 shadow-1 ${dropDownDisplay}`}
+                className={`absolute left-0 z-9999 mt3 bt bw1 b--dark-blue br2 shadow-1 ${dropDownDisplay} tl`}
                 aria-hidden={this.state.menuIsHidden}
                 aria-expanded={!this.state.menuIsHidden}
                 aria-labelledby="categories"
