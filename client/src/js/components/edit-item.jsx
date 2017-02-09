@@ -179,7 +179,7 @@ class EditItem extends React.Component {
     const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white tc';
 
     return (
-      <article className="mw6 mw8-ns center">
+      <article className="mw6 mw8-ns center ph3 ph0-l">
         <header className="mb4 bt bb b--black-20">
           <h2 className="ph3 fw3 f4 tracked">
             {(this.props.params.id) ? this.props.currentItem.name : 'Add an item'}
