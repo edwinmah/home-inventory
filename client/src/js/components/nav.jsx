@@ -84,7 +84,7 @@ class Nav extends React.Component {
     const dropDownIcon = (this.state.menuIsHidden) ? {__html: '&plus;'} : {__html: '&minus;'};
 
     return (
-      <nav className="tc tr-l" role="navigation">
+      <nav className="tracked tc tr-l" role="navigation">
         <ul className="flex items-center list ph0">
           <li id="categories"
               className="relative nested-list-reset dark-blue hover-navy pointer"
