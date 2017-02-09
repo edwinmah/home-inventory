@@ -33,9 +33,9 @@ class DeleteItem extends React.Component {
     const sharedStyles = 'w-50 f5 link bn br2 ph3 pv2 mr2 mv3 white';
 
     return (
-      <section className="mw6 mw8-ns center ph3">
+      <section className="mw6 mw8-ns center ph3 ph0-l">
         <header className="mb4 bt bb b--black-20">
-          <h2 className="mw6 center pa3">{name}</h2>
+          <h2 className="mw6 center ph3">{name}</h2>
         </header>
         <div className="flex flex-column items-center">
           <div className="w-100 w-50-ns mb4">

@@ -35,9 +35,9 @@ class CategoriesPanel extends React.Component {
     }
 
     return (
-      <section className="mw6 mw8-ns center ph3">
+      <section className="mw6 mw8-ns center ph3 ph0-l">
         <header className="mb4 bt bb b--black-20">
-          <h2 className="pa3">Edit Categories</h2>
+          <h2 className="ph3">Edit Categories</h2>
         </header>
         <div className="flex ph3">
           <div className="w-100 w-50-ns">

@@ -110,9 +110,9 @@ class SingleItem extends React.Component {
 
     return (
       <article>
-        <div className="mw6 mw8-ns center">
+        <div className="mw6 mw8-ns center ph3 ph0-l">
           <header className="mb4 bt bb b--black-20">
-            <h2 className="pa3">{this.props.currentItem.name}</h2>
+            <h2 className="ph3">{this.props.currentItem.name}</h2>
           </header>
           {this.renderSingleItem()}
         </div>
