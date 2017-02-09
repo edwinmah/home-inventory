@@ -15,7 +15,7 @@ class AcctInfo extends React.Component {
         <header className="mb4 bt bb b--black-20">
           <h2 className="ph3">Account Information</h2>
         </header>
-        <div className="flex flex-column flex-row-ns ph3">
+        <div className="flex flex-column flex-row-l ph3">
           <OwnersList />
           <PolicyList />
         </div>
