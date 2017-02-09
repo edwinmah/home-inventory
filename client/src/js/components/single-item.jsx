@@ -81,20 +81,25 @@ class SingleItem extends React.Component {
       return <EditItem params={this.props.params} />;
     } else {
       return (
-        <div className="mw6 mw8-ns center ph3">
-          <div className="flex flex-column flex-row-ns">
-            <div className="w-100 w-50-ns mt3 mb3 mb0-ns mr4-ns">
-              <img src={`${image}`} alt={name} className={imgStyle} />
-            </div>
-            <div className="w-100 w-50-ns">
-              {keys.map((property, i) => this.renderDefinitionLists(property, i))}
-              <div className="flex edit tr">
-                <Link to={`${this.props.location.pathname}/delete`} className={`${sharedStyle} mr2 bg-red hover-bg-dark-red`}>Delete Item</Link>
-                <Link to={`${this.props.location.pathname}/edit`} className={`${sharedStyle} ml2 white bg-dark-blue hover-bg-navy`}>Edit Item</Link>
+        <article className="mw6 mw8-ns center ph3 ph0-l">
+          <header className="mb4 bt bb b--black-20">
+            <h2 className="ph3 fw3 f4 tracked">{this.props.currentItem.name}</h2>
+          </header>
+          <div className="mw6 mw8-ns center ph3">
+            <div className="flex flex-column flex-row-ns">
+              <div className="w-100 w-50-ns mt3 mb3 mb0-ns mr4-ns">
+                <img src={`${image}`} alt={name} className={imgStyle} />
+              </div>
+              <div className="w-100 w-50-ns">
+                {keys.map((property, i) => this.renderDefinitionLists(property, i))}
+                <div className="flex edit tr">
+                  <Link to={`${this.props.location.pathname}/delete`} className={`${sharedStyle} mr2 bg-red hover-bg-dark-red`}>Delete Item</Link>
+                  <Link to={`${this.props.location.pathname}/edit`} className={`${sharedStyle} ml2 white bg-dark-blue hover-bg-navy`}>Edit Item</Link>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </article>
       );
     }
   }
@@ -109,12 +114,9 @@ class SingleItem extends React.Component {
     }
 
     return (
-      <article className="mw6 mw8-ns center ph3 ph0-l">
-        <header className="mb4 bt bb b--black-20">
-          <h2 className="ph3 fw3 f4 tracked">{this.props.currentItem.name}</h2>
-        </header>
+      <div>
         {this.renderSingleItem()}
-      </article>
+      </div>
     );
   }
 }

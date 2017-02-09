@@ -172,16 +172,6 @@ class EditItem extends React.Component {
     )
   }
 
-  renderHeading() {
-    if (!this.props.params.id) {
-      return (
-        <header className="mb4 bt bb b--black-20">
-          <h2 className="ph3 fw3 f4 tracked">Add an item</h2>
-        </header>
-      );
-    }
-  }
-
   render() {
     const keys = Object.keys(this.props.currentItem).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'image' && property !== 'receipt';
@@ -189,8 +179,12 @@ class EditItem extends React.Component {
     const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white tc';
 
     return (
-      <div className="mw6 mw8-ns center">
-        {this.renderHeading()}
+      <article className="mw6 mw8-ns center">
+        <header className="mb4 bt bb b--black-20">
+          <h2 className="ph3 fw3 f4 tracked">
+            {(this.props.params.id) ? this.props.currentItem.name : 'Add an item'}
+          </h2>
+        </header>
         <div className="flex flex-column flex-row-ns ph3">
           <div className="order-2 order-1-ns w-100 w-50-ns mb3 mb0-ns mr4-ns">
             {this.renderDropZone('image')}
@@ -205,7 +199,7 @@ class EditItem extends React.Component {
             </div>
           </form>
         </div>
-      </div>
+      </article>
     );
   }
 }
