@@ -60,7 +60,7 @@ class SingleItem extends React.Component {
     }
 
     return (
-      <dl key={`${i}-${this.props.currentItem._id}`} className="flex lh-title mv2">
+      <dl key={`${i}-${this.props.currentItem._id}`} className="flex flex-wrap lh-title mv2">
         <dt className="mr2 b ttc">{dtValue}:</dt>
         <dd className="ml0 dark-gray">{ddValue}</dd>
       </dl>
