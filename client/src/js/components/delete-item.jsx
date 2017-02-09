@@ -35,16 +35,16 @@ class DeleteItem extends React.Component {
     return (
       <section className="mw6 mw8-ns center ph3 ph0-l">
         <header className="mb4 bt bb b--black-20">
-          <h2 className="mw6 center ph3">{name}</h2>
+          <h2 className="mw6 center fw3 f4 tracked">{name}</h2>
         </header>
         <div className="flex flex-column items-center">
           <div className="w-100 w-50-ns mb4">
             <dl className="flex lh-title mv2">
-              <dt className="mr2 b">Replacement Value:</dt>
+              <dt className="mr2 fw4">Replacement Value:</dt>
               <dd className="ml0 dark-gray">{formatAsCurrency(replaceValue)}</dd>
             </dl>
             <dl className="flex lh-title mv2">
-              <dt className="mr2 b">Category:</dt>
+              <dt className="mr2 fw4">Category:</dt>
               <dd className="ml0 dark-gray">
                 <Link to={`/category/${categoryId}/items`} className="dark-blue hover-navy link">{this.props.categories[categoryId].name}</Link>
               </dd>
@@ -52,7 +52,7 @@ class DeleteItem extends React.Component {
           </div>
 
           <form onSubmit={this.handleSubmit} className="w-100 w-50-ns">
-            <p className="f5 f4-l b">Are you sure you want to delete this item?</p>
+            <p className="fw4">Are you sure you want to delete this item?</p>
             <div className="flex">
               <Link to={`/item/${_id}`} className={`${sharedStyles} bg-mid-gray hover-bg-dark-gray tc`}>No, go back</Link>
               <button type="submit" className={`${sharedStyles} bg-red hover-bg-dark-red sans-serif tc`}>Yes, delete</button>

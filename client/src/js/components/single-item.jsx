@@ -61,7 +61,7 @@ class SingleItem extends React.Component {
 
     return (
       <dl key={`${i}-${this.props.currentItem._id}`} className="flex flex-wrap lh-title mv2">
-        <dt className="mr2 b ttc">{dtValue}:</dt>
+        <dt className="mr2 fw4 ttc">{dtValue}:</dt>
         <dd className="ml0 dark-gray">{ddValue}</dd>
       </dl>
     );
@@ -86,7 +86,7 @@ class SingleItem extends React.Component {
             <div className="w-100 w-50-ns mt3 mb3 mb0-ns mr4-ns">
               <img src={`${image}`} alt={name} className={imgStyle} />
             </div>
-            <div className="w-100 w-50-ns f5 f4-l">
+            <div className="w-100 w-50-ns">
               {keys.map((property, i) => this.renderDefinitionLists(property, i))}
               <div className="flex edit tr">
                 <Link to={`${this.props.location.pathname}/delete`} className={`${sharedStyle} mr2 bg-red hover-bg-dark-red`}>Delete Item</Link>
@@ -112,7 +112,7 @@ class SingleItem extends React.Component {
       <article>
         <div className="mw6 mw8-ns center ph3 ph0-l">
           <header className="mb4 bt bb b--black-20">
-            <h2 className="ph3">{this.props.currentItem.name}</h2>
+            <h2 className="ph3 fw3 f4 tracked">{this.props.currentItem.name}</h2>
           </header>
           {this.renderSingleItem()}
         </div>

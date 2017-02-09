@@ -12,7 +12,7 @@ class OwnersList extends React.Component {
     const ownerId = Object.keys(this.props.owners)[0];
     return (
       <dl key={`${i}-${ownerId}`} className="flex lh-title mv1">
-        <dt className="mr2 b ttc">{property}:</dt>
+        <dt className="mr2 fw4 ttc">{property}:</dt>
         <dd className="ml0 dark-gray">{this.props.owners[ownerId][property]}</dd>
       </dl>
     );
@@ -25,7 +25,7 @@ class OwnersList extends React.Component {
 
     return (
       <article key={ownerId} id={`owner-${ownerId}`}>
-        <h3>{this.props.owners[ownerId].name}</h3>
+        <h3 className="fw3 f4 tracked">{this.props.owners[ownerId].name}</h3>
         <div className="flex flex-column">
           {keys.map((property, i) => this.renderDefinitionLists(property, i))}
           <Link to={`/account/owner/edit/${ownerId}`} className="w-50 w-25-l link br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy tc">Edit Owner</Link>

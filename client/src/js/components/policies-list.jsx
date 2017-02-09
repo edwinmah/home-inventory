@@ -41,7 +41,7 @@ class PoliciesList extends React.Component {
 
     return (
       <dl key={`${i}-${policyId}`} className="flex lh-title mv1">
-        <dt className="mr2 b ttc">{dtValue}:</dt>
+        <dt className="mr2 fw4 ttc">{dtValue}:</dt>
         <dd className="ml0 dark-gray">{ddValue}</dd>
       </dl>
     );
@@ -54,7 +54,7 @@ class PoliciesList extends React.Component {
 
     return (
       <article key={policyId} id={`policy-${policyId}`}>
-        <h3>{this.props.policies[policyId].company}</h3>
+        <h3 className="fw3 f4 tracked">{this.props.policies[policyId].company}</h3>
         <div className="flex flex-column">
           {keys.map((property, i) => this.renderDefinitionLists(property, i))}
           <Link to={`account/policy/edit/${policyId}`} className="w-50 w-25-l link br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy tc">Edit Policy</Link>

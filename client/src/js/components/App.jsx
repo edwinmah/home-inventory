@@ -32,7 +32,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="f6 f5-ns fw2 bt bw2 b--dark-blue sans-serif">
+      <div className="bt bw2 b--dark-blue f6 f5-ns fw2 sans-serif">
         <Header />
         <main id="content">
           {this.renderMainContent()}

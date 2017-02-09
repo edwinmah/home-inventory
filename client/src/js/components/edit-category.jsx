@@ -38,8 +38,8 @@ class EditCategory extends React.Component {
   renderFormInputs(property, i) {
     return (
       <p key={`${i}-${this.props.currentCategory._id}`} className="flex items-center mt0 mb2">
-        <label htmlFor={property} className="w-25 b ttc">{property}:</label>
-        <input type="text" name={property} id={property} className="w-75 input-reset ba b--black-20 br2 pa2 sans-serif" defaultValue={this.props.currentCategory[property]} ref={property} />
+        <label htmlFor={property} className="w-25 fw4 ttc">{property}:</label>
+        <input type="text" name={property} id={property} className="w-75 input-reset ba b--black-20 br2 pa2 fw2 sans-serif" defaultValue={this.props.currentCategory[property]} ref={property} />
       </p>
     );
   }
@@ -68,7 +68,7 @@ class EditCategory extends React.Component {
 
     return (
       <section className="w-100 w-50-ns">
-        <h3 className="ttc">{(!this.props.params.id) ? 'Add a category' : this.props.currentCategory.name}</h3>
+        <h3 className="fw3 f4 tracked ttc">{(!this.props.params.id) ? 'Add a category' : this.props.currentCategory.name}</h3>
         <form onSubmit={this.handleSubmit}>
           {keys.map((property, i) => this.renderFormInputs(property, i))}
           <div className="flex flex-row">

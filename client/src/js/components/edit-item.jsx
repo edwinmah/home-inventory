@@ -94,7 +94,7 @@ class EditItem extends React.Component {
 
     return (
       <div>
-        <p className="mt0 mb2 b ttc">{property}:</p>
+        <p className="mt0 mb2 fw4 ttc">{property}:</p>
         <DropzoneS3Uploader onFinish={finishUpload} style={{backgroundColor: '#ffffff'}} activeStyle={{backgroundColor: '#fbf1a9'}} multiple={false} maxFileSize={1024*1024*50} s3Url={`https://${s3bucketName}.s3.amazonaws.com`} className={`flex justify-center items-center overflow-hidden h5 b--dashed bw1 b--black-20 br2 pointer`}>
           <img src={this.props.currentItem[property]} alt={this.props.currentItem.name} className="h4 nested-img img br2" />
         </DropzoneS3Uploader>
@@ -105,7 +105,7 @@ class EditItem extends React.Component {
 
   renderNotesTextArea(property) {
     return (
-      <textarea name={property} id={property} className="hover-black h3 measure ba b--black-20 pa2 br2 mb3 sans-serif" defaultValue={this.props.currentItem[property]} ref={property}></textarea>
+      <textarea name={property} id={property} className="hover-black h3 measure ba b--black-20 pa2 br2 mb3 fw2 sans-serif" defaultValue={this.props.currentItem[property]} ref={property}></textarea>
     );
   }
 
@@ -113,7 +113,7 @@ class EditItem extends React.Component {
     const dateInputProps = {
       id: 'purchaseDate',
       name: 'purchaseDate',
-      className: 'db w-100 pa2 input-reset ba b--black-20 br2 sans-serif'
+      className: 'db w-100 pa2 input-reset ba b--black-20 br2 fw2 sans-serif'
     };
 
     return (
@@ -133,7 +133,7 @@ class EditItem extends React.Component {
 
   renderInputs(property) {
     return (
-      <input type="text" name={property} id={property} className="input-reset ba b--black-20 br2 pa2 mb3 sans-serif" defaultValue={this.props.currentItem[property]} ref={property} />
+      <input type="text" name={property} id={property} className="input-reset ba b--black-20 br2 pa2 mb3 fw2 sans-serif" defaultValue={this.props.currentItem[property]} ref={property} />
     );
   }
 
@@ -166,7 +166,7 @@ class EditItem extends React.Component {
 
     return (
       <div key={`${i}-${this.props.currentItem._id}`} className="flex flex-column mt0 mb2">
-        <label htmlFor={property} className="mb2 b ttc">{labelValue}:</label>
+        <label htmlFor={property} className="mb2 fw4 ttc">{labelValue}:</label>
         {formField}
       </div>
     )
@@ -174,7 +174,11 @@ class EditItem extends React.Component {
 
   renderHeading() {
     if (!this.props.params.id) {
-      return <h2 className="pv3">Add an item</h2>;
+      return (
+        <header className="mb4 bt bb b--black-20">
+          <h2 className="ph3 fw3 f4 tracked">Add an item</h2>
+        </header>
+      );
     }
   }
 
@@ -185,7 +189,7 @@ class EditItem extends React.Component {
     const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white tc';
 
     return (
-      <div className="mw6 mw8-ns center ph3">
+      <div className="mw6 mw8-ns center ph3 ph0-l">
         {this.renderHeading()}
         <div className="flex flex-column flex-row-ns">
           <div className="order-2 order-1-ns w-100 w-50-ns mb3 mb0-ns mr4-ns">

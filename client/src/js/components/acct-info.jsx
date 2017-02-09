@@ -13,7 +13,7 @@ class AcctInfo extends React.Component {
     return (
       <section className="mw6 mw8-ns center ph3 ph0-l">
         <header className="mb4 bt bb b--black-20">
-          <h2 className="ph3">Account Information</h2>
+          <h2 className="ph3 fw3 f4 tracked">Account Information</h2>
         </header>
         <div className="flex flex-column flex-row-l ph3">
           <OwnersList />

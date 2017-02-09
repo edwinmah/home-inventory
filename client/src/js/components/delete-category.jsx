@@ -54,18 +54,18 @@ class DeleteCategory extends React.Component {
     return (
       <section className="mw6 mw8-ns center ph3 ph0-l">
         <header className="mb4 bt bb b--black-20">
-          <h2 className="mw6 center ph3">{name}</h2>
+          <h2 className="mw6 center fw3 f4 tracked">{name}</h2>
         </header>
         <div className="flex flex-column items-center">
           <div className="w-100 w-50-ns mb4">
             <dl className="flex lh-title mv2">
-              <dt className="mr2 b">Description:</dt>
+              <dt className="mr2 fw4">Description:</dt>
               <dd className="ml0 dark-gray">{(description) ? description : 'No description for this category'}</dd>
             </dl>
           </div>
 
           <form onSubmit={this.handleSubmit} className="w-100 w-50-ns">
-            <p className="lh-copy b">{statusMsg}</p>
+            <p className="lh-copy fw4">{statusMsg}</p>
             <div className="flex">
               <Link to={'/categories/edit'} className={`${sharedStyle} bg-mid-gray hover-bg-dark-gray tc`}>{(itemCount > 0) ? 'Go back' : 'No, go back'}</Link>
               <button type="submit" disabled={itemCount > 0} className={`${sharedStyle} bg-red ${(!(itemCount > 0)) ? 'hover-bg-dark-red' : ''} sans-serif`}>{(itemCount > 0) ? 'Disabled' : 'Yes, delete'}</button>
