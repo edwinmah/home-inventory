@@ -189,9 +189,9 @@ class EditItem extends React.Component {
     const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white tc';
 
     return (
-      <div className="mw6 mw8-ns center ph3 ph0-l">
+      <div className="mw6 mw8-ns center">
         {this.renderHeading()}
-        <div className="flex flex-column flex-row-ns">
+        <div className="flex flex-column flex-row-ns ph3">
           <div className="order-2 order-1-ns w-100 w-50-ns mb3 mb0-ns mr4-ns">
             {this.renderDropZone('image')}
             {this.renderDropZone('receipt')}
