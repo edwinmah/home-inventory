@@ -123,7 +123,7 @@ class EditItem extends React.Component {
 
   renderCategorySelect() {
     return (
-      <select name="category" id="category" className="pa2 mb3 sans-serif" defaultValue={this.props.currentItem.categoryId} ref="category">
+      <select name="category" id="category" className="pa2 mb3 fw2 sans-serif" defaultValue={this.props.currentItem.categoryId} ref="category">
         {Object.keys(this.props.categories).map((categoryId) => {
           return <option key={categoryId} id={`item-${categoryId}`} value={categoryId}>{this.props.categories[categoryId].name}</option>
         })}
