@@ -11,7 +11,7 @@ class Header extends React.Component {
   render() {
     return (
       <header role="banner" className="site-header">
-        <div className="site-header__container flex flex-column flex-row-ns flex-wrap justify-center justify-between-ns items-center mw6 mw8-ns center pa2 pv5-ns pa3-ns">
+        <div className="site-header__container flex flex-column flex-row-l flex-wrap justify-center justify-between-ns items-center mw6 mw8-ns center pa3 pv5-l pa4-ns">
           <h1 className="tc tl-ns">
             <Link to={'/'} className="dark-blue hover-navy link">Your Home Inventory</Link>
           </h1>
