@@ -44,7 +44,7 @@ class CategoriesPanel extends React.Component {
             <ul className="flex flex-column flex-wrap vh-25 pl0 list">
               {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
             </ul>
-            <Link to={'/category/add'} className="w-20 link bn br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy">Add Category</Link>
+            <Link to={'/category/add'} className="w-20 link bn br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy fw4">Add Category</Link>
           </div>
           {this.renderCategoryForm()}
         </div>

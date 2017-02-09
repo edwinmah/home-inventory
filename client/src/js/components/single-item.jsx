@@ -75,7 +75,7 @@ class SingleItem extends React.Component {
     });
 
     const imgStyle = (image === '/assets/image.svg') ? '' : 'ba b--light-gray br2';
-    const sharedStyle = 'w-50 f5 link br2 ph3 pv2 mv3 white tc';
+    const sharedStyle = 'w-50 f5 link br2 ph3 pv2 mv3 white fw4 tc';
 
     if (this.props.children) {
       return <EditItem params={this.props.params} />;

@@ -176,7 +176,7 @@ class EditItem extends React.Component {
     const keys = Object.keys(this.props.currentItem).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId' && property !== 'accessToken' && property !== 'image' && property !== 'receipt';
     });
-    const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white tc';
+    const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white fw4';
 
     return (
       <article className="mw6 mw8-ns center ph3 ph0-l">

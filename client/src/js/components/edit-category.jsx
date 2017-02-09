@@ -46,7 +46,7 @@ class EditCategory extends React.Component {
 
   renderDeleteLink() {
     return (
-      <Link to={`/category/delete/${this.props.params.id}`} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red tc">Delete</Link>
+      <Link to={`/category/delete/${this.props.params.id}`} className="w-third link bn br2 ph3 pv2 mr2 mv3 white bg-red hover-bg-dark-red fw4 tc">Delete</Link>
     );
   }
 
@@ -60,7 +60,7 @@ class EditCategory extends React.Component {
     }
 
     const widthStyle  = (!this.props.params.id) ? 'w-50' : 'w-third';
-    const sharedStyle = 'link bn br2 ph3 pv2 mr2 mv3 white';
+    const sharedStyle = 'link bn br2 ph3 pv2 mr2 mv3 white fw4';
 
     const keys = Object.keys(this.props.currentCategory).filter((property) => {
       return property !== '_id' && property !== '__v' && property !== 'ownerId';

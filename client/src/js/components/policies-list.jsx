@@ -57,7 +57,7 @@ class PoliciesList extends React.Component {
         <h3 className="fw3 f4 tracked">{this.props.policies[policyId].company}</h3>
         <div className="flex flex-column">
           {keys.map((property, i) => this.renderDefinitionLists(property, i))}
-          <Link to={`account/policy/edit/${policyId}`} className="w-50 w-25-l link br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy tc">Edit Policy</Link>
+          <Link to={`account/policy/edit/${policyId}`} className="w-50 w-25-l link br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy fw4 tc">Edit Policy</Link>
         </div>
       </article>
     );

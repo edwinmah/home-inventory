@@ -36,7 +36,7 @@ class DeleteCategory extends React.Component {
     }
 
     const { name, description } = this.props.currentCategory;
-    const sharedStyle = 'w-50 link bn br2 ph3 pv2 mr2 mv3 white';
+    const sharedStyle = 'w-50 link bn br2 ph3 pv2 mr2 mv3 white fw4';
 
     const keys = Object.keys(this.props.items);
     const categoryFilter = keys.filter((itemId) => {
