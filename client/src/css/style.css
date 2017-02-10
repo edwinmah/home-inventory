@@ -33,7 +33,6 @@ header:not([role="banner"]) {
 
 /* lower default react datetime picker z-index */
 .rdtPicker {
-
   z-index: 999 !important;
 }
 
