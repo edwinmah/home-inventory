@@ -55,7 +55,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
   clientID: config.GOOGLE_CLIENT_ID,
   clientSecret: config.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:8080/auth/google/callback"
+  callbackURL: `${process.env.ROOT_URL}/auth/google/callback`
 },
   function(accessToken, refreshToken, profile, cb) {
     Owner.findOne({ googleId: profile.id })
