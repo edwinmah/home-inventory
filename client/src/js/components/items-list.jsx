@@ -89,12 +89,12 @@ class ItemsList extends React.Component {
 
     return (
       <section>
-        <div className="mw6 mw8-ns center ph3 ph0-l">
+        <div className="mw6 mw8-ns center">
           <header className="flex items-baseline mb4 bt bb b--black-20">
             <h2 className="ph3 fw3 f4 tracked">{sectionTitle}</h2>
             <span className="fw2 f5">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${formatAsCurrency(totalValue)}`})</span>
           </header>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap justify-between">
             {output}
             {this.renderAddItem()}
           </div>

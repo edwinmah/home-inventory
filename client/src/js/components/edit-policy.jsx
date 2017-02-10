@@ -50,7 +50,7 @@ class EditPolicy extends React.Component {
     const sharedStyle = 'w-50 link bn br2 ph3 pv2 mv3 white fw4';
 
     return (
-      <article id={`item-${this.props.currentPolicy._id}`} className="mw6 mw8-ns center ph3 ph0-l">
+      <article id={`item-${this.props.currentPolicy._id}`} className="mw6 mw8-ns center">
         <header className="mb4 bt bb b--black-20">
           <h2 className="mw6 center ph3 fw3 f4 tracked">{this.props.currentPolicy.company}</h2>
         </header>
