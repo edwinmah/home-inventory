@@ -15,7 +15,9 @@ class GoogleAuthorization extends React.Component {
           <h2 className="mw6 center fw3 f4 tracked">Hello and welcome...</h2>
         </header>
         <div className="flex flex-column items-center">
-          <p className="w-100 w-50-ns mb4 lh-copy">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+          <div className="w-100 w-50-ns mb4 lh-copy">
+            <p>Use this app to keep track of the items that you own. Your home inventory can serve as documentation of asset values for insurance coverage and claims and for charitable contributions. Alternatively, use the app to as a wishlist of items that you <em>want</em> to purchase or receive as a gift. Or if you&rsquo;re a follower of the <a href="http://www.choosingvoluntarysimplicity.com/" className="dark-blue hover-navy link">voluntary simplicity lifestyle</a>, use the app to help become more aware of the items you already own and the future purchases you want to avoid. Enjoy.</p>
+          </div>
           <GoogleButton />
         </div>
       </article>
