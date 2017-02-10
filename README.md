@@ -2,5 +2,7 @@
 
 ## Purpose
 
-Provide users with an easy way to maintain an inventory of the items that they own. There are several benefits of maintaining this type of inventory. The most obvious benefit is that it serves as documentation of asset values for insurance coverage and claims and for charitable contributions. A secondary benefit is that an inventory of assets can allow users following a [voluntary simplicity lifestyle](http://www.choosingvoluntarysimplicity.com/) to become more aware of their purchases.
+Use this app to keep track of the items that you own. Your home inventory can serve as documentation of asset values for insurance coverage and claims and for charitable contributions. Alternatively, use the app as a wish list of items that you *want* to purchase or receive as a gift. Or if you&rsquo;re a follower of the [voluntary simplicity lifestyle](http://www.choosingvoluntarysimplicity.com/), use the app to become more aware of *how little* you own and the future purchases you want to avoid.
+
+
 
