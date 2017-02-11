@@ -61,13 +61,6 @@ class EditItem extends React.Component {
         imgUrl: `https://${s3bucketName}.s3.amazonaws.com/${image[0].filename}`
       })
     );
-    setTimeout(() => {
-      this.setState(
-        prevState => ({
-          isImgUploadFinished: !prevState.isImgUploadFinished
-        })
-      )
-    }, 2000);
   }
 
   handleRecUpload(...receipt) {
@@ -77,27 +70,25 @@ class EditItem extends React.Component {
         recUrl: `https://${s3bucketName}.s3.amazonaws.com/${receipt[0].filename}`
       })
     );
-    setTimeout(() => {
-      this.setState(
-        prevState => ({
-          isRecUploadFinished: !prevState.isRecUploadFinished
-        })
-      )
-    }, 2000);
   }
 
   renderDropZone(property) {
-    const uploadImgMsg   = (this.state.isImgUploadFinished) ? 'Your image was uploaded successfully.' : 'Click or drag here to upload an image.';
-    const uploadRecMsg   = (this.state.isRecUploadFinished) ? 'Your receipt was uploaded successfully.' : 'Click or drag here to upload a receipt.';
-    const finishUpload   = (property === 'image') ? this.handleImgUpload : this.handleRecUpload;
+    let imgSrc = this.props.currentItem[property];
+    if (this.state.isImgUploadFinished && property === 'image') {
+      imgSrc = this.state.imgUrl;
+    } else if (this.state.isRecUploadFinished && property === 'receipt') {
+      imgSrc = this.state.recUrl;
+    }
+
+    const finishUpload = (property === 'image') ? this.handleImgUpload : this.handleRecUpload;
 
     return (
       <div>
         <p className="mt0 mb2 fw4 ttc">{property}:</p>
         <DropzoneS3Uploader onFinish={finishUpload} style={{backgroundColor: '#ffffff'}} activeStyle={{backgroundColor: '#fbf1a9'}} multiple={false} maxFileSize={1024*1024*50} s3Url={`https://${s3bucketName}.s3.amazonaws.com`} className={`flex justify-center items-center overflow-hidden h5 b--dashed bw1 b--black-20 br2 pointer`}>
-          <img src={this.props.currentItem[property]} alt={this.props.currentItem.name} className="h4 nested-img img br2" />
+          <img src={imgSrc} alt={this.props.currentItem.name} className="h4 nested-img img br2" />
         </DropzoneS3Uploader>
-        <p className="mb4">{(property === 'image') ? uploadImgMsg : uploadRecMsg}</p>
+        <p className="mb4">{`Click or drag here to upload ${(property === 'image') ? 'an' : 'a'} ${property}.`}</p>
       </div>
     );
   }
