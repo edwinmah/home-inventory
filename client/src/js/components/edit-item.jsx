@@ -90,7 +90,6 @@ class EditItem extends React.Component {
     const uploadImgMsg   = (this.state.isImgUploadFinished) ? 'Your image was uploaded successfully.' : 'Click or drag here to upload an image.';
     const uploadRecMsg   = (this.state.isRecUploadFinished) ? 'Your receipt was uploaded successfully.' : 'Click or drag here to upload a receipt.';
     const finishUpload   = (property === 'image') ? this.handleImgUpload : this.handleRecUpload;
-    const dropZoneHeight = (property === 'image') ? 'vh-50' : 'h5';
 
     return (
       <div>
