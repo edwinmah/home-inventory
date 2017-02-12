@@ -1,10 +1,12 @@
 # Home Inventory app with Node and React 
 
-<div style="text-align: center">[![Build Status](https://travis-ci.org/edwinmah/home-inventory.svg?branch=master)](https://travis-ci.org/edwinmah/home-inventory)</div>
+[![Build Status](https://travis-ci.org/edwinmah/home-inventory.svg?branch=master)](https://travis-ci.org/edwinmah/home-inventory)
 
 ## Purpose
 
 Use this app to keep track of the items that you own. Your home inventory can serve as documentation of asset values for insurance coverage and claims and for charitable contributions. Alternatively, use the app as a wish list of items that you *want* to purchase or receive as a gift. Or if you&rsquo;re a follower of the [voluntary simplicity lifestyle](http://www.choosingvoluntarysimplicity.com/), use the app to become more aware of *how little* you own and the future purchases you want to avoid.
+
+App features include category filtering, custom categories, image uploading, and personalized inventory accounts via Google authorization.
 
 While home inventory tracking is the original purpose of the app, it can be repurposed to track almost anything, e.g., [vinyl records](http://dustandgrooves.com), [baseball cards](http://www.beckett.com), [comic books](http://www.comiccollecting.org), [stamps](http://stamps.org/Home), [coins](https://www.usmint.gov/collectorsClub/), etc.
 
@@ -31,25 +33,52 @@ While home inventory tracking is the original purpose of the app, it can be repu
 
 6. Likewise, if you're deploying to Heroku, you'll want to [add your encrypted API key to `.travis.yml`](https://docs.travis-ci.com/user/deployment/heroku/) and create [vars in Heroku for your env variables](https://devcenter.heroku.com/articles/config-vars) and [mLab](https://mlab.com/) (or other MongoDB service) database URL.
 
-7. Run local tests:
-
-        npm run test-local
-        
-8. Start the development environment:
+7. Start the development environment:
 
         npm run dev
+        
+8. Run local tests:
 
-9. Generate a production build:
+        npm run test-local
+
+9. When you&rsquo;re ready for production, generate a production build:
 
         npm run build-prod
 
 ## Screenshots of features
+
+![Google authorization](https://cloud.githubusercontent.com/assets/10244137/22865098/106a2272-f12b-11e6-9c59-4f9cb7060826.png)
+
+***
+
+![View all items](https://cloud.githubusercontent.com/assets/10244137/22865093/0eb4b67c-f12b-11e6-98ba-48b6cb11d320.png)
+
+***
+
+![Filter items by category](https://cloud.githubusercontent.com/assets/10244137/22865094/0fa83d6a-f12b-11e6-8594-4021aedaed8c.png)
+
+***
+
+![View a single item](https://cloud.githubusercontent.com/assets/10244137/22865099/111ec560-f12b-11e6-8f56-0ec92db855c8.png)
+
+***
+
+![Edit an item](https://cloud.githubusercontent.com/assets/10244137/22865097/10620f7e-f12b-11e6-89f4-4d1bb279967c.png)
+
+***
+
+![Add or edit categories](https://cloud.githubusercontent.com/assets/10244137/22865095/0fca8276-f12b-11e6-98d4-e3ab61e15134.png)
+
+***
+
+![Account information](https://cloud.githubusercontent.com/assets/10244137/22865092/0e59845a-f12b-11e6-8657-f7d224d5ea91.png)
 
 ## Technology used
 
 * Server
     * [Node](https://nodejs.org/en/)
     * [Express](http://expressjs.com/)
+    * [Passport](http://passportjs.org/)
 * Client
     * [React](https://facebook.github.io/react/)
     * [Redux](http://redux.js.org/)
