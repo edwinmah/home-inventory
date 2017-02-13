@@ -29,11 +29,11 @@ class DeleteCategory extends React.Component {
   render() {
     if (!this.props.currentCategory) {
       return (
-        <section className="mw6 mw8-ns center">
+        <article className="mw6 mw8-ns center">
           <header className="mb4 bt bb b--black-20">
             <h2 className="mw6 center fw3 f4 tracked">Loading category...</h2>
           </header>
-        </section>
+        </article>
       );
     }
 
@@ -54,7 +54,7 @@ class DeleteCategory extends React.Component {
     }
 
     return (
-      <section className="mw6 mw8-ns center">
+      <article className="mw6 mw8-ns center">
         <header className="mb4 bt bb b--black-20">
           <h2 className="mw6 center fw3 f4 tracked">{name}</h2>
         </header>
@@ -74,7 +74,7 @@ class DeleteCategory extends React.Component {
             </div>
           </form>
         </div>
-      </section>
+      </article>
     );
   }
 }

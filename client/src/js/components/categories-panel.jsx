@@ -28,16 +28,16 @@ class CategoriesPanel extends React.Component {
   render() {
     if (!this.props.categories) {
       return (
-        <section className="mw6 mw8-ns center">
+        <article className="mw6 mw8-ns center">
           <header className="mb4 bt bb b--black-20">
             <h2 className="ph3 fw3 f4 tracked">Loading...</h2>
           </header>
-        </section>
+        </article>
       );
     }
 
     return (
-      <section className="mw6 mw8-ns center">
+      <article className="mw6 mw8-ns center">
         <header className="mb4 bt bb b--black-20">
           <h2 className="ph3 fw3 f4 tracked">Edit Categories</h2>
         </header>
@@ -50,7 +50,7 @@ class CategoriesPanel extends React.Component {
           </div>
           {this.renderCategoryForm()}
         </div>
-      </section>
+      </article>
     );
   }
 }

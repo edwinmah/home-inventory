@@ -73,33 +73,29 @@ class ItemsList extends React.Component {
 
     if (keys.length === 0) {
       return (
-        <section>
-          <div className="mw6 mw8-ns center">
-            <header className="mb4 bt bb b--black-20">
-              <h2 className="ph3 fw3 f4 tracked">{sectionTitle}</h2>
-            </header>
-            <div className="flex flex-wrap">
-              <p className="pa3">Loading items...</p>
-              {this.renderAddItem()}
-            </div>
+        <article className="mw6 mw8-ns center">
+          <header className="mb4 bt bb b--black-20">
+            <h2 className="ph3 fw3 f4 tracked">{sectionTitle}</h2>
+          </header>
+          <div className="flex flex-wrap">
+            <p className="pa3">Loading items...</p>
+            {this.renderAddItem()}
           </div>
-        </section>
+        </article>
       );
     }
 
     return (
-      <section>
-        <div className="mw6 mw8-ns center">
-          <header className="flex items-baseline mb4 bt bb b--black-20">
-            <h2 className="ph3 fw3 f4 tracked">{sectionTitle}</h2>
-            <span className="fw2 f5">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${formatAsCurrency(totalValue)}`})</span>
-          </header>
-          <div className="flex flex-wrap justify-between">
-            {output}
-            {this.renderAddItem()}
-          </div>
+      <article className="mw6 mw8-ns center">
+        <header className="flex items-baseline mb4 bt bb b--black-20">
+          <h2 className="ph3 fw3 f4 tracked">{sectionTitle}</h2>
+          <span className="fw2 f5">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${formatAsCurrency(totalValue)}`})</span>
+        </header>
+        <div className="flex flex-wrap justify-between">
+          {output}
+          {this.renderAddItem()}
         </div>
-      </section>
+      </article>
     );
   }
 }

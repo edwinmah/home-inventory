@@ -67,7 +67,7 @@ class EditCategory extends React.Component {
     });
 
     return (
-      <section className="w-100 w-50-ns">
+      <article className="w-100 w-50-ns">
         <h3 className="fw3 f4 tracked ttc">{(!this.props.params.id) ? 'Add a category' : this.props.currentCategory.name}</h3>
         <form onSubmit={this.handleSubmit}>
           {keys.map((property, i) => this.renderFormInputs(property, i))}
@@ -77,7 +77,7 @@ class EditCategory extends React.Component {
             <button type="submit" className={`${widthStyle} ${sharedStyle} bg-dark-blue hover-bg-navy sans-serif`}>Save</button>
           </div>
         </form>
-      </section>
+      </article>
     );
   }
 }
