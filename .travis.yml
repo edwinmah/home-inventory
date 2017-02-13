@@ -19,7 +19,7 @@ deploy:
   provider: heroku
   api_key:
     secure: kSjDXLChc98vLNT2eT8c/yPqL/pp5rbAwa2pw9iVYkIcu0V3dTZXfHmi6CxpjF8P6ASBi0Vg2jI6iCRFxtl4r/J4/17D1xqgN6vcAtY2yzMW0CPsyAY/pEoPXsi+DdFXfnNkN0UnwNcR9lczE9W0Q3yg10yUcwJdCStGoT/dSKDrjaZSPdvCURayQ7aW/IWi+hpHUcnPTj3RCgwJlXEZ6rs1HIub/Ed9RkLqaxxJZZsJTN2vqi8fECS/BUlyCdyho3+SFshO8cyOvaA9aplwk6UB0MtQJ0Xl3DwlkuL4QVnMy8WwemJ8L4RLG9pjbIj5OR7TJKAZ7aG6vXin0L/2URcNF6r1B2NfY7MCgR+p8W2WLZeRZIoDPqaQC2w9EbsWvXkFxW3WeOP862eoWyik4gzleo9RA2QzoWqZ6NIau5bx8ZwLXghtrsSGK5r0fo8VZ2nSr6pJBhPKIwJd+3Sbev4sJit1RSo2XsZ1dCcM8O//Mt+i8l0tHEXQScRYsRNbW3fs3gGReY9rDK/qPWF+0AMRasFLVfZYA4pP+n/NrAl0byXI326BjSdk3rstxQJPCQH8dLqEIFAHszXp1cP9hPiXqjaCdOS9un4BTQL4ZrkrJUfbITCBXIAHZOlWM7LpQW1G7jliKq+wwcWAfIgSfP42X6RXGe0twx7UKOtX6aY=
-  app: your-home-inventory
+  app: my-home-inventory
   on:
     repo: edwinmah/home-inventory
     branch: master
