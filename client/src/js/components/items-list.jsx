@@ -91,7 +91,7 @@ class ItemsList extends React.Component {
           <h2 className="ph3 fw3 f4 tracked">{sectionTitle}</h2>
           <span className="fw2 f5">({itemCount}{(itemCount === 1) ? ' item' : ' items'}{(itemCount === 0) ? '' : ` worth ${formatAsCurrency(totalValue)}`})</span>
         </header>
-        <div className="flex flex-wrap justify-between">
+        <div className={`flex flex-wrap ${(itemCount !== 1) ? 'justify-between' : ''}`}>
           {output}
           {this.renderAddItem()}
         </div>
