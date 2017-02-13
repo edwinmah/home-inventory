@@ -34,7 +34,7 @@ class ItemsList extends React.Component {
   }
 
   renderNoItems() {
-    return <p className="pa3 fw2">There are currently no items in this category.</p>;
+    return <p className="pa3 fw2">You have no items in this category.</p>;
   }
 
   renderAddItem() {
@@ -78,7 +78,7 @@ class ItemsList extends React.Component {
             <h2 className="ph3 fw3 f4 tracked">{sectionTitle}</h2>
           </header>
           <div className="flex flex-wrap">
-            <p className="pa3">Loading items...</p>
+            <p className="pa3">You don<span dangerouslySetInnerHTML={{__html: '&rsquo;'}}></span>t have any items. Let<span dangerouslySetInnerHTML={{__html: '&rsquo;'}}></span>s add some.</p>
             {this.renderAddItem()}
           </div>
         </article>
