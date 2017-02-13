@@ -27,7 +27,7 @@ const deleteCategory = (categoryId) => dispatch => {
     return dispatch(deleteCategorySuccess(categoryId));
   })
   .then(() => {
-    hashHistory.push('/categories');
+    hashHistory.push('/categories/edit');
     document.body.scrollTop = 0;
   })
   .catch((error) => {
