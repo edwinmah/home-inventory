@@ -29,9 +29,11 @@ class DeleteCategory extends React.Component {
   render() {
     if (!this.props.currentCategory) {
       return (
-        <div className="mw6 mw8-ns center">
-          <p className="pa3">Loading category...</p>
-        </div>
+        <section className="mw6 mw8-ns center">
+          <header className="mb4 bt bb b--black-20">
+            <h2 className="mw6 center fw3 f4 tracked">Loading category...</h2>
+          </header>
+        </section>
       );
     }
 

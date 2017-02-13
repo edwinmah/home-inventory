@@ -107,9 +107,11 @@ class SingleItem extends React.Component {
   render() {
     if (!this.props.currentItem) {
       return (
-        <div className="mw6 mw8-ns center mb4 bt bb b--black-20">
-          <p className="pa3">Loading item...</p>
-        </div>
+        <article className="mw6 mw8-ns center">
+          <header className="mb4 bt bb b--black-20">
+            <h2 className="ph3 fw3 f4 tracked">Loading item...</h2>
+          </header>
+        </article>
       );
     }
 

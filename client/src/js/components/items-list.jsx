@@ -76,7 +76,7 @@ class ItemsList extends React.Component {
         <section>
           <div className="mw6 mw8-ns center">
             <header className="mb4 bt bb b--black-20">
-              <h2 className="pa3">{sectionTitle}</h2>
+              <h2 className="ph3 fw3 f4 tracked">{sectionTitle}</h2>
             </header>
             <div className="flex flex-wrap">
               <p className="pa3">Loading items...</p>
