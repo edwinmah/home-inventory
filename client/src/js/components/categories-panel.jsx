@@ -36,6 +36,11 @@ class CategoriesPanel extends React.Component {
       );
     }
 
+    let listHeight = 'vh-25'
+    if (Object.keys(this.props.categories).length > 15) {
+      listHeight = 'vh-50';
+    }
+
     return (
       <article className="mw6 mw8-ns center">
         <header className="mb4 bt bb b--black-20">
@@ -43,7 +48,7 @@ class CategoriesPanel extends React.Component {
         </header>
         <div className="flex ph3">
           <div className="w-100 w-50-ns">
-            <ul className="flex flex-column flex-wrap vh-25 pl0 list">
+            <ul className={`flex flex-column flex-wrap ${listHeight} pl0 list`}>
               {Object.keys(this.props.categories).map((categoryId) => this.renderCategoryNames(categoryId))}
             </ul>
             <Link to={'/category/add'} className="w-20 link bn br2 ph3 pv2 mv3 white bg-dark-blue hover-bg-navy fw4">Add Category</Link>
