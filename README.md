@@ -49,29 +49,43 @@ While home inventory tracking is the original purpose of the app, it can be repu
 
 ![Google authorization](https://cloud.githubusercontent.com/assets/10244137/22865098/106a2272-f12b-11e6-9c59-4f9cb7060826.png)
 
+Fig. 1 – Google authorization
+
 ***
 
 ![View all items](https://cloud.githubusercontent.com/assets/10244137/22865093/0eb4b67c-f12b-11e6-98ba-48b6cb11d320.png)
+
+Fig. 2 – View all items
 
 ***
 
 ![Filter items by category](https://cloud.githubusercontent.com/assets/10244137/22865094/0fa83d6a-f12b-11e6-8594-4021aedaed8c.png)
 
+Fig. 3 – Filter items by category
+
 ***
 
 ![View a single item](https://cloud.githubusercontent.com/assets/10244137/22865099/111ec560-f12b-11e6-8f56-0ec92db855c8.png)
+
+Fig. 4 – View a single item
 
 ***
 
 ![Edit an item](https://cloud.githubusercontent.com/assets/10244137/22865097/10620f7e-f12b-11e6-89f4-4d1bb279967c.png)
 
+Fig. 5 – Edit an item
+
 ***
 
 ![Add or edit categories](https://cloud.githubusercontent.com/assets/10244137/22865095/0fca8276-f12b-11e6-98d4-e3ab61e15134.png)
 
+Fig. 6 – Add or edit categories
+
 ***
 
-![Account information](https://cloud.githubusercontent.com/assets/10244137/22865092/0e59845a-f12b-11e6-8657-f7d224d5ea91.png)
+![View account information](https://cloud.githubusercontent.com/assets/10244137/22865092/0e59845a-f12b-11e6-8657-f7d224d5ea91.png)
+
+Fig. 7 – View account information
 
 ## Technology used
 
